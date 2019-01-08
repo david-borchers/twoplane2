@@ -76,7 +76,7 @@ startime=date()
 for(na in start.a:end.a) {
   for(nk in start.k:end.k) {
     for(ns in start.s:end.s) {
-      sigma = sigmarate/(sqrt(2)/sqrt(ks[nk]))
+      sigma = sigmarates[ns]/(sqrt(2)/sqrt(ks[nk]))
       b <- w + sigma.mult*sigma
       simnum = simnum+1
       fns[simnum] = dosim(D.2D,L,w,b,sigmarates[ns],ks[nk],planespd,kappas[na],tau,p=p,movement=movement,
