@@ -297,9 +297,10 @@ plot.ests=function(ests,D,kappa,sigma, mu_c, sigma.est=TRUE,nclass=20,keep=NULL)
 #' code in file \code{ft_plot.R}).
 #' @param progbar If TRUE, puts a progress bar on screen so you can monitor simulation
 #' progress.
+#' @param fn.append A text string to append to the default output file name.
 dosim = function(D.2D,L,w,b,sigmarate,k,planespd,kappa,tau,p=c(1,1),movement=list(forward=TRUE,sideways=TRUE),
                  fix.N=TRUE,En=NULL,Nsim=100,writeout=TRUE,seed=1,simethod="MLE",control.opt=control.opt,
-                 hessian=TRUE,adj.mvt=FALSE,ft.normal=FALSE,sim.ft.normal=FALSE,progbar=TRUE) {
+                 hessian=TRUE,adj.mvt=FALSE,ft.normal=FALSE,sim.ft.normal=FALSE,progbar=TRUE,fn.append=NULL) {
   
   # Create progress bar
   if(progbar) pb <- tkProgressBar(title=paste("Function dosim Progress (Nsim=",Nsim,")",sep=""), min=0, max=Nsim, width=400)
@@ -403,13 +404,11 @@ dosim = function(D.2D,L,w,b,sigmarate,k,planespd,kappa,tau,p=c(1,1),movement=lis
   if(progbar) close(pb)
   
   results = list(mle=mlests,palm=palmests)
-  dir = "./inst/results/"
   fn = paste("sim-gamma_",signif(gamma,3),"-tau_",signif(tau,3),"-k_",k,"-sigmarate_",signif(sigmarate,3),"-D_",signif(D.2D,3),
-             "-En_",signif(En,3),"-",Ltype,"-",Ntype,"-simethod_",simethod,"-Nsim_",Nsim,".Rds",sep="")
-  dirfn = paste(dir,fn,sep="")
+             "-En_",signif(En,3),"-",Ltype,"-",Ntype,"-simethod_",simethod,"-Nsim_",Nsim,fn.append,".Rds",sep="")
   if(writeout) {
-    saveRDS(results,file=dirfn)
-    invisible(list(file=dirfn))
+    saveRDS(results,file=fn)
+    invisible(list(file=fn))
   } else return(list(fn=fn,sim=results))
   
 }  
