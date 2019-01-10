@@ -6,7 +6,6 @@ i <- as.numeric(args[[1]])
 Nsim <- as.numeric(args[[2]])
 ## Setting seed.
 set.seed(i)
-seed <- sample(10000, size = 1)
 
 library(twoplane)
 library(palm)
@@ -25,6 +24,8 @@ halfw.dist = w <- 0.125
 L = d <- 1100
 ## Multiplier of sigma, to set bound for maximum distance moved in k seconds
 sigma.mult=5
+sigma_palm = 0.15 # estimated Palm-type sigma (in km) from porpoise data, with lag 248 seconds
+sigmarate = sigmapalm2sigmarate(sigma_palm,lag=248) # Brownian sigmarate consistent with sigma_palm
 progbar = FALSE
 movement = list(forward=TRUE,sideways=TRUE)
 control.opt=list(trace=0,maxit=1000)
@@ -53,9 +54,10 @@ startime=date()
 for(na in start.a:end.a) {
   for(nk in start.k:end.k) {
     for(ns in start.s:end.s) {
-      sigma = sigmarates[ns]/(sqrt(2)/sqrt(ks[nk]))
+      sigma = sigmarate/(sqrt(2)/sqrt(ks[nk]))
       b <- w + sigma.mult*sigma
       simnum = simnum+1
+      seed <- sample(10000, size = 1)
       fns[simnum] = dosim(D.2D,L,w,b,sigmarates[ns],ks[nk],planespd,kappas[na],tau,p=p,movement=movement,
                           fix.N=fix.N,En=En,Nsim=Nsim,writeout=TRUE,seed=seed,simethod=simethod,
                           control.opt=control.opt,adj.mvt=TRUE,ft.normal=FALSE,sim.ft.normal=TRUE,
