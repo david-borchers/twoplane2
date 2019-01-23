@@ -72,7 +72,7 @@ Ltype = "FixedL"
 fix.N=TRUE  # Allows the abundance to vary betwen simulations (as Poission with rate D.2D*2*b*L)
 En = NULL # Let E[n] be determined by L and D.2D.
 if(fix.N) Ntype = "FixedN" else Ntype = "RandomN"
-if(!is.null(En)) Ltype = "RandomL"
+if(fix.N) Ltype = "RandomL"
 
 startime=date()
 #for(na in start.a:start.a) {
