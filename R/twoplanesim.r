@@ -443,6 +443,7 @@ harvestsim = function(fn,badcut=100) {
   nbadse = nbad - nbadD
   
   pc.bias.mle = 100*(mean(sim[[1]]$D.est[!bad])-D.2D)/D.2D
+  pc.se.mle = 100*sqrt(var(sim[[1]]$D.est[!bad]))/D.2D
   pc.cv.mle = 100*sqrt(var(sim[[1]]$D.est[!bad]))/mean(sim[[1]]$D.est[!bad])
   cover.mle = sum(sim[[1]]$D.inci[!bad])/(Nsim-nbad)
   pc.bias.gamma = 100*(mean(sim[[1]]$gamma.est[!bad])-gamma)/gamma
@@ -453,6 +454,7 @@ harvestsim = function(fn,badcut=100) {
   cover.sigmarate = sum(sim[[1]]$sigmarate.inci[!bad])/(Nsim-nbad)
   
   pc.bias.palm = 100*(mean(sim[[2]]$Dhat[!bad])-D.2D)/D.2D
+  pc.se.palm = 100*sqrt(var(sim[[2]]$Dhat[!bad]))/D.2D
   pc.cv.palm = 100*sqrt(var(sim[[2]]$Dhat[!bad]))/mean(sim[[2]]$Dhat[!bad])
   
   Dhat.cor = cor(sim[[1]]$D.est[!bad],sim[[2]]$Dhat[!bad])
@@ -466,8 +468,8 @@ harvestsim = function(fn,badcut=100) {
   mean.sehat.Dhat = mean(sim[[1]]$D.se[!bad])
   
   out = data.frame(Nsim=Nsim,gamma=gamma,k=k,sigmarate=sigmarate,avg.mps=getspeed(sigmarate,k)*1000,D.2D=D.2D,
-                   pc.bias.mle=pc.bias.mle,pc.cv.mle=pc.cv.mle,cover.mle=cover.mle,
-                   pc.bias.palm=pc.bias.palm,pc.cv.palm=pc.cv.palm,
+                   pc.bias.mle=pc.bias.mle,pc.se.mle=pc.se.mle,pc.cv.mle=pc.cv.mle,cover.mle=cover.mle,
+                   pc.bias.palm=pc.bias.palm,pc.se.palm=pc.se.palm,pc.cv.palm=pc.cv.palm,
                    pc.bias.gamma=pc.bias.gamma,pc.cv.gamma=pc.cv.gamma,cover.gamma=cover.gamma,
                    pc.bias.sigmarate=pc.bias.sigmarate,pc.cv.sigmarate=pc.cv.sigmarate,cover.sigmarate=cover.sigmarate,
                    Dhat.cor=Dhat.cor,

@@ -549,23 +549,27 @@ Here we investigate the bias and confidence interval coverage of the LCE density
   Also the values of speed include 0.65 which differs from the values specified above. The $\gamma$ and lag columns only need 1 decimal place for $\gamma$ and don't need decimal places for lag.}
 
 <<fig_boxplots, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \\(D=1.24\\).", cache=TRUE>>=
-fns = readRDS("./results/filenames-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
+fns = readRDS("./results/filenames-D_1.24-FixedL-FixedN-simethod_MLE-Nsim_150.Rds")
+#fns = readRDS("./results/filenames-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
 for(i in 1:length(fns)) {
   fns[[i]]=paste(".",strsplit(fns[[i]],"./inst")[[1]][2],sep="")
 #  cat(fns[[i]])
 }
+x=1
 boxplotsim(fns,method="mle",stat="D.est")
 lines(c(0,length(fns)+1),rep(1.24,2))
 @
 
 <<sim_tab, results = "asis">>=
 #simtab <- readRDS("./results/simtab300.Rds")
-simtab <- readRDS("./results/simtab-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
-mlesimtab = simtab[,c(2:4,6:10,12,14)]
-mlesimtab$speed = mlesimtab$speed/sqrt(2)*gamma(0.5) # Correct for error when writing simtab
-names(mlesimtab) = c("gamma","lag","speed","\\%BiasLCE","\\%cvLCE","\\%CoverLCE","\\%BiasPalm","\\%cvPalm","mean(n)","mean(m)")
+simtab <- readRDS("./results/simtab-D_1.24-FixedL-FixedN-simethod_MLE-Nsim_150.Rds")
+#simtab <- readRDS("./results/simtab-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
+#mlesimtab = simtab[,c(2:4,7,9:11,13,21,23)]
+mlesimtab = simtab[,c("gamma","k","sigmarate","pc.bias.mle","pc.cv.mle","cover.mle","pc.bias.palm","pc.cv.palm","n1","m")]
+names(mlesimtab) = c("gamma","lag","sigma","\\%BiasLCE","\\%cvLCE","\\%CoverLCE","\\%BiasPalm","\\%cvPalm","mean(n)","mean(m)")
+mlesimtab$sigma = mlesimtab$sigma * 1000
 print.xtable(xtable(mlesimtab,
-#caption = "Preliminay sims with Nsim=300.",
+#caption = "Preliminary sims with Nsim=300.",
 caption = "Preliminay sims with Nsim=150 (n,m are number obs by 1 observer, and number recaptures). The first column is scenario number.",
 label = "tab:mlesims"),
 sanitize.text.function=function(x){x},
@@ -578,6 +582,7 @@ The LCE density estimator is unbiased or very nearly unbiased \todo{Need to upda
 
 <<fig_mlepalm_bias, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles.", cache=TRUE>>=
 n1 = simtab$n1
+x=1
 shift = 8
 xlim = c(min(n1),max(shift+n1))
 plot(n1,simtab$pc.bias.mle,ylim=range(simtab$pc.bias.mle,simtab$pc.bias.palm),
@@ -590,6 +595,7 @@ The coefficients of variation of the LCE and CCR density estimators for all 36 s
 
 <<fig_mlepalm_cv, fig.env = "figure", fig.width = 8, fig.height= 4, fig.cap = "Percentage coefficient of variation (\\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \\%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.", cache=TRUE>>=
 par(mfrow=c(1,2))
+x=1
 plot(n1,simtab$pc.cv.mle,ylim=range(simtab$pc.cv.mle,simtab$pc.cv.palm),
      xlim=xlim,xlab=expression(bar(n)[1]),ylab="% CV",main="(a)")
 points(shift+n1,simtab$pc.cv.palm,pch=3,col="gray")
