@@ -1,4 +1,4 @@
-filenames <- paste("results2/", list.files("results2/"), sep = "")
+filenames <- paste("results4/", list.files("results4/"), sep = "")
 stem <- sapply(strsplit(filenames, "set"), function(x) x[1])
 set <- sapply(strsplit(filenames, "set"), function(x) x[2])
 n.scenarios <- length(unique(stem))
@@ -31,7 +31,7 @@ diff.cv <- 100*(palm.cv - mle.cv)/mle.cv
 ## Average number of detections by observer 1.
 mean.n1 <- sapply(res, function(x) mean(x[[1]][, "n1"]))
 
-pdf(file = "shortlag-sims2.pdf", width = 8, height = 6)
+pdf(file = "shortlag-sims4.pdf", width = 8, height = 6)
 ## Recreating Figure 3.
 plot(mean.n1, mle.bias, ylim = c(-2, 7), xlim = c(50, 300))
 points(mean.n1 + 8, palm.bias, col = "grey", pch = 3)
