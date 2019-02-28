@@ -30,7 +30,7 @@ opts_chunk$set(echo = FALSE,
 
 \begin{document}
 
-\title{A latent capture history model for digital aerial surveys of marine mammals without recapture identification}
+\title{A latent capture history model for digital aerial surveys without recapture identification}
 
 \author{D. L. Borchers\(^{1, *}\)\email{dlb@st-andrews.ac.uk},
 P. Nightingale\(^{2}\),
@@ -70,43 +70,75 @@ R.M. Fewster\(^{3}\) \\
 
 %  pub the summary here
 
-\begin{abstract}
-Line transect aerial surveys are a relatively cheap way of surveying marine mammal populations, and we anticipate that they will increasingly be done by unmanned aerial vehicles. Because aircraft move quickly and marine mammals dive, these surveys often violate the conventional line transect assumption of certain detection on the line. Here we develop a mark-recapture method designed for surveys with two high-resolution digital cameras, which involves marginalising over the latent capture histories. It requires only that detections of species of interest be identified on each camera and that mean dive cycle length be specified. In addition to estimating density, the method estimates the proportion of time animals are available for detection and the mean speed of animal movement.
 
-We estimate porpoise density from the data in the paper by Stevenson, Borchers and Fewster (2018) ``Cluster capture-recapture to account for identification uncertainty on aerial surveys of animal populations'' in \textit{Biometrics}, and we investigate estimator properties by simulation. The new method is found to be approximately unbiased, to have coverage probabilities close their nominal value and to be slightly more precise than the cluster capture-recapture (CCR) method. It is less able to cope with a very large number of latent capture histories than is the CCR method, but is more extendable in some respects.
+
+\begin{abstract}
+  Line transect aerial surveys can be a relatively cheap way of surveying wildlife populations, and we anticipate that they will increasingly be carried out by unmanned aerial vehicles. Because aircraft move quickly, these surveys typically violate the conventional line transect assumption of certain detection on the line if animals are not continuously available for detection. In this case, mark-recapture distance sampling with two observers may be effective. Here we develop a mark-recapture method for surveys with two high-resolution digital cameras, which involves marginalizing over the latent capture histories that arise when animals cannot be individually identified but may move and change their availability between the passage of the two cameras. The survey transect is partitioned into small segments within which there is ambiguity over animal identity, and the likelihood is obtained by enumerating all possibilities within each segment. We describe the new method as `Latent Capture-history Enumeration', or LCE. The method requires  that the species of interest be identified on each camera, but does not require identification of ``recaptures'' on different cameras. %and that mean dive cycle length be specified: individual identification of animals is not required. In addition to estimating animal density, the method estimates the proportion of time animals are available for detection and the mean speed of animal movement.
+
+We compare the LCE method with the recently-developed cluster capture-recapture (CCR) method, which tackles the same problem using a Palm likelihood approximation and does not involve a true likelihood. We apply both methods to the same data taken from a survey of harbour porpoise ({\em Phocoena phocoena}) in the North Sea. The LCE method is found to be approximately unbiased, to have close to nominal \todo{lets see...}confidence interval coverage, and to be slightly more precise than the CCR method. It is less able to cope with a very large number of latent capture histories than is the CCR method, but is more extendable in some respects.
+
+
+% We apply the method to estimate porpoise density from the data in the paper by Stevenson, Borchers and Fewster (2018) ``Cluster capture-recapture to account for identification uncertainty on aerial surveys of animal populations'' in \textit{Biometrics}, and we investigate estimator properties by simulation.
+
+\todo[inline]{RMF - added a bit more detail and LCE name. Removed CCR ref for a smoother read.}
+
 \end{abstract}
 
 \begin{keywords}
-Keywords: Double-observer, Mark-recapture, line transect, availability bias, movement model, Poisson process
+Availability bias; Double-observer survey; Line transect; Mark-recapture; Movement model; Poisson process.
 \end{keywords}
+
 
 
 \maketitle
 
 \section{Introduction}\label{sec:intro}
 
-Aerial surveys of marine mammals are generally much cheaper than shipboard surveys. We anticipate that aerial surveys with human observers will increasingly be replaced by unmanned aerial vehicle (UAV) surveys with digital video or still cameras as observers. Such surveys present some new statistical challenges. In this paper we address these challenges and develop a method of estimating animal density from UAVs carrying cameras.
+\todo[inline]{RMF - Suggesting some changes in emphasis, taking into account your latest comments about MRDS.
+  It seems to me the usefulness of this work is:\\
+  1. A method for MRDS from a single UAV for ANY aerial survey: animals that move but might not necessarily dive.\\
+  2. Derivation in full generality including both movement and diving model. The diving part of the model doesn't need to be used if not applicable.\\
+  3. Suitable for diving animals if external data is available for $\tau$.\\
+  4. Validation of CCR.\\
+  I've had a go at re-angling the Intro with this structure.  Can we change the title so it doesn't narrow it down to marine mammals, e.g. ``digital aerial surveys of wildlife''?
+  }
 
-Animals are within detectable range of an observer on an aircraft for only a short time, because aircraft move fast. Some animals are missed from an aircraft because they are underwater and unobservable while within detection range. The bias that results from ignoring this problem is often called ``availability bias'' \citep[]{Marsh+Sinclair:89}. UAVs with digital cameras will tend to miss more animals than will aircraft with humans because the cameras typically have much smaller fields of view: perhaps 100m either side of the survey transect line, compared with 1000m or more for human observers, and similar differences in the forward direction.
+  Aerial surveys of wildlife populations allow large areas of land or sea to be surveyed at relatively low expense. We anticipate that aerial surveys with human observers will increasingly be replaced by unmanned aerial vehicle (UAV) surveys using digital video or still cameras to detect animals. Such surveys present some new statistical challenges. In this paper we address these challenges and develop a method of estimating animal density from cameras deployed from UAVs.
 
-Conventional line transect methods assume that the probability of detecting an animal that is at distance zero from the transect line (``$g(0)$'' in distance sampling parlance) is 1. Failure of this assumption is referred to as the ``$g(0)<1$'' problem. ``Mark-recapture distance sampling'' (MRDS) methods \cite[see][for an overview]{Burt+al:14} are commonly used to deal with this problem. MRDS covers a variety of capture-recapture methods, in which two independently searching observers constitute two ``capture occasions'' and animals detected by both constitute ``recaptures.''
+Traditional aerial surveys using human observers involve a reasonably wide field of view, perhaps 1000m or more to either side of the aircraft. Detections of animals decrease with distance from the aircraft, an effect that is modeled using a detection function. By contrast, aerial footage from UAV-mounted cameras has a much narrower field of view --- perhaps 100m to either side --- and detectability can be assumed to be constant within this zone. The narrow field of view can be compensated for by deploying UAVs on-effort for much longer periods of time than human observers.
 
-MRDS methods on aerial surveys suffer from the fact that two observers on the same aircraft search the same patch of sea at the same time so that animals tend to be available or unavailable to both observers at the same time. This induces positive correlation in the detection events between the observers, and negative bias in density estimates. %(For those familiar with capture-recapture models, you can think of the availability state of an animal as an individual-level latent variable: when there is unmodeled individual heterogeneity on capture-recapture surveys, density estimates are biased.)
+Conventional line transect analysis methods assume that all animals at distance zero from the transect line (the aircraft's path in our case) are detected with certainty. \todo[inline]{David removed this sentence: ``In the case of aerial surveys, this implies that all animals directly underneath the aircraft must be detected, so that the numbers missed at higher distances can be estimated.'' and changed a few words in the paragraph because aerial surveys with humans can detect things 500m or more ahead of the plane.}If this assumption cannot be met, extensions based on mark-recapture methods are employed: see \cite{Burt+al:14} for an overview. The basis of mark-recapture extensions to line transect methods is to have two observers who search the area independently of each other. The two observers serve as two ``capture occasions'', and animals detected by both observers constitute ``recaptures''. The mark-recapture design enables us to estimate the shortfall of detections on the line, as long as detection of each animal by each observer can be considered a random event governed by estimable probabilities.
 
-There are two ways in which this problem has been dealt with. The first is to model the latent process, i.e., the availability process. For example, \cite{Borchers+al:13} modeled latent availability using a hidden Markov model, while \cite{Langrock+al:13} and \cite{Borchers+Langrock:15}  modeled it using Markov modulated Poisson processes. The second way is to separate the times that the two observers search the same region, either by having one observer search far ahead of the aircraft and the other close to it, or by using two aircraft in tandem, or having a single aircraft circle back over its path a second time \citep[see][]{Hiby+Lovell:98}.
+When employing mark-recapture based methods, it becomes important to distinguish between two sources of detection failure, commonly described as {\em availability bias} and {\em perception bias}. Animals are said to be unavailable when they are guaranteed to be undetected by both observers\todo{DLB removed `` for the same reason''}: for example, a cetacean is unavailable to both observers while it is diving. \todo[inline]{DLB removed ``Detections of unavailable animals cannot be treated as the outcomes of random trials for the two observers, because there is no chance of detection by either observer.'' because they can be treated as random trials if availability is a random variable, the the key point is the next sentence below.}Because the unavailable portion of the population is effectively unsampled, there is no information from which to estimate how large this portion is. It is therefore important that any systematic causes of unavailability, such as the diving cycle for cetaceans, are explicitly accounted for by survey design and analysis methods.
 
-However, separating the observers in this way has a cost: it introduces uncertainty into capture histories (see below), and may introduce correlation in detections due to movement in and out of the observers' field of view (see below).
+By contrast, perception bias describes the case where an animal may be detected by one or the other observer\todo[inline]{DLB removed ``, and the circumstances that cause it to be undetected by one observer do not affect the other'' because this seems to contradict the sentence below saying detections may be dependent.}. Mark-recapture methods can readily accommodate this, because successful detection can be treated as a random outcome for each observer. Models that incorporate dependence between the outcomes for the two observers are well-developed -- see \cite{Laake:99, Borchers+al:06, Buckland+al:10}. In aerial UAV surveys, with two cameras mounted on the same aircraft, a particular animal might be obscured from a forward-mounted camera by a bush or shadow, but detectable by a rear-mounted camera, or may move and become available to one camera when it was unavailable to the other. 
 
-MRDS methods require that every detected individual be identified as having been detected by observer 1 only (capture history (1,0)), observer 2 only (capture history (0,1)), or both observers (capture history (1,1)). Because marine mammals are generally not individually identifiable from a fast-moving aerial survey platform, it is often not possible to obtain these capture histories without error.
+In the case of cameras mounted from UAVs, adjusting for detection failure using a forward-mounted camera records each section of line several seconds before a rear-mounted camera records the same section. Separation of the cameras in both time and viewpoint offers a solution to the unavailability problem. For example, although there might be a strong correlation between the diving status of an animal at the passage of the two cameras, there is still a chance that the animal might dive or surface in the time between their passage. The separation therefore generates data with which we can model the availability cycle, although if the cycle is much longer than the time between cameras passing there may be inadequate data to model the cycle.\todo[inline]{DLB: I felt we needed to say something about availability cycles much longer than time between cameras, as method won't work if every detected animal is either available or unavailable to both observers, and won't work well if almost all are.}
 
-The greater the time separation between observers, the more severe is the problem of errors in capture histories, but the less severe the problem of dependence in detections.
+There are however two complications to this design. Firstly, animals may move between the passage of the first and second camera, so there is uncertainty whether animals detected from the first and second camera are the same animal or two different animals. We describe this as {\em uncertainty in capture history}. Each detected animal has a true capture history specifying which of the two cameras detected it: camera one only (capture history 1,0), camera two only (0,1), or both (1,1). When animals are detected from the air, there are usually inadequate visible features for distinguishing between individuals, so recaptures are determined purely on the basis of spatial location and time. The longer the time elapsed between the passage of the two cameras, the more difficult it is to distinguish between recaptures of a single individual, and captures of two different individuals. Rather than the capture histories being observed data, as in conventional capture-recapture studies, they are now latent variables.
 
-Separating UAV ``observers'' (cameras) by using UAVs in tandem or circling back on themselves is much less feasible than doing the same with human observers on aircraft. This is because field conditions are typically such that it is not possible for the aircraft doing the second pass to follow exactly the path of the aircraft doing the first pass. When observer field of view is around 2,000m wide (as is not unusual with human observers), having a second pass that deviates by 200m from the path of the first pass still leaves considerable overlap between the regions surveyed by each observer. It would leave no overlap at all for UAVs with a field of view 200m wide.
+Secondly, although separation in time enables us to deal with availability processes such as diving, there remains dependence between the animal's availability state at the passage of the two observers, so we are forced to adopt a model that accommodates this dependence. The dependence is reduced as the time delay between the passage of the two cameras increases, although if animals move, the dependence never goes to zero (as we demonstrate below). Moreover, longer delays exacerbate the problem of capture-history uncertainty. If both cameras are deployed from a single UAV, the maximum time delay between them is limited by practical considerations. If cameras are deployed on different UAVs there may be considerable practical difficulties ensuring that the two searched strips overlap sufficiently as wind and other operational factors can result in deviations from intended flight paths.\todo[inline]{It strikes me that on land, and with GPS-enabled UAVs this may not be the case! I think it is not very challenging to program a drone to fly a pretty exact path, automatically compensating for wind etc.}
 
-We seek a method for surveys using a single UAV carrying two cameras. This limits the extent to which the two observers can be separated in time and requires that we deal with dependence between detections resulting from cameras passing in quick succession. We develop a method that does not require capture histories to be assigned to individuals and deals with dependence by modeling the availability process.
+Here, we develop an analysis framework suitable for aerial surveys conducted from a single UAV carrying two cameras, which we anticipate will be a common survey mode in the future. We show that for unbiased inference it is necessary to model the movement of animals into and out of the narrow detection strip during the time between the passage of the two cameras.  This time lag creates an ``in/out'' availability process that induces dependence between the two observers. For diving animals, we further consider the ``up/down'' availability process by explicitly modeling the diving cycle. As noted by \cite{Stevenson+al:18}, two-observer survey data do not contain sufficient information to identify all parameters of the diving model, so the mean dive-cycle duration must be estimated from external data. Additionally, we deal with the problem of uncertain capture histories by identifying sections of the transect line with ambiguous animal identities and enumerating all possibilities within these sections. Our approach is the first fully likelihood-based method that does not require capture histories to be assigned to individuals, and incorporates both in/out and up/down availability process.
 
-The method we develop (which we will refer to as the ``Latent Capture history Enumeration'' method, or LCE method for short) is similar to that of \cite{Stevenson+al:18} in that it has the same data requirements and does not require capture histories. It differs in that we do inference by maximum likelihood rather than using an approximation to the likelihood. Unlike the method of \cite{Stevenson+al:18}, the LCE method becomes computationally infeasible when there are very many plausible pairings of detections by different observers. %(The number of possible pairings of $n$ detections is given by the Bell number \citep{Becker+Riordan:48}, which grows extremely quickly as $n$ increases; for example, it is 877 for $n=7$ and 115,975 for $n=10$.)
-We investigate its utility for aerial UAV surveys and compare it to the method of \cite{Stevenson+al:18}.
+
+\todo[inline]{RMF - now go into previous work. Focus it on the CCR paper and point out that another output of this work is to validate CCR: a rare opportunity to do so with a proper likelihood. For uncertain duplicates, I can put in Hamilton et al 2018, Pike and Doniol-Valcroze 2015, and Southwell et al 2002. We'll need to slip Hiby and Lovell in but downplay it.  How do the Borchers and Langrock methods fit into the context?  What do they do with respect to time lag between observers, or is there just one observer? }
+
+\todo[inline]{DLB: Borchers and Langrock do have two observers, but although they model availability to account for $g(0)<1$, they identify recaptures. The only reasons to mention Borchers+al:13, Langrock+al:13 and Borchers+Langrock:15 here are (a) they model availability - which is relevant here, and (b) it will increase my citation rate!
+
+Good if you could put in the refs you mention above, but I had also thought that papers like Vale, R.T.R., Fewster, R.M., Carroll, E.L., and Patenaude, N.J. Maximum likelihood inference for model Mt,α for capture-recapture data with misidentification. Biometrics, 70, 962–971, 2014, and related stuff on latent capture history models done by Brett McClintock and by Bill Link would be relevant.}
+
+\todo[inline]{DLB: I have commented out the rest of the text in the Intro, as it is superceded by what is written above.}
+%%%
+
+
+
+%There are two ways in which this problem has been dealt with. The first is to model the latent process, i.e., the availability process. For example, \cite{Borchers+al:13} modeled latent availability using a hidden Markov model, while \cite{Langrock+al:13} and \cite{Borchers+Langrock:15}  modeled it using Markov modulated Poisson processes. The second way is to separate the times that the two observers search the same region, either by having one observer search far ahead of the aircraft and the other close to it, or by using two aircraft in tandem, or having a single aircraft circle back over its path a second time \citep[see][]{Hiby+Lovell:98}.
+
+
+%Separating UAV ``observers'' (cameras) by using UAVs in tandem or circling back on themselves is much less feasible than doing the same with human observers on aircraft. This is because field conditions are typically such that it is not possible for the aircraft doing the second pass to follow exactly the path of the aircraft doing the first pass. When observer field of view is around 2,000m wide (as is not unusual with human observers), having a second pass that deviates by 200m from the path of the first pass still leaves considerable overlap between the regions surveyed by each observer. It would leave no overlap at all for UAVs with a field of view 200m wide.
+
+%The method we develop (which we will refer to as the ``Latent Capture history Enumeration'' method, or LCE method for short) is similar to that of \cite{Stevenson+al:18} in that it has the same data requirements and does not require capture histories. It differs in that we do inference by maximum likelihood rather than using an approximation to the likelihood. Unlike the method of \cite{Stevenson+al:18}, the LCE method becomes computationally infeasible when there are very many plausible pairings of detections by different observers. %(The number of possible pairings of $n$ detections is given by the Bell number \citep{Becker+Riordan:48}, which grows extremely quickly as $n$ increases; for example, it is 877 for $n=7$ and 115,975 for $n=10$.) We investigate its utility for aerial UAV surveys and compare it to the method of \cite{Stevenson+al:18}.
 
 
 
@@ -379,7 +411,7 @@ We estimate the variances of parameters using the inverse of the Hessian obtaine
 
 \section{Application \label{sec:applic}}
 
-We use the term `Latent Capture-history Enumeration' method, or LCE, to describe our framework. We developed this method in anticipation of digital aerial survey data becoming widely used, but, pending the availability of analysis methods such as the LCE method developed here, such data are not yet available. We therefore estimate density from the semi-synthetic data used by \cite{Stevenson+al:18}. These data are taken from an aerial survey of harbor porpoise ({\em Phocoena phocoena}) in the North Sea using human observers, compiled from periods when the aircraft circled back over its transect after a lag of $l=248$ seconds. The two observers correspond to the two passes of the aircraft. Only data in a narrow strip of half-width $w=0.125$ km are included, to mimic the narrow field of view and perfect near-surface detection characteristic of digital observers. As noted by \cite{Stevenson+al:18}, a lag of $l=248$ seconds is longer than any plausible value for $\tau$ and as a consequence the surfacing states of an animal at the times the two observers pass are independent and the estimator is robust to unknown $\tau$. For shorter lags $\tau$ needs to be speficied (see Section~\ref{sec:sim}).
+We use the term `Latent Capture-history Enumeration' method, or LCE, to describe our framework.We  developed this method in anticipation of digital aerial survey data becoming widely used, but, pending the availability of analysis methods such as the LCE method developed here, such data are not yet available. We therefore estimate density from the semi-synthetic data used by \cite{Stevenson+al:18}. These data are taken from an aerial survey of harbor porpoise ({\em Phocoena phocoena}) in the North Sea using human observers, compiled from periods when the aircraft circled back over its transect after a lag of $l=248$ seconds. The two observers correspond to the two passes of the aircraft. Only data in a narrow strip of half-width $w=0.125$ km are included, to mimic the narrow field of view and perfect near-surface detection characteristic of digital observers. As noted by \cite{Stevenson+al:18}, a lag of $l=248$ seconds is longer than any plausible value for $\tau$ and as a consequence the surfacing states of an animal at the times the two observers pass are independent and the estimator is robust to unknown $\tau$. For shorter lags $\tau$ needs to be speficied (see Section~\ref{sec:sim}).
 
 \todo[inline]{RMF - Ben didn't need to specify $\tau$ for this analysis because the two observers were considered independent for such a long lag. How did you deal with this? There hasn't been a previous mention of $\tau$ not being needed if you can assume independence. In some ways this should come after the comments done in Fig 1, but I can see why you want to put the application first; so some sort of comment is needed.\\
 DLB: I set $\tau$ in the estimation code, to be 110 seconds, as in Ben's simulations, but also checked that estimates were insensitive to $\tau$ by estimating with some other values. Added the two sentence at end of paragaph above.}
@@ -406,6 +438,7 @@ The estimates from the two methods are broadly consistent; the LCE method estima
 
 \todo[inline]{RMF - removed the bit about MRDS and availability. It opens a can of worms, because for MRDS you have simultaneous observers so movement isn't relevant. With LCE, we deliberately introduce a time lag to enable us to estimate availability, but this means we have to create models for movement and diving, AND we still need external data to estimate $\tau$.  So why not just use a single-observer transect (no need for MRDS with digital cameras), and use external data to estimate the proportion of time available, instead? Comparisons with MRDS here might invite the reviewers to ask awkward questions\ldots \\
 DLB: I am OK with this change, although in general it is not true to say that MRDS has simultaneous observers, and that movement isn't relevant (it is true for digital cameras). The reason we do not use single-observer transect methods is that we do not want to have to use external data to estimate the proportion of time available - because these data are typically difficult to get, and the proportion may change from place to place and time to time, so that you may be using the wrong proportion. This difficulty was one of the main reasons for developing our method. Us needing external data for $\tau$ is unfortunate (we did not know we'd need this when starting to develop this method). The density estimate may be less sensitive to misspecification of $\tau$ than the single-observer method is to misspecification of the proportion, but I guess we don't want to invite referees to ask us to look into that.
+
 }
 
 
@@ -469,8 +502,9 @@ It is clear that increasing the lag to $\tau$ or more reduces correlation to app
 
 % In the presence of animal movement, therefore, we cannot design our way out of the problem of correlated detections by increasing the lag between observers.
 
-\todo[inline]{RMF - removed the bits about needing a model for availability and can't design ourselves out of correlated detections. If we're talking about lags at all, we already have a model for availability. I thought the real point about a long lag is that we no longer need external data to estimate the extra parameter $\tau$. This links back to the comment in Section 6 about what you did about $\tau$ there? I've made a suggested edit, but this needs to be tidied up more carefully by a comment in Section 6.
-DLB: There is received wisdom in MRDS that incrasing lag decreases dependence, but no received wisdom that dependence never goes to zero. Hence the sentence seems worthwhile to me. But removing it is OK.}
+\todo[inline]{RMF - removed the bits about needing a model for availability and can't design ourselves out of correlated detections. If we're talking about lags at all, we already have a model for availability. I thought the real point about a long lag is that we no longer need external data to estimate the extra parameter $\tau$. This links back to the comment in Section 6 about what you did about $\tau$ there? I've made a suggested edit, but this needs to be tidied up more carefully by a comment in Section 6.\\
+DLB: There is received wisdom in MRDS that increasing lag decreases dependence, but no received wisdom that dependence never goes to zero. Hence the sentence seems worthwhile to me. But removing it is OK.
+}
 
 In practice, we are primarily interested in methods for surveys with two cameras on one aircraft, and with this configuration and fast-moving aircraft, lags of more than some tens of seconds are unlikely to be achievable. In light of this, and the results of Figure~\ref{fig:fig_correlation_plot}, we present simulations for (a) a scenario designed to imitate the porpoise survey above, and (b) scenarios with lag $l$ of 10, 20, 50 and 80 seconds, and $\gamma$ equal to 10\%, 20\%, 50\% and 80\%. We do this for $\sigma$ equal to 1.5 m/s \citep[the speed estimated by][]{Hiby+Lovell:98}, 0.95 m/s \citep[the speed estimated by][]{Westgate+al:95}, and 0.5 m/s \citep[a speed lower than that estimated above or by][]{Stevenson+al:18}. In all cases, we use the same $\tau$ in estimation as was used in simulation\todo{DLB: added this sentence}. For the short-lag scenarios in (b), we perform simulations with true density $D=1.24$, as estimated in the previous section, and with an observer speed of 100 knots, which is around the typical speed of marine aerial surveys.
 
@@ -513,23 +547,27 @@ Here we investigate the bias and confidence interval coverage of the LCE density
   Also the values of speed include 0.65 which differs from the values specified above. The $\gamma$ and lag columns only need 1 decimal place for $\gamma$ and don't need decimal places for lag.}
 
 <<fig_boxplots, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \\(D=1.24\\).", cache=TRUE>>=
-fns = readRDS("./results/filenames-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
+fns = readRDS("./results/filenames-D_1.24-FixedL-FixedN-simethod_MLE-Nsim_150.Rds")
+#fns = readRDS("./results/filenames-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
 for(i in 1:length(fns)) {
   fns[[i]]=paste(".",strsplit(fns[[i]],"./inst")[[1]][2],sep="")
 #  cat(fns[[i]])
 }
+x=1
 boxplotsim(fns,method="mle",stat="D.est")
 lines(c(0,length(fns)+1),rep(1.24,2))
 @
 
 <<sim_tab, results = "asis">>=
 #simtab <- readRDS("./results/simtab300.Rds")
-simtab <- readRDS("./results/simtab-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
-mlesimtab = simtab[,c(2:4,6:10,12,14)]
-mlesimtab$speed = mlesimtab$speed/sqrt(2)*gamma(0.5) # Correct for error when writing simtab
-names(mlesimtab) = c("gamma","lag","speed","\\%BiasLCE","\\%cvLCE","\\%CoverLCE","\\%BiasPalm","\\%cvPalm","mean(n)","mean(m)")
+simtab <- readRDS("./results/simtab-D_1.24-FixedL-FixedN-simethod_MLE-Nsim_150.Rds")
+#simtab <- readRDS("./results/simtab-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
+#mlesimtab = simtab[,c(2:4,7,9:11,13,21,23)]
+mlesimtab = simtab[,c("gamma","k","sigmarate","pc.bias.mle","pc.cv.mle","cover.mle","pc.bias.palm","pc.cv.palm","n1","m")]
+names(mlesimtab) = c("gamma","lag","sigma","\\%BiasLCE","\\%cvLCE","\\%CoverLCE","\\%BiasPalm","\\%cvPalm","mean(n)","mean(m)")
+mlesimtab$sigma = mlesimtab$sigma * 1000
 print.xtable(xtable(mlesimtab,
-#caption = "Preliminay sims with Nsim=300.",
+#caption = "Preliminary sims with Nsim=300.",
 caption = "Preliminay sims with Nsim=150 (n,m are number obs by 1 observer, and number recaptures). The first column is scenario number.",
 label = "tab:mlesims"),
 sanitize.text.function=function(x){x},
@@ -542,6 +580,7 @@ The LCE density estimator is unbiased or very nearly unbiased \todo{Need to upda
 
 <<fig_mlepalm_bias, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles.", cache=TRUE>>=
 n1 = simtab$n1
+x=1
 shift = 8
 xlim = c(min(n1),max(shift+n1))
 plot(n1,simtab$pc.bias.mle,ylim=range(simtab$pc.bias.mle,simtab$pc.bias.palm),
@@ -554,6 +593,7 @@ The coefficients of variation of the LCE and CCR density estimators for all 36 s
 
 <<fig_mlepalm_cv, fig.env = "figure", fig.width = 8, fig.height= 4, fig.cap = "Percentage coefficient of variation (\\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \\%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.", cache=TRUE>>=
 par(mfrow=c(1,2))
+x=1
 plot(n1,simtab$pc.cv.mle,ylim=range(simtab$pc.cv.mle,simtab$pc.cv.palm),
      xlim=xlim,xlab=expression(bar(n)[1]),ylab="% CV",main="(a)")
 points(shift+n1,simtab$pc.cv.palm,pch=3,col="gray")
