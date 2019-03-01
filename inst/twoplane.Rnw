@@ -6,6 +6,7 @@
 \usepackage{amsfonts}
 %\usepackage{hyperref}
 \usepackage{blkarray}
+
 \usepackage[colorinlistoftodos,linecolor=gray,backgroundcolor=white]{todonotes}
 
 % my command definitions
@@ -126,7 +127,7 @@ Here, we develop an analysis framework suitable for aerial surveys conducted fro
 
 \todo[inline]{DLB: Borchers and Langrock do have two observers, but although they model availability to account for $g(0)<1$, they identify recaptures. The only reasons to mention Borchers+al:13, Langrock+al:13 and Borchers+Langrock:15 here are (a) they model availability - which is relevant here, and (b) it will increase my citation rate!
 
-Good if you could put in the refs you mention above, but I had also thought that papers like Vale, R.T.R., Fewster, R.M., Carroll, E.L., and Patenaude, N.J. Maximum likelihood inference for model Mt,α for capture-recapture data with misidentification. Biometrics, 70, 962–971, 2014, and related stuff on latent capture history models done by Brett McClintock and by Bill Link would be relevant.}
+Good if you could put in the refs you mention above, but I had also thought that papers like Vale, R.T.R., Fewster, R.M., Carroll, E.L., and Patenaude, N.J. Maximum likelihood inference for model Mt,$\alpha$ for capture-recapture data with misidentification. Biometrics, 70, 962–971, 2014, and related stuff on latent capture history models done by Brett McClintock and by Bill Link would be relevant.}
 
 \todo[inline]{DLB: I have commented out the rest of the text in the Intro, as it is superceded by what is written above.}
 %%%
@@ -527,14 +528,22 @@ simres = readRDS("./results/simres.sim248.Nsim100.Rds")
 nm2km=1.852 # multiplier to convert nautical miles to kilometres
 planeknots=100 # observer speed in knots   CHECK THIS
 planespd=planeknots*nm2km/(60^2) # observer speed in km/sec
+## Loading Ben's simulations.
+load("shortlag-results.RData")
+load("longlag-results.RData")
+## A useful printing function that doesn't drop off final digit of it is zero.
+prt <- function(x, dp = 1){
+    format(round(x, dp), nsmall = dp)
+}
 @
 
 \todo[inline]{RMF - moved paragraphs around to reflect order of importance.}
 
-The empirical bias of the LCE and CCR density estimators from the simulations are $\Sexpr{round(simres$pc.bias.mle,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.mle,1)}$\%) and $\Sexpr{round(simres$pc.bias.palm,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.palm,1)}$\%), respectively. The biases reduce to 3.5\% (CV=20\%) and 4.1\% (CV=23\%), respectively when sample size is doubled while holding density constant, and to 2.9\% (CV=17\%) and 3.5\%  (CV=18\%) when sample size is trebled.
+The empirical bias of the LCE and CCR density estimators from the simulations are $\Sexpr{prt(bias.mle[1], 1)}$\% (CV=$\Sexpr{prt(cv.mle[1], 1)}$\%) and $\Sexpr{prt(bias.palm[1], 1)}$\% (CV=$\Sexpr{prt(cv.palm[1], 1)}$\%), respectively. The biases reduce to $\Sexpr{prt(bias.mle[2], 1)}$\% (CV=$\Sexpr{prt(cv.mle[2], 1)}$\%) and $\Sexpr{prt(bias.palm[2], 1)}$\% (CV=$\Sexpr{prt(cv.palm[2], 1)}$\%), respectively when sample size is doubled while holding density constant, and to $\Sexpr{prt(bias.mle[3], 1)}$\% (CV=$\Sexpr{prt(cv.mle[3], 1)}$\%) and $\Sexpr{prt(bias.palm[3], 1)}$\% (CV=$\Sexpr{prt(cv.palm[3], 1)}$\%) when sample size is trebled.
+\todo[inline]{BCS: Changed from $\Sexpr{round(simres$pc.bias.mle,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.mle,1)}$\%) and $\Sexpr{round(simres$pc.bias.palm,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.palm,1)}$\%) for original sample size,  3.5\% (CV=20\%) and 4.1\% (CV=23\%) for doubled sample size, and 2.9\% (CV=17\%) and 3.5\%  (CV=18\%) for trebled sample size. I suspect some of the new values are larger because my simulations had $N \sim \text{Poisson}(E(N))$, but perhaps the old ones had $N$ fixed? I think other differences are because the original values only used 150 iterations, but these used 1000. Should I redo with fixed $N$? Can easily be done.}
 
 
-The correlation between LCE and CCR density estimates from the simulations is $\Sexpr{round(simres$Dhat.cor,2)}$, while the probability of getting a relative difference as large as, or larger than, that observed is approximately $\Sexpr{round(pvalDdif,2)}$\%, from which we conclude that the observed difference is not large enough to raise concerns about the validity of either estimator with the porpoise data.
+The correlation between LCE and CCR density estimates from the simulations is $\Sexpr{prt(correlation[1], 2)}$\todo{BCS: Changed from \Sexpr{round(simres$Dhat.cor,2)}}, while the probability of getting a relative difference as large as, or larger than, that observed is approximately $\Sexpr{prt(100*p.val[1], 0)}$\%\todo{BCS: Changed from $\Sexpr{round(pvalDdif,2)}$\%}, from which we conclude that the observed difference is not large enough to raise concerns about the validity of either estimator with the porpoise data.
 
 
 The LCE estimator formulates the delay in encounter times between the two observers as a random variable, due to animal movement towards or away from the second observer, while the CCR method does not, and instead assumes these times to be equal to the lag time between the observers. We anticipate that this will cause the expected values of the two estimators to diverge for long lags, or for the case where animal speeds are non-negligible relative to observer speeds, and this may cause the CCR estimator of density to become biased. Here, however, with the speed of the observer being some 50 times greater than the mean speed of animals, and the standard deviation of the difference of encounter times from lag time between observers being only \Sexpr{round(100*simres$sigmarate*sqrt(simres$k)/planespd/simres$k,1)}\% of the lag time, the effect on the CCR estimator is very small.
@@ -546,7 +555,23 @@ Here we investigate the bias and confidence interval coverage of the LCE density
 \todo[inline]{RMF - Table 1 has numerous strange rounding errors for $\gamma$, e.g.\ 0.21 instead of 0.2, etc.
   Also the values of speed include 0.65 which differs from the values specified above. The $\gamma$ and lag columns only need 1 decimal place for $\gamma$ and don't need decimal places for lag.}
 
-<<fig_boxplots, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \\(D=1.24\\).", cache=TRUE>>=
+<<fig_boxplots_bcs, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \\(D=1.24\\). \\todo[inline]{BCS: Looks ugly because all of the `outliers' due to having 1000 iterations. Probably need to make this look nicer...}", cache=TRUE>>=
+par(mar = c(5, 4, 0, 0), oma = rep(0.1, 4))
+all.Ds <- sapply(short.res, function(x) x$mle$D.est)
+plot.new()
+plot.window(xlim = c(1, length(short.res)), ylim = c(0, max(all.Ds)))
+for (i in 1:length(short.res)){
+    boxplot(short.res[[i]]$mle$D.est, add = TRUE, at = i, axes = FALSE)
+}
+axis(1, at = 1:length(short.res))
+axis(2)
+box()
+abline(h = 1.24)
+title(xlab = "Scenario", ylab = "D")
+@
+
+
+<<fig_boxplots, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \\(D=1.24\\). \\todo[inline]{BCS: OLD VERSION for comparison.}", cache=TRUE>>=
 fns = readRDS("./results/filenames-D_1.24-FixedL-FixedN-simethod_MLE-Nsim_150.Rds")
 #fns = readRDS("./results/filenames-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
 for(i in 1:length(fns)) {
@@ -556,6 +581,24 @@ for(i in 1:length(fns)) {
 x=1
 boxplotsim(fns,method="mle",stat="D.est")
 lines(c(0,length(fns)+1),rep(1.24,2))
+@
+
+<<sim_tab_bcs, results = "asis">>=
+#simtab <- readRDS("./results/simtab300.Rds")
+simtab <- readRDS("./results/simtab-D_1.24-FixedL-FixedN-simethod_MLE-Nsim_150.Rds")
+#simtab <- readRDS("./results/simtab-D_1.24-RandomL-FixedN-simethod_MLE-Nsim_150.Rds")
+#mlesimtab = simtab[,c(2:4,7,9:11,13,21,23)]
+mlesimtab = cbind(simtab[, c("gamma", "k", "sigmarate")], short.mle.bias, short.mle.cv, short.D.coverage, short.palm.bias, short.palm.cv, short.mean.n1, short.mean.m)
+names(mlesimtab) = c("gamma","lag","sigma","\\%BiasLCE","\\%cvLCE","\\%CoverLCE","\\%BiasPalm","\\%cvPalm","mean(n)","mean(m)")
+rownames(mlesimtab) <- NULL
+mlesimtab$sigma = mlesimtab$sigma * 1000
+print.xtable(xtable(mlesimtab,
+caption = "Full sims with Nsim = 1000. The columns mean(n) and mean(m) are the averages from my simulations. Is that correct, or are they supposed to be calculated analytically?",
+label = "tab:mlesims_bcs"),
+sanitize.text.function=function(x){x},
+caption.placement = "top",
+size = "\\setlength{\\tabcolsep}{6pt}",
+scalebox=0.7)
 @
 
 <<sim_tab, results = "asis">>=
@@ -568,7 +611,7 @@ names(mlesimtab) = c("gamma","lag","sigma","\\%BiasLCE","\\%cvLCE","\\%CoverLCE"
 mlesimtab$sigma = mlesimtab$sigma * 1000
 print.xtable(xtable(mlesimtab,
 #caption = "Preliminary sims with Nsim=300.",
-caption = "Preliminay sims with Nsim=150 (n,m are number obs by 1 observer, and number recaptures). The first column is scenario number.",
+caption = "OLD VERSION: Preliminay sims with Nsim=150 (n,m are number obs by 1 observer, and number recaptures). The first column is scenario number.",
 label = "tab:mlesims"),
 sanitize.text.function=function(x){x},
 caption.placement = "top",
@@ -576,9 +619,20 @@ size = "\\setlength{\\tabcolsep}{6pt}",
 scalebox=0.7)
 @
 
-The LCE density estimator is unbiased or very nearly unbiased \todo{Need to update after lots of simulations} in all 36 scenarios. Figure~\ref{fig:fig_mlepalm_bias} shows the empirical bias as a function of the mean number of detections by each observer, together with the empirical bias of the CCR estimator fitted to the same simulated data. The bias of the two estimators is very similar. The correlation between the two estimators varies from 0.920 to 0.998 across the 36 scenarios, and the mean difference of the estimator means from the true density, as a percentage of the true density, is 0.75\% in the case of the LCE estimator, and -0.20\% in the case of the CCR estimator.
+The LCE density estimator is unbiased or very nearly unbiased \todo[inline]{Need to update after lots of simulations. BCS: Still seems to be the case.} in all 36 scenarios. Figure~\ref{fig:fig_mlepalm_bias} shows the empirical bias as a function of the mean number of detections by each observer, together with the empirical bias of the CCR estimator fitted to the same simulated data. The bias of the two estimators is very similar. The correlation between the two estimators varies from $\Sexpr{prt(min(short.cor), 3)}$ to $\Sexpr{prt(max(short.cor), 3)}$\todo{BCS: Changed from 0.92--0.998.} across the 36 scenarios, and the mean difference of the estimator means from the true density, as a percentage of the true density, is $\Sexpr{prt(mean(short.mle.bias), 2)}\%$ in the case of the LCE estimator, and $\Sexpr{prt(mean(short.palm.bias, 2))}\%$\todo{BCS: Changed from 0.75 and -0.20\%} in the case of the CCR estimator.
 
-<<fig_mlepalm_bias, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles.", cache=TRUE>>=
+<<fig_mlepalm_bias_bcs, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles.", cache=TRUE>>=
+n1 = simtab$n1
+shift = 8
+xlim = c(min(short.mean.n1),max(shift + short.mean.n1))
+plot(short.mean.n1, short.mle.bias, ylim = range(c(short.mle.bias, short.palm.bias)),
+     xlim=xlim,xlab=expression(bar(n)[1]),ylab="% Bias")
+points(shift + short.mean.n1, short.palm.bias, pch = 3, col = "gray")
+abline(h = 0, lty=2)
+@
+
+
+<<fig_mlepalm_bias, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles. \\todo[inline]{BCS: OLD VERSION for comparison.}", cache=TRUE>>=
 n1 = simtab$n1
 x=1
 shift = 8
@@ -589,9 +643,25 @@ points(shift+n1,simtab$pc.bias.palm,pch=3,col="gray")
 lines(range(simtab$n1),c(0,0),lty=2)
 @
 
-The coefficients of variation of the LCE and CCR density estimators for all 36 scenarios are shown in Figure~\ref{fig:fig_mlepalm_cv}. The CVs decrease with sample size, as expected. The CV of the LCE estimator is smaller than that of the CCR estimator by a small percentage of the LCE estimator CV, with the percentage improvement due to the LCE method increasing as sample size increases. We interpret this to be a consequnce of the fact that the CCR estimator is not a maximum likelihood estimator, being based instead on an approximation to the Palm likelihood of pairwise comparisons between detections, so it does not have the asymptotic efficiency of a maximum likelihood estimator. Nevertheless, the difference in precision of the two estimators is very small, with the difference being no more than about 8\% relative to a CV of about 9\% for the largest sample size considered, which has about 270 detections by each observer.
+The coefficients of variation of the LCE and CCR density estimators for all 36 scenarios are shown in Figure~\ref{fig:fig_mlepalm_cv}. The CVs decrease with sample size, as expected. The CV of the LCE estimator is smaller than that of the CCR estimator by a small percentage of the LCE estimator CV, with the percentage improvement due to the LCE method increasing as sample size increases\todo[inline]{BCS: No longer true in general. With the smallest sample sizes CCR is more precise.}. We interpret this to be a consequnce of the fact that the CCR estimator is not a maximum likelihood estimator, being based instead on an approximation to the Palm likelihood of pairwise comparisons between detections, so it does not have the asymptotic efficiency of a maximum likelihood estimator\todo[inline]{BCS: But I think this is still a sensible conclusion.}. Nevertheless, the difference in precision of the two estimators is very small, with the difference being no more than about 8\% relative to a CV of about 9\% for the largest sample size considered, which has about 270 detections by each observer\todo[inline]{BCS: I haven't changed these values because I was not sure how they were calculated.}.
 
-<<fig_mlepalm_cv, fig.env = "figure", fig.width = 8, fig.height= 4, fig.cap = "Percentage coefficient of variation (\\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \\%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.", cache=TRUE>>=
+<<fig_mlepalm_cv_bcs, fig.env = "figure", fig.width = 8, fig.height= 4, fig.cap = "Percentage coefficient of variation (\\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \\%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.", cache=TRUE>>=
+par(mfrow=c(1,2))
+x=1
+xlim = c(min(short.mean.n1),max(shift + short.mean.n1))
+plot(short.mean.n1, short.mle.cv, ylim = range(c(short.mle.cv, short.palm.cv)),
+     xlim = xlim, xlab=expression(bar(n)[1]), ylab = "% CV", main = "(a)")
+points(shift + short.mean.n1, short.palm.cv, pch=3, col="gray")
+abline(h = 0, lty = 2)
+
+cvdiff = 100*(short.palm.cv - short.mle.cv)/short.mle.cv
+plot(short.mean.n1, cvdiff, ylim=range(cvdiff),
+     xlim = xlim, xlab = expression(bar(n)[1]),
+     ylab="relative % difference in CV", main = "(b)")
+abline(h = 0, ,lty = 2)
+@
+
+<<fig_mlepalm_cv, fig.env = "figure", fig.width = 8, fig.height= 4, fig.cap = "Percentage coefficient of variation (\\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \\%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.  \\todo[inline]{BCS: OLD VERSION for comparison.}", cache=TRUE>>=
 par(mfrow=c(1,2))
 x=1
 plot(n1,simtab$pc.cv.mle,ylim=range(simtab$pc.cv.mle,simtab$pc.cv.palm),
@@ -608,6 +678,8 @@ lines(range(simtab$n1),c(0,0),lty=2)
 Coverage probabilities at the 95\% level for the LCE estimator are shown in Table~\ref{tab:mlesims}. In all cases coverage probability is close to the nominal value.\todo[inline]{Coverage tends to be a bit high - suspend judgement until lots of simulations done.}
 
 \todo[inline]{RMF - my best guess for coverage is that it's due to summing the likelihoods over all the $\omega$ pairings, without taking account of the different probabilities of each pairing.  So I don't think it is strictly an MLE, but I can live with not drawing attention to this. Intuitively I think this will overweight the influence of less-plausible pairings with higher $\sigma$, and therefore estimate confidence intervals that are wider than they should be. }
+
+\todo[inline]{BCS: With the new simulation results, coverage looks pretty good! So I guess we don't have to bother thinking about all this :)}
 
 We conclude from this simulation study that, for these shorter-lag scenarios, the LCE estimator is approximately unbiased, with close to nominal confidence interval coverage. The performance of the LCE and CCR estimators is very similar, with the LCE estimator making a slight gain in precision.
 

@@ -6,7 +6,7 @@
 \usage{
 p.t(E1, Ec, p, sigmarate, k, dmax.t, planespd, halfw.dist = NULL,
   adj.mvt = FALSE, io = TRUE, idbn = NULL, nts = 200,
-  ft.norm = TRUE)
+  ft.normal = TRUE)
 }
 \arguments{
 \item{E1}{expected time available per dive cycle}
@@ -29,7 +29,7 @@ p.t(E1, Ec, p, sigmarate, k, dmax.t, planespd, halfw.dist = NULL,
 
 \item{nts}{number of integration points for averaging over in-out TPMs.}
 
-\item{ft.norm}{if TRUE uses normal to approximate Brownian hitting times, else 
+\item{ft.normal}{if TRUE uses normal to approximate Brownian hitting times, else 
 uses exact expression for Brownian hitting times.}
 }
 \description{
