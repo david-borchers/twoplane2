@@ -9,7 +9,11 @@ dosim(D.2D, L, w, b, sigmarate, k, planespd, kappa, tau, p = c(1, 1),
   En = NULL, Nsim = 100, writeout = TRUE, seed = 1,
   simethod = "MLE", control.opt = control.opt, hessian = TRUE,
   adj.mvt = FALSE, ft.normal = FALSE, sim.ft.normal = FALSE,
+<<<<<<< HEAD
   progbar = TRUE)
+=======
+  progbar = TRUE, fn.append = NULL)
+>>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
 }
 \arguments{
 \item{D.2D}{animal density (number per sq km)}
@@ -72,6 +76,11 @@ code in file \code{ft_plot.R}).}
 \item{progbar}{If TRUE, puts a progress bar on screen so you can monitor simulation
 progress.}
 
+<<<<<<< HEAD
+=======
+\item{fn.append}{A text string to append to the default output file name.}
+
+>>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
 \item{simthod}{Character; either `MLE` (for max likelihood simulator) or `Palm`
 for CCR simulator from package \code{palm}.}
 }
