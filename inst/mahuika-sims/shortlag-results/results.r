@@ -17,19 +17,31 @@ for (i in 1:n.scenarios){
     res[[i]] <- list(mle = mle.res, palm = palm.res)
 }
 
-## Biases from each scenario (MLE).
-mle.bias <- sapply(res, function(x) 100*mean(x[[1]][, "D.est"] - 1.24)/1.24)
-## Biases from each scenario (Palm).
-palm.bias <- sapply(res, function(x) 100*mean(x[[2]][, "Dhat"] - 1.24)/1.24)
-## CVs from each scenario (MLE).
-mle.cv <- sapply(res, function(x) 100*sd(x[[1]][, "D.est"])/1.24)
-## CVs from each scenario (Palm).
-palm.cv <- sapply(res, function(x) 100*sd(x[[2]][, "Dhat"])/1.24)
-## Difference in CVs, as a percentage of the MLE CV.
-diff.cv <- 100*(palm.cv - mle.cv)/mle.cv
+sigmas <- sapply(res, function(x) mean(x[[1]][, "sigmarate.est"])*110)
 
+short.res <- res
+## Biases from each scenario (MLE).
+short.mle.bias <- sapply(res, function(x) 100*mean(x[[1]][, "D.est"] - 1.24)/1.24)
+## Biases from each scenario (Palm).
+short.palm.bias <- sapply(res, function(x) 100*mean(x[[2]][, "Dhat"] - 1.24)/1.24)
+## CVs from each scenario (MLE).
+short.mle.cv <- sapply(res, function(x) 100*sd(x[[1]][, "D.est"])/1.24)
+## CVs from each scenario (Palm).
+short.palm.cv <- sapply(res, function(x) 100*sd(x[[2]][, "Dhat"])/1.24)
+## Difference in CVs, as a percentage of the MLE CV.
+short.diff.cv <- 100*(short.palm.cv - short.mle.cv)/short.mle.cv
 ## Average number of detections by observer 1.
-mean.n1 <- sapply(res, function(x) mean(x[[1]][, "n1"]))
+short.mean.n1 <- sapply(res, function(x) mean(x[[1]][, "n1"]))
+## Average number of recaptures.
+short.mean.m <- sapply(res, function(x) mean(x[[1]][, "m"]))
+## Coverage for MLE estimator.
+short.D.coverage <- sapply(res, function(x) mean(x[[1]][, "D.inci"]))
+## Correlation between estimators.
+short.cor <- sapply(res, function(x) cor(x[[1]][, "D.est"], x[[2]][, "Dhat"]))
+
+save(short.res, short.mle.bias, short.palm.bias, short.mle.cv, short.palm.cv, short.diff.cv,
+     short.mean.n1, short.mean.m, short.D.coverage, short.cor, file = "../../shortlag-results.RData")
+
 
 pdf(file = "shortlag-sims4.pdf", width = 8, height = 6)
 ## Recreating Figure 3.
@@ -45,11 +57,4 @@ points(mean.n1 + 8, palm.cv, col = "grey", pch = 3)
 plot(mean.n1, diff.cv)
 abline(h = 0, lty = "dashed")
 
-dev.off()
-
-pdf("~/Desktop/Dplot.pdf")
-for (i in 1:36){
-    boxplot(res[[i]][[1]][, 1])
-    abline(h = 1.24)
-}
 dev.off()
