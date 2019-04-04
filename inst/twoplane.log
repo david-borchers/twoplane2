@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.24)  24 JAN 2019 09:25
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.28)  1 MAR 2019 16:04
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.28)  5 APR 2019 12:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -606,18 +602,18 @@ tim
 (./twoplane.aux)
 \openout1 = `twoplane.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
  (./endrotfloat.sty
 Package: endrotfloat 2007/01/23 v1.0 LaTeX2e package puts sideways figures and 
 tables at end
@@ -692,49 +688,28 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-<<<<<<< HEAD
-LaTeX Font Info:    Try loading font information for U+eur on input line 131.
-=======
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
 loading the todonotes package. on input line 70.
 
-LaTeX Font Info:    Try loading font information for U+eur on input line 132.
+LaTeX Font Info:    Try loading font information for U+eur on input line 128.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/ueur.fd
 File: ueur.fd 2013/01/14 v3.01 Euler Roman
 )
-<<<<<<< HEAD
-LaTeX Font Info:    Try loading font information for U+msa on input line 131.
-=======
-LaTeX Font Info:    Try loading font information for U+msa on input line 132.
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+LaTeX Font Info:    Try loading font information for U+msa on input line 128.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-<<<<<<< HEAD
-LaTeX Font Info:    Try loading font information for U+msb on input line 131.
-=======
-LaTeX Font Info:    Try loading font information for U+msb on input line 132.
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+LaTeX Font Info:    Try loading font information for U+msb on input line 128.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<<<<<<< HEAD
-
-
-LaTeX Warning: Reference `lastpage' on page 1 undefined on input line 131.
-=======
-
-
-LaTeX Warning: Reference `lastpage' on page 1 undefined on input line 132.
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+LaTeX Warning: Reference `lastpage' on page 1 undefined on input line 128.
 
 
 Overfull \vbox (11.50003pt too high) has occurred while \output is active []
@@ -769,6 +744,27 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [3]
+
+Package natbib Warning: Citation `Pike+DoniolValcroze:15' on page 4 undefined o
+n input line 169.
+
+
+Package natbib Warning: Citation `Hamilton+al:18' on page 4 undefined on input 
+line 169.
+
+
+Package natbib Warning: Citation `Zhang+al:19' on page 4 undefined on input lin
+e 169.
+
+
+Package natbib Warning: Citation `Bonner+Holmberg:13' on page 4 undefined on in
+put line 169.
+
+
+Package natbib Warning: Citation `Link+al:10' on page 4 undefined on input line
+ 169.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -777,16 +773,9 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [4]
-<<<<<<< HEAD
-Missing character: There is no Î in font cmr12!
-Missing character: There is no ± in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
 
-=======
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package natbib Warning: Citation `Fewster+al:16' on page 5 undefined on input l
+ine 171.
 
 
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
@@ -794,30 +783,24 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [5]
-Underfull \vbox (badness 4846) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 6
  []
 
 [6]
-Underfull \vbox (badness 4242) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 7
  []
 
 [7]
+Underfull \vbox (badness 2012) has occurred while \output is active []
+
+
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 8
  []
 
 [8]
-Underfull \vbox (badness 1137) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 9
  []
@@ -828,14 +811,14 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 11
  []
 
 [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 12
  []
@@ -854,137 +837,93 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 15
  []
 
 [15]
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 16
- []
-<<<<<<< HEAD
 
-[16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-=======
-
-[16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 17
- []
-
-[17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<<<<<<< HEAD
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 17
- []
-=======
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 18
- []
-
-[18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-
-[17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<<<<<<< HEAD
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 18
- []
-
-[18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 19
- []
-
-[19]
-
-Package xcolor Warning: Incompatible color definition on input line 502.
-=======
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 19
- []
-
-[19]
-
-Package xcolor Warning: Incompatible color definition on input line 503.
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+Package xcolor Warning: Incompatible color definition on input line 511.
 
 \openout3 = `twoplane.fff'.
 
 (twoplane.fff)
+Underfull \vbox (badness 2469) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 16
+ []
+
+[16]
+Underfull \vbox (badness 5548) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 17
+ []
+
+[17]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 18
+ []
+
+[18]
+
+Package xcolor Warning: Incompatible color definition on input line 570.
+
+\openout4 = `twoplane.ttt'.
+
+(twoplane.ttt)
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 19
+ []
+
+[19]
+
+Package xcolor Warning: Incompatible color definition on input line 644.
+
+
+Package xcolor Warning: Incompatible color definition on input line 661.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 20
  []
-<<<<<<< HEAD
 
 [20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 21
  []
 
 [21]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 706.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 22
-=======
-
-[20]
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 21
- []
-
-[21]
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 541--541
-\OT1/cmr/m/n/12 Changed 
- []
-
-
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 541--541
-\OT1/cmr/m/n/12 Changed 
- []
-
-
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 541--541
-\OT1/cmr/m/n/12 Changed 
- []
-
-
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 541--541
-\OT1/cmr/m/n/12 Changed 
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
  []
 
 [22]
-
-<<<<<<< HEAD
-Package xcolor Warning: Incompatible color definition on input line 552.
-=======
-LaTeX Warning: Marginpar on page 22 moved.
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-
-\openout4 = `twoplane.ttt'.
-
-<<<<<<< HEAD
-(twoplane.ttt)
-
-Package xcolor Warning: Incompatible color definition on input line 622.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -992,24 +931,14 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [23]
-
-Package xcolor Warning: Incompatible color definition on input line 637.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 24
  []
 
-[24]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 670.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+[24] (./twoplane.bbl
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 25
  []
@@ -1022,171 +951,17 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 26
  []
 
-[26]
-=======
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[26])
 
+Package natbib Warning: There were undefined citations.
 
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 22
- []
-
-[22]
-
-Package xcolor Warning: Incompatible color definition on input line 554.
-
-
-Package xcolor Warning: Incompatible color definition on input line 568.
-
-\openout4 = `twoplane.ttt'.
-
-(twoplane.ttt)
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 690--690
-\OT1/cmr/m/n/12 Changed 
- []
-
-
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 690--690
-\OT1/cmr/m/n/12 Changed 
- []
-
-
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 690--690
-\OT1/cmr/m/n/12 Changed 
- []
-
-
-Overfull \hbox (6.30789pt too wide) in paragraph at lines 690--690
-\OT1/cmr/m/n/12 Changed 
- []
-
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 23
- []
-
-[23]
-
-Package xcolor Warning: Incompatible color definition on input line 693.
-
-
-Package xcolor Warning: Incompatible color definition on input line 707.
-
-
-Package xcolor Warning: Incompatible color definition on input line 722.
-
-
-Package xcolor Warning: Incompatible color definition on input line 735.
-
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 24
- []
-
-[24]
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 25
- []
-
-[25]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 770.
-
-
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-<<<<<<< HEAD
-\OT1/cmr/m/n/9 27
- []
-
-[27]
-Overfull \hbox (8.54626pt too wide) in paragraph at lines 731--732
-[]\OML/cmm/m/it/12 =\OT1/cmr/m/n/12 ^^@(0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5)$,
- we have that $\OML/cmm/m/it/12 E [] \OT1/cmr/m/n/12 = []\OML/cmm/m/it/12 =\OT1
-/cmr/m/n/12 ^^@(0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5)$, and hence $2\OML/cmm/m/
-it/12 ^^[[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/
-12 j\OML/cmm/m/it/12 Y\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 )^^@(0\OML/cmm/m/it/12 
-:\OT1/cmr/m/n/12 5)\OML/cmm/m/it/12 =[]$\OT1/cmr/m/n/12 . 
- []
-
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 28
- []
-
-[28] (./twoplane.bbl
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 29
- []
-
-[29]
-=======
-\OT1/cmr/m/n/9 26
- []
-
-[26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+AED endfloat: Processing end Figures and Tables
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 27
  []
 
-[27]
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 28
- []
-
-[28]
-Overfull \hbox (8.54626pt too wide) in paragraph at lines 831--832
-[]\OML/cmm/m/it/12 =\OT1/cmr/m/n/12 ^^@(0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5)$,
- we have that $\OML/cmm/m/it/12 E [] \OT1/cmr/m/n/12 = []\OML/cmm/m/it/12 =\OT1
-/cmr/m/n/12 ^^@(0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 5)$, and hence $2\OML/cmm/m/
-it/12 ^^[[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/
-12 j\OML/cmm/m/it/12 Y\OMS/cmsy/m/n/12 j\OT1/cmr/m/n/12 )^^@(0\OML/cmm/m/it/12 
-:\OT1/cmr/m/n/12 5)\OML/cmm/m/it/12 =[]$\OT1/cmr/m/n/12 . 
- []
-
-
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-<<<<<<< HEAD
-\OT1/cmr/m/n/9 30
- []
-
-[30]) AED endfloat: Processing end Figures and Tables
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 31
- []
-
-[31] (./twoplane.fff
-<figs/fig_correlation_plot-1.pdf, id=131, 433.62pt x 289.08pt>
-File: figs/fig_correlation_plot-1.pdf Graphic file (type pdf)
-=======
-\OT1/cmr/m/n/9 29
- []
-
-[29] (./twoplane.bbl
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 30
- []
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-
-[30]) AED endfloat: Processing end Figures and Tables
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 31
- []
-
-[31] (./twoplane.fff
-<figs/fig_correlation_plot-1.pdf, id=131, 433.62pt x 289.08pt>
+[27] (./twoplane.fff
+<figs/fig_correlation_plot-1.pdf, id=120, 433.62pt x 289.08pt>
 File: figs/fig_correlation_plot-1.pdf Graphic file (type pdf)
 <use figs/fig_correlation_plot-1.pdf>
 Package pdftex.def Info: figs/fig_correlation_plot-1.pdf  used on input line 3.
@@ -1196,7 +971,6 @@ Package pdftex.def Info: figs/fig_correlation_plot-1.pdf  used on input line 3.
 Underfull \hbox (badness 3623) in paragraph at lines 7--7
 []\OT1/cmr/bx/n/12 Figure 1. \OT1/cmr/m/n/12 Cor-re-la-tion be-tween de-tec-tio
 ns by the two ob-servers as a func-tion
-<<<<<<< HEAD
  []
 
 
@@ -1207,244 +981,100 @@ Underfull \hbox (badness 2809) in paragraph at lines 7--7
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 32
+\OT1/cmr/m/n/9 28
  []
 
-[32 <./figs/fig_correlation_plot-1.pdf>]
-<figs/fig_boxplots-1.pdf, id=140, 433.62pt x 289.08pt>
-File: figs/fig_boxplots-1.pdf Graphic file (type pdf)
-
-<use figs/fig_boxplots-1.pdf>
-Package pdftex.def Info: figs/fig_boxplots-1.pdf used on input line 13.
-(pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 33
- []
-
-[33 <./figs/fig_boxplots-1.pdf>]
-<figs/fig_mlepalm_bias-1.pdf, id=149, 433.62pt x 289.08pt>
-File: figs/fig_mlepalm_bias-1.pdf Graphic file (type pdf)
-
-<use figs/fig_mlepalm_bias-1.pdf>
-Package pdftex.def Info: figs/fig_mlepalm_bias-1.pdf used on input line 23.
-(pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
-=======
- []
-
-
-Underfull \hbox (badness 2809) in paragraph at lines 7--7
-\OT1/cmr/m/n/12 of lag for mean pro-por-tions of time avail-able $\OML/cmm/m/it
-/12 ^^M \OT1/cmr/m/n/12 = 10%$ (bot-tom black line),
- []
-
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 32
- []
-
-[32 <./figs/fig_correlation_plot-1.pdf>]
-<figs/fig_boxplots_bcs-1.pdf, id=140, 433.62pt x 289.08pt>
+[28 <./figs/fig_correlation_plot-1.pdf>]
+<figs/fig_boxplots_bcs-1.pdf, id=129, 433.62pt x 289.08pt>
 File: figs/fig_boxplots_bcs-1.pdf Graphic file (type pdf)
 <use figs/fig_boxplots_bcs-1.pdf>
 Package pdftex.def Info: figs/fig_boxplots_bcs-1.pdf  used on input line 13.
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 33
+\OT1/cmr/m/n/9 29
  []
 
-[33 <./figs/fig_boxplots_bcs-1.pdf>]
-<figs/fig_boxplots-1.pdf, id=150, 433.62pt x 289.08pt>
-File: figs/fig_boxplots-1.pdf Graphic file (type pdf)
-<use figs/fig_boxplots-1.pdf>
-Package pdftex.def Info: figs/fig_boxplots-1.pdf  used on input line 23.
-(pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 34
- []
-
-[34 <./figs/fig_boxplots-1.pdf>]
-<figs/fig_mlepalm_bias_bcs-1.pdf, id=160, 433.62pt x 289.08pt>
+[29 <./figs/fig_boxplots_bcs-1.pdf>]
+<figs/fig_mlepalm_bias_bcs-1.pdf, id=139, 433.62pt x 289.08pt>
 File: figs/fig_mlepalm_bias_bcs-1.pdf Graphic file (type pdf)
 <use figs/fig_mlepalm_bias_bcs-1.pdf>
-Package pdftex.def Info: figs/fig_mlepalm_bias_bcs-1.pdf  used on input line 33
+Package pdftex.def Info: figs/fig_mlepalm_bias_bcs-1.pdf  used on input line 23
 .
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 35
+\OT1/cmr/m/n/9 30
  []
 
-[35 <./figs/fig_mlepalm_bias_bcs-1.pdf>]
-<figs/fig_mlepalm_bias-1.pdf, id=170, 433.62pt x 289.08pt>
-File: figs/fig_mlepalm_bias-1.pdf Graphic file (type pdf)
-<use figs/fig_mlepalm_bias-1.pdf>
-Package pdftex.def Info: figs/fig_mlepalm_bias-1.pdf  used on input line 43.
-(pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 36
- []
-
-[36 <./figs/fig_mlepalm_bias-1.pdf>]
-<figs/fig_mlepalm_cv_bcs-1.pdf, id=181, 578.16pt x 289.08pt>
+[30 <./figs/fig_mlepalm_bias_bcs-1.pdf>]
+<figs/fig_mlepalm_cv_bcs-1.pdf, id=150, 578.16pt x 289.08pt>
 File: figs/fig_mlepalm_cv_bcs-1.pdf Graphic file (type pdf)
 <use figs/fig_mlepalm_cv_bcs-1.pdf>
-Package pdftex.def Info: figs/fig_mlepalm_cv_bcs-1.pdf  used on input line 53.
-(pdftex.def)             Requested size: 469.75499pt x 234.8769pt.
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 37
- []
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-
-[37 <./figs/fig_mlepalm_cv_bcs-1.pdf>]
-<figs/fig_mlepalm_cv-1.pdf, id=193, 578.16pt x 289.08pt>
-File: figs/fig_mlepalm_cv-1.pdf Graphic file (type pdf)
-<use figs/fig_mlepalm_cv-1.pdf>
-Package pdftex.def Info: figs/fig_mlepalm_cv-1.pdf  used on input line 63.
+Package pdftex.def Info: figs/fig_mlepalm_cv_bcs-1.pdf  used on input line 33.
 (pdftex.def)             Requested size: 469.75499pt x 234.8769pt.
 )
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-<<<<<<< HEAD
-\OT1/cmr/m/n/9 34
+\OT1/cmr/m/n/9 31
  []
 
-[34 <./figs/fig_mlepalm_bias-1.pdf>]
-<figs/fig_mlepalm_cv-1.pdf, id=158, 578.16pt x 289.08pt>
-File: figs/fig_mlepalm_cv-1.pdf Graphic file (type pdf)
-=======
-\OT1/cmr/m/n/9 38
- []
-
-[38 <./figs/fig_mlepalm_cv-1.pdf>] (./twoplane.ttt
+[31 <./figs/fig_mlepalm_cv_bcs-1.pdf>] (./twoplane.ttt)
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 39
+\OT1/cmr/m/n/9 32
  []
 
-[39
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-
-<use figs/fig_mlepalm_cv-1.pdf>
-Package pdftex.def Info: figs/fig_mlepalm_cv-1.pdf used on input line 33.
-(pdftex.def)             Requested size: 469.75499pt x 234.8769pt.
-
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 35
- []
-
-[35 <./figs/fig_mlepalm_cv-1.pdf>]) (./twoplane.ttt
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 36
- []
-
-<<<<<<< HEAD
-[36
-=======
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+[32
 
 
 
 
 
 
-<<<<<<< HEAD
-
-]) (./twoplane.aux)
-=======
-])
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 40
- []
-
-[40
 
 ] (./twoplane.aux)
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 14439 strings out of 493089
- 275193 string characters out of 6134842
- 351174 words of memory out of 5000000
- 17577 multiletter control sequences out of 15000+600000
+ 14444 strings out of 492642
+ 276003 string characters out of 6129369
+ 350075 words of memory out of 5000000
+ 17984 multiletter control sequences out of 15000+600000
  21968 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,13n,80p,1678b,853s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
-7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pf
-b></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on twoplane.pdf (37 pages, 425892 bytes).
-PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
-=======
- 14625 strings out of 492642
- 280062 string characters out of 6129369
- 361879 words of memory out of 5000000
- 18162 multiletter control sequences out of 15000+600000
- 21968 words of font info for 80 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 62i,13n,93p,1674b,918s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,13n,80p,1308b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
 7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
 pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pf
-b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
-018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
-8/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2018/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2018/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on twoplane.pdf (41 pages, 446836 bytes).
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/lo
+cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
+/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
+8/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2018/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on twoplane.pdf (33 pages, 418092 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 207 compressed objects within 3 object streams
+ 250 PDF objects out of 1000 (max. 8388607)
+ 178 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

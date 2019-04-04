@@ -10,49 +10,16 @@
  
 \begin{figure}
 
-<<<<<<< HEAD
-{\centering \includegraphics[width=\maxwidth]{figs/fig_boxplots-1}
-
-}
-
-\caption[Box plots of estimated density for each of the 36 scenarios]{Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \(D=1.24\).}\label{fig:fig_boxplots}
-=======
 {\centering \includegraphics[width=\maxwidth]{figs/fig_boxplots_bcs-1}
 
 }
 
-\caption{Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \(D=1.24\). \todo[inline]{BCS: Looks ugly because all of the `outliers' due to having 1000 iterations. Probably need to make this look nicer...}}\label{fig:fig_boxplots_bcs}
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
+\caption[Box plots of estimated LCE density for each of the 36 scenarios]{Box plots of estimated LCE density for each of the 36 scenarios. The horizontal line is at true density \(D=1.24\). }\label{fig:fig_boxplots_bcs}
 \end{figure}
 \efloatseparator
  
 \begin{figure}
 
-<<<<<<< HEAD
-{\centering \includegraphics[width=\maxwidth]{figs/fig_mlepalm_bias-1}
-
-}
-
-\caption[Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses]{Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles.}\label{fig:fig_mlepalm_bias}
-=======
-{\centering \includegraphics[width=\maxwidth]{figs/fig_boxplots-1}
-
-}
-
-\caption{Box plots of estimated density for each of the 36 scenarios. The horizontal line is at true density \(D=1.24\). \todo[inline]{BCS: OLD VERSION for comparison.}}\label{fig:fig_boxplots}
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
-
-<<<<<<< HEAD
-{\centering \includegraphics[width=\maxwidth]{figs/fig_mlepalm_cv-1}
-
-}
-
-\caption[Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer]{Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.}\label{fig:fig_mlepalm_cv}
-=======
 {\centering \includegraphics[width=\maxwidth]{figs/fig_mlepalm_bias_bcs-1}
 
 }
@@ -63,30 +30,9 @@
  
 \begin{figure}
 
-{\centering \includegraphics[width=\maxwidth]{figs/fig_mlepalm_bias-1}
-
-}
-
-\caption{Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles. \todo[inline]{BCS: OLD VERSION for comparison.}}\label{fig:fig_mlepalm_bias}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
-
 {\centering \includegraphics[width=\maxwidth]{figs/fig_mlepalm_cv_bcs-1}
 
 }
 
 \caption[Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer]{Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.}\label{fig:fig_mlepalm_cv_bcs}
->>>>>>> 45f295773e3ddc2e24862e718fcec77e1f837a4e
-\end{figure}
-\efloatseparator
- 
-\begin{figure}
-
-{\centering \includegraphics[width=\maxwidth]{figs/fig_mlepalm_cv-1}
-
-}
-
-\caption{Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.  \todo[inline]{BCS: OLD VERSION for comparison.}}\label{fig:fig_mlepalm_cv}
 \end{figure}
