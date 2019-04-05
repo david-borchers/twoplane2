@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.28)  5 APR 2019 14:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.8.28)  5 APR 2019 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,18 +602,18 @@ tim
 (./twoplane.aux)
 \openout1 = `twoplane.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
  (./endrotfloat.sty
 Package: endrotfloat 2007/01/23 v1.0 LaTeX2e package puts sideways figures and 
 tables at end
@@ -692,24 +692,24 @@ ABD: EveryShipout initializing macros
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 70.
+loading the todonotes package. on input line 73.
 
-LaTeX Font Info:    Try loading font information for U+eur on input line 128.
+LaTeX Font Info:    Try loading font information for U+eur on input line 131.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/ueur.fd
 File: ueur.fd 2013/01/14 v3.01 Euler Roman
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 128.
+LaTeX Font Info:    Try loading font information for U+msa on input line 131.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 128.
+LaTeX Font Info:    Try loading font information for U+msb on input line 131.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Reference `lastpage' on page 1 undefined on input line 128.
+LaTeX Warning: Reference `lastpage' on page 1 undefined on input line 131.
 
 
 Overfull \vbox (11.50003pt too high) has occurred while \output is active []
@@ -760,19 +760,22 @@ Overfull \hbox (4.62497pt too wide) has occurred while \output is active
  []
 
 [5]
+Underfull \vbox (badness 1072) has occurred while \output is active []
+
+
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 6
  []
 
 [6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 7
  []
 
 [7]
+Underfull \vbox (badness 2401) has occurred while \output is active []
+
+
 Overfull \hbox (4.62497pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 8
  []
@@ -788,14 +791,22 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [10]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 387.
+
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 387.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 11
  []
 
 [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 12
  []
@@ -811,75 +822,69 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [14]
+Underfull \vbox (badness 7047) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 15
  []
 
 [15]
-Overfull \hbox (8.2662pt too wide) in paragraph at lines 473--473
-\OT1/cmr/m/n/12 acronym. 
- []
-
-
-Overfull \hbox (8.2662pt too wide) in paragraph at lines 473--473
-\OT1/cmr/m/n/12 acronym. 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 16
  []
 
 [16]
+Overfull \hbox (8.2662pt too wide) in paragraph at lines 484--484
+\OT1/cmr/m/n/12 acronym. 
+ []
 
-Package xcolor Warning: Incompatible color definition on input line 514.
 
-\openout3 = `twoplane.fff'.
+Overfull \hbox (8.2662pt too wide) in paragraph at lines 484--484
+\OT1/cmr/m/n/12 acronym. 
+ []
 
-(twoplane.fff)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 17
  []
 
 [17]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Package xcolor Warning: Incompatible color definition on input line 526.
 
+\openout3 = `twoplane.fff'.
+
+(twoplane.fff)
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 18
  []
 
 [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 19
  []
 
 [19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Package xcolor Warning: Incompatible color definition on input line 574.
 
-\openout4 = `twoplane.ttt'.
-
-(twoplane.ttt)
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 20
  []
 
 [20]
 
-Package xcolor Warning: Incompatible color definition on input line 648.
+Package xcolor Warning: Incompatible color definition on input line 588.
 
+\openout4 = `twoplane.ttt'.
 
-Package xcolor Warning: Incompatible color definition on input line 665.
+(twoplane.ttt)
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Package xcolor Warning: Incompatible color definition on input line 662.
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
@@ -887,6 +892,10 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [21]
+
+Package xcolor Warning: Incompatible color definition on input line 683.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -895,12 +904,6 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [22]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 710.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -909,6 +912,12 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
  []
 
 [23]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 730.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -924,26 +933,34 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 25
  []
 
-[25] (./twoplane.bbl
+[25]
+Underfull \vbox (badness 1783) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 26
  []
 
-[26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+[26] (./twoplane.bbl
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 27
  []
 
-[27]) AED endfloat: Processing end Figures and Tables
+[27]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 28
  []
 
-[28] (./twoplane.fff
-<figs/fig_correlation_plot-1.pdf, id=123, 433.62pt x 289.08pt>
+[28]) AED endfloat: Processing end Figures and Tables
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 29
+ []
+
+[29] (./twoplane.fff
+<figs/fig_correlation_plot-1.pdf, id=126, 433.62pt x 289.08pt>
 File: figs/fig_correlation_plot-1.pdf Graphic file (type pdf)
 <use figs/fig_correlation_plot-1.pdf>
 Package pdftex.def Info: figs/fig_correlation_plot-1.pdf  used on input line 3.
@@ -963,22 +980,22 @@ Underfull \hbox (badness 2809) in paragraph at lines 7--7
 
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 29
+\OT1/cmr/m/n/9 30
  []
 
-[29 <./figs/fig_correlation_plot-1.pdf>]
-<figs/fig_boxplots_bcs-1.pdf, id=132, 433.62pt x 289.08pt>
+[30 <./figs/fig_correlation_plot-1.pdf>]
+<figs/fig_boxplots_bcs-1.pdf, id=136, 433.62pt x 289.08pt>
 File: figs/fig_boxplots_bcs-1.pdf Graphic file (type pdf)
 <use figs/fig_boxplots_bcs-1.pdf>
 Package pdftex.def Info: figs/fig_boxplots_bcs-1.pdf  used on input line 13.
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 30
+\OT1/cmr/m/n/9 31
  []
 
-[30 <./figs/fig_boxplots_bcs-1.pdf>]
-<figs/fig_mlepalm_bias_bcs-1.pdf, id=143, 433.62pt x 289.08pt>
+[31 <./figs/fig_boxplots_bcs-1.pdf>]
+<figs/fig_mlepalm_bias_bcs-1.pdf, id=146, 433.62pt x 289.08pt>
 File: figs/fig_mlepalm_bias_bcs-1.pdf Graphic file (type pdf)
 <use figs/fig_mlepalm_bias_bcs-1.pdf>
 Package pdftex.def Info: figs/fig_mlepalm_bias_bcs-1.pdf  used on input line 23
@@ -986,26 +1003,26 @@ Package pdftex.def Info: figs/fig_mlepalm_bias_bcs-1.pdf  used on input line 23
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
 
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 31
+\OT1/cmr/m/n/9 32
  []
 
-[31 <./figs/fig_mlepalm_bias_bcs-1.pdf>]
-<figs/fig_mlepalm_cv_bcs-1.pdf, id=153, 578.16pt x 289.08pt>
+[32 <./figs/fig_mlepalm_bias_bcs-1.pdf>]
+<figs/fig_mlepalm_cv_bcs-1.pdf, id=156, 578.16pt x 289.08pt>
 File: figs/fig_mlepalm_cv_bcs-1.pdf Graphic file (type pdf)
 <use figs/fig_mlepalm_cv_bcs-1.pdf>
 Package pdftex.def Info: figs/fig_mlepalm_cv_bcs-1.pdf  used on input line 33.
 (pdftex.def)             Requested size: 469.75499pt x 234.8769pt.
 )
 Overfull \hbox (9.24994pt too wide) has occurred while \output is active
-\OT1/cmr/m/n/9 32
- []
-
-[32 <./figs/fig_mlepalm_cv_bcs-1.pdf>] (./twoplane.ttt)
-Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 \OT1/cmr/m/n/9 33
  []
 
-[33
+[33 <./figs/fig_mlepalm_cv_bcs-1.pdf>] (./twoplane.ttt)
+Overfull \hbox (9.24994pt too wide) has occurred while \output is active
+\OT1/cmr/m/n/9 34
+ []
+
+[34
 
 
 
@@ -1017,18 +1034,15 @@ Overfull \hbox (9.24994pt too wide) has occurred while \output is active
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 14507 strings out of 492642
- 277327 string characters out of 6129369
- 349746 words of memory out of 5000000
- 18047 multiletter control sequences out of 15000+600000
+ 14525 strings out of 492642
+ 277642 string characters out of 6129369
+ 350768 words of memory out of 5000000
+ 18062 multiletter control sequences out of 15000+600000
  21968 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,13n,80p,1706b,704s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,13n,80p,1298b,704s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy
 7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
 .pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
@@ -1056,10 +1070,10 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
 18/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 8/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2018/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on twoplane.pdf (34 pages, 423671 bytes).
+Output written on twoplane.pdf (35 pages, 426892 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
+ 256 PDF objects out of 1000 (max. 8388607)
+ 182 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
