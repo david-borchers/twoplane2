@@ -1,17 +1,10 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{Borchers and Cox}{Borchers and
-  Cox}{2016}]{Borchers+Cox:16}
-Borchers, D.~L. and Cox, M.~J. (2016).
-\newblock Distance sampling detection functions: 2d or not 2d?
-\newblock {\em Biometrics} {\bf 73,} 593--602.
-
-\bibitem[\protect\citeauthoryear{Borchers, Laake, Southwell, and
-  Paxton}{Borchers et~al.}{2006}]{Borchers+al:06}
-Borchers, D.~L., Laake, J.~L., Southwell, C., and Paxton, C. G.~M. (2006).
-\newblock Accommodating unmodelled heterogeneity in double-observer distance
-  sampling surveys.
-\newblock {\em Biometrics} pages 372--378.
+\bibitem[\protect\citeauthoryear{Bonner and Holmberg}{Bonner and
+  Holmberg}{2013}]{Bonner+Holmberg:13}
+Bonner, S.~J. and Holmberg, J. (2013).
+\newblock Mark-recapture with multiple, non-invasive marks.
+\newblock {\em Biometrics} {\bf 69,} 766--75.
 
 \bibitem[\protect\citeauthoryear{Borchers and Langrock}{Borchers and
   Langrock}{2015}]{Borchers+Langrock:15}
@@ -28,12 +21,6 @@ Borchers, D.~L., Zucchini, W., Heide-J\o{}rgenssen, M.~P., Canadas, A., and
   transect surveys.
 \newblock {\em Biometrics} {\bf 69,} 703--713.
 
-\bibitem[\protect\citeauthoryear{Buckland, Laake, and Borchers}{Buckland
-  et~al.}{2010}]{Buckland+al:10}
-Buckland, S., Laake, J., and Borchers, D. (2010).
-\newblock Double-observer line transect methods: levels of independence.
-\newblock {\em Biometrics} {\bf 66,} 169--177.
-
 \bibitem[\protect\citeauthoryear{Burt, Borchers, Jenkins, and Marques}{Burt
   et~al.}{2014}]{Burt+al:14}
 Burt, M.~L., Borchers, D.~L., Jenkins, K., and Marques, T.~A. (2014).
@@ -41,20 +28,27 @@ Burt, M.~L., Borchers, D.~L., Jenkins, K., and Marques, T.~A. (2014).
   surveys.
 \newblock {\em Methods in Ecology and Evolution} {\bf 5,} 1180--1191.
 
+\bibitem[\protect\citeauthoryear{Fewster, Stevenson, and Borchers}{Fewster
+  et~al.}{2016}]{Fewster+al:16}
+Fewster, R.~M., Stevenson, B.~C., and Borchers, D.~L. (2016).
+\newblock Trace-contrast models for capture-recapture without capture
+  histories.
+\newblock {\em Statistical Science} {\bf 31,} 245--258.
+
+\bibitem[\protect\citeauthoryear{Hamilton, Kincaid, Constantine,
+  Kozmian-Ledward, Walker, and Fewster}{Hamilton et~al.}{2018}]{Hamilton+al:18}
+Hamilton, O. N.~P., Kincaid, S.~E., Constantine, R., Kozmian-Ledward, L.,
+  Walker, C.~G., and Fewster, R.~M. (2018).
+\newblock Accounting for uncertainty in duplicate identification andgroup size
+  judgements in mark-recapture distance sampling.
+\newblock {\em Methods in Ecology and Evolution} {\bf 9,} 354?362.
+
 \bibitem[\protect\citeauthoryear{Hiby and Lovell}{Hiby and
   Lovell}{1998}]{Hiby+Lovell:98}
 Hiby, L. and Lovell, P. (1998).
 \newblock Using aircraft in tandem formation to estimate abundance of harbour
   porpoise.
 \newblock {\em Biometrics} {\bf 54,} 1280--1289.
-
-\bibitem[\protect\citeauthoryear{Laake}{Laake}{1999}]{Laake:99}
-Laake, J. (1999).
-\newblock Distance sampling with independent observers: Reducing bias from
-  heterogeneity by weakening the conditional independence assumption.
-\newblock In Amstrup, G., Garner, S., Laake, J., Manly, B., McDonald, L., and
-  Robertson, D., editors, {\em Marine mammal survey and assessment methods.},
-  pages 137--148, Rotterdam. Balkema.
 
 \bibitem[\protect\citeauthoryear{Langrock, Borchers, and Skaug}{Langrock
   et~al.}{2013}]{Langrock+al:13}
@@ -64,6 +58,21 @@ Langrock, R., Borchers, D.~L., and Skaug, H. (2013).
 \newblock {\em Journal of the American Statistical Association} {\bf 108,}
   840--851.
 
+\bibitem[\protect\citeauthoryear{Link, Yoshizaki, Bailey, and Pollock}{Link
+  et~al.}{2010}]{Link+al:10}
+Link, W., Yoshizaki, J., Bailey, L., and Pollock, K. (2010).
+\newblock Uncovering a latent multi-nomial: analysis of mark-recapture data
+  with misidentification.
+\newblock {\em Biometrics} {\bf 66,} 178--185.
+
+\bibitem[\protect\citeauthoryear{Pike and Doniol-Valcroze}{Pike and
+  Doniol-Valcroze}{2015}]{Pike+DoniolValcroze:15}
+Pike, D. and Doniol-Valcroze, T. (2015).
+\newblock Identification of duplicate sightingsfrom the 2013 double-platform
+  high arctic cetacean survey.
+\newblock resreport, DFO Canadian Science Advisory Secretariat.
+\newblock Doc 2015/034.
+
 \bibitem[\protect\citeauthoryear{Russell and Norvig}{Russell and
   Norvig}{2010}]{russell-norvig-aima3}
 Russell, S. and Norvig, P. (2010).
@@ -71,8 +80,8 @@ Russell, S. and Norvig, P. (2010).
 \newblock Pearson.
 
 \bibitem[\protect\citeauthoryear{Stevenson, Borchers, and Fewster}{Stevenson
-  et~al.}{2018}]{Stevenson+al:18}
-Stevenson, B.~C., Borchers, D.~L., and Fewster, R.~M. (2018).
+  et~al.}{2019}]{Stevenson+al:19}
+Stevenson, B.~C., Borchers, D.~L., and Fewster, R.~M. (2019).
 \newblock Cluster capture-recapture to account for identification uncertainty
   on aerial suveys of animal populations.
 \newblock {\em Biometrics} {\bf ??,} ???--???
@@ -84,6 +93,13 @@ Westgate, A.~J., Read, A., Beggren, P., Koopman, H.~N., and Gaskin, D.~E.
 \newblock Diving behaviour of harbour porpoises, \textit{Phocoena phocoena}.
 \newblock {\em Canadian Journal of Fisheries and Aquatic Sciences} {\bf 52,}
   1064--1073.
+
+\bibitem[\protect\citeauthoryear{Zhang, Bravington, and Fewster}{Zhang
+  et~al.}{2019}]{Zhang+al:19}
+Zhang, W., Bravington, M.~V., and Fewster, R.~M. (2019).
+\newblock Fast likelihood-based inference for latent count models using the
+  saddlepoint approximation.
+\newblock {\em Biometrics} {\bf ??,} ??--??
 
 \bibitem[\protect\citeauthoryear{Zucchini, MacDonald, and Langrock}{Zucchini
   et~al.}{2016}]{Zucchini+al:16}
