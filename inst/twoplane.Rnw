@@ -595,7 +595,7 @@ all.Ds <- sapply(short.res, function(x) x$mle$D.est)
 plot.new()
 plot.window(xlim = c(1, length(short.res)), ylim = c(0, max(all.Ds)))
 for (i in 1:length(short.res)){
-    boxplot(short.res[[i]]$mle$D.est, add = TRUE, at = i, axes = FALSE)
+    boxplot(short.res[[i]]$mle$D.est, add = TRUE, at = i, axes = FALSE, outcex=0.3)
 }
 axis(1, at = 1:length(short.res))
 axis(2)
