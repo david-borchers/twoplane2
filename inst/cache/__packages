@@ -1,11 +1,10 @@
 base
 knitr
 xtable
-Matrix
-expm
 Rcpp
 boot
+Matrix
+expm
 HiddenMarkov
 functional
 twoplane
-plot3D

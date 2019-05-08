@@ -1,0 +1,148 @@
+\relax 
+\newlabel{firstpage}{{}{1}}
+\citation{Burt+al:14}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
+\newlabel{sec:intro}{{1}{1}}
+\citation{Stevenson+al:19}
+\citation{Borchers+al:13}
+\citation{Langrock+al:13}
+\citation{Borchers+Langrock:15}
+\citation{Pike+DoniolValcroze:15}
+\citation{Hamilton+al:18}
+\citation{Zhang+al:19,Bonner+Holmberg:13,Link+al:10}
+\citation{Hiby+Lovell:98}
+\citation{Stevenson+al:19}
+\citation{Hiby+Lovell:98}
+\citation{Stevenson+al:19}
+\citation{Fewster+al:16}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: I'm not sure it's quite correct to say an objective function is `fitted'. The model is `fitted' via maximisation of the objective function, though. What about `an objective function calculated from the distribution of...'? \\ RMF: I agree about objective function. I think it's useful to say what the Palm likelihood is, in such a way that it's clear why it's called a `likelihood', so I've modified the text as above. Note that we do use an approximation to the Palm likelihood, not the Palm likelihood itself, because we can't incorporate the dependence between the pairwise comparisons: this links to a later comment of Ben's.}{5}}
+\pgfsyspdfmark {pgfid1}{20307230}{18623779}
+\newlabel{sec:genmod}{{2}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Models for movement and availability}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Forward movement}{6}}
+\newlabel{eq:fTt}{{1}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Transverse movement and in/out availability}{7}}
+\newlabel{eq:p_{IO}}{{2}{7}}
+\newlabel{eq:p_{OI}}{{3}{7}}
+\newlabel{eq:M}{{4}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Diving behavior and up/down availability}{8}}
+\newlabel{eq:Q}{{5}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Combined availability model}{8}}
+\newlabel{eq:delta}{{6}{8}}
+\citation{Zucchini+al:16}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Detection model}{9}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: Maybe ($j \in \{1, 2\}$) instead?\\ RMF: done -- change made above.}{9}}
+\pgfsyspdfmark {pgfid2}{20307230}{33865289}
+\newlabel{eq:p_omga}{{8}{9}}
+\newlabel{eq:ptilde}{{9}{10}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: It's probably that I take a little while to digest equations, but I find the use of $q_k(t)$ a bit confusing and it's not clear why we don't just use $\mathbb  {P}(\omega _k \mid t)$. For example, I would have found $\mathbb  {P}(\omega _k) = \DOTSI \intop \ilimits@ _0^\infty \mathbb  {P}(\omega _k \mid t) f_T(t) dt$ a bit easier to digest. Is it because using $\mathaccentV {tilde}07E{q}_k$ instead declutters Eq (10)?\\ RMF: yes, I don't think we can change this, because the $q_k$ notation leads into $\mathaccentV {tilde}07E{q}_k$ and $\mathaccentV {tilde}07E{q}_\cdot $ and we couldn't replace all these by longhand in later equations. Instead, I've changed the middle terms in the equation above to make the link with $\mathbb  {P}(\omega _k \mid t)$ more concrete. Also changed to $\mathaccentV {tilde}07E{\omega }_k$ in response to Ben's later comment.}{10}}
+\pgfsyspdfmark {pgfid3}{20307230}{36259229}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Survey model}{10}}
+\newlabel{eq:fTgivenOmega}{{10}{11}}
+\newlabel{eq:LDs}{{11}{11}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: I find the notation for $\omega $ a little confusing. At first we have $\omega _1 = (0, 1), \omega _2 = (0, 1), \omega _3 = (1, 1)$, for example, but later on in Section 5 we say that $\omega _i$ are known for animals $i = 1, \cdots  , n$, suggesting that $\omega _1$ is the true capture history for the $i$th individual, not necessarily $(0, 1)$. I'm generally rusty on set notation, but I'm not sure $i \tmspace  +\thinmuskip {.1667em}: \tmspace  +\thinmuskip {.1667em} \omega =\omega _3$ is quite rigorous enough, because $i$ doesn't appear after the colon. If $\omega _i$ is the capture history for the $i$th animal (as defined in Section 5) then I guess we could use $i \tmspace  +\thinmuskip {.1667em} : \tmspace  +\thinmuskip {.1667em} \omega _i = (1, 1)$?\\ RMF: this distinction between $\omega _i$ and $\omega _3$ has been a perennial problem. I've changed the three fixed capture histories to $\mathaccentV {tilde}07E{\omega }_k$ throughout using a Latex newcommand \textbackslash dotomega, which can be redefined if David doesn't like it. So now $\omega _i$ ONLY means capture history for animal $i$.}{11}}
+\pgfsyspdfmark {pgfid4}{20307230}{15883335}
+\citation{Stevenson+al:19}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Homogeneous density}{12}}
+\newlabel{eq:LD}{{12}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Model parameters}{12}}
+\newlabel{sec:model_parameters}{{4.2}{12}}
+\citation{Stevenson+al:19}
+\citation{Stevenson+al:19}
+\citation{Hiby+Lovell:98}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Marginalising over the latent capture histories}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Subdivision of $\bm  {s}$}{14}}
+\citation{russell-norvig-aima3}
+\citation{russell-norvig-aima3}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Constraint programming for enumerating all $\bm  {\omega }^{(m)}$}{15}}
+\newlabel{sec:constrprog}{{5.2}{15}}
+\citation{Stevenson+al:19}
+\citation{Stevenson+al:19}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Interval estimation}{16}}
+\newlabel{sec:ci}{{5.3}{16}}
+\newlabel{sec:applic}{{6}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Application }{16}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: I really should have thought of this before, but the circle-backs were not actually all at 248 s. Instead, the average lag across all circle-backs was 248 s. I just took the average because my CCR code can't deal with different lags for different transects. However, this method can incorporate the different lags more easily can't it? Do we also want to analyse these data with the exact lags, rather than the average lag?\\ RMF: I vote for not doing any more analyses. We could insert `average', as in, `after an average lag of $l=248$ seconds', but I don't feel we need to make a big deal of this since it's synthetic data anyway. I haven't made any change.}{16}}
+\pgfsyspdfmark {pgfid5}{20307230}{18503685}
+\citation{Stevenson+al:19}
+\citation{Stevenson+al:19}
+\citation{Stevenson+al:19}
+\citation{Stevenson+al:19}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF: I needed to move some text around in the next paragraph to explain what $\sigma _{palm}$ is and refer to Appendix B.}{17}}
+\pgfsyspdfmark {pgfid6}{20307230}{44237467}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: Have previously defined this acronym. Do we need to do so again? RMF: no harm done by repeat.}{17}}
+\pgfsyspdfmark {pgfid7}{7645852}{36157414}
+\pgfsyspdfmark {pgfid10}{37666242}{36172159}
+\pgfsyspdfmark {pgfid11}{39222722}{35903462}
+\citation{Stevenson+al:19}
+\newlabel{sec:sim}{{7}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Simulation study }{18}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF - The units of $\sigma $ should be metres, not $m/s$, so I'm not sure what is intended here when you say that the $\sigma $ values are equal to speeds and given in $m/s$? Can you fix by saying the $\sigma $ values `correspond to' speeds, rather than `equal' speeds? Also, I removed the $\gamma $ of 10\%, and changed $\sigma =0.5$ to $\sigma =0.65$, to match the values specified in Table 1: please check this is OK.}{18}}
+\citation{Hiby+Lovell:98}
+\citation{Westgate+al:95}
+\citation{Stevenson+al:19}
+\citation{Stevenson+al:19}
+\citation{Stevenson+al:19}
+\pgfsyspdfmark {pgfid12}{20307230}{45922835}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Simulation based on harbor porpoise data: lag of 248 seconds}{19}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF - added a sentence about line length: is it correct that you increased the sample size by changing $L$? I've left the value of $L$ to be filled in. BCS: Yep, I've filled it in.}{19}}
+\pgfsyspdfmark {pgfid13}{20307230}{16793193}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF: two queries about the next paragraph. \\ Ben: is it true that CCR actually can't do variable encounter times, or just that this hasn't been implemented yet? \\ David: is it correct to change the sentence at the end to `difference between encounter lag and observer lag being only 2.4\% of the observer lag'?}{20}}
+\pgfsyspdfmark {pgfid14}{20307230}{29741977}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: I suspect that you might be able to incorporate variable encounter times, but it probably wouldn't be straightforward.\\ RMF: I looked at the CCR paper and it looks like it should be possible by incorporating an integral over $t$ into the expressions for $P(U_2 | U_1)$ and $P(Z_2 | Z_1)$. I've added `currently' below to indicate that CCR currently does not do this without excluding the possibility that it could.}{20}}
+\pgfsyspdfmark {pgfid15}{20307230}{20782103}
+\citation{Stevenson+al:19}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Short lag scenarios}{21}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF: Deleted $\gamma =0.1$ and changed to $\sigma =0.65$ again. I've left units of $\sigma $ as $m/s$ but presume it should be changed to $m$. Also need to specify $L$, $w$, and $\tau $ for reproducibility.}{21}}
+\pgfsyspdfmark {pgfid16}{20307230}{39221929}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: It should be $L = 1100$ km, $w = 0.125$ km, $\tau = 110$. I have added them below.\\ RMF: Thanks. David, that just leaves the check of $\gamma $ and $\sigma $ values, and units of $\sigma $, to do.}{21}}
+\pgfsyspdfmark {pgfid17}{20307230}{36150473}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: I don't think this is quite right. It is based on the exact Palm likelihood, not an approximation to the Palm likelihood. However, the Palm likelihood is not the true likelihood. Maybe the middle clause could be changed to ``being based instead on comparing pairwise distances between observed locations''?\\ RMF: no, the CCR method isn't the exact Palm likelihood. The approximation step is to use the inhomogeneous Poisson process likelihood instead of whatever the real Palm likelihood is. If we *could* derive the true Palm likelihood, it should be a true likelihood and as efficient as any other. I haven't changed the text above.}{22}}
+\pgfsyspdfmark {pgfid18}{20307230}{26566044}
+\citation{Stevenson+al:19}
+\citation{Burt+al:14}
+\newlabel{sec:discussion}{{8}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion}{23}}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF - Not sure the Burt reference is a convincing start to the Discussion here, since we haven't mentioned MRDS previously and we don't have distance in our analysis. Better to launch here with the breadth and potential for extension of the method? This also implies moving the text about identifiable parameters from the end of the Discussion to the beginning. I've put in a possible structure below. Ignore it if you don't like it.}{23}}
+\pgfsyspdfmark {pgfid19}{20307230}{45158249}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF - can we delete the paragraph about $M_b$? It's a bit hard to fit in with the rest of the text. Also it's not really a comment about the LCE model/method, it's a more general comment that a dive-cycle availability model is not the same as $M_b$. If keeping it, a reference to $M_b$ would probably be needed (Otis et al?) I've commented it out for now.}{24}}
+\pgfsyspdfmark {pgfid20}{20307230}{39127837}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ BCS: Would it be clearer to say ``computation time does not scale well as density increases''? Otherwise ``does not scale well'' might be a bit difficult to interpret.\\ RMF: Yes: added above.}{24}}
+\pgfsyspdfmark {pgfid21}{20307230}{29993201}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF: Below, changed CCR not able to accommodate varying encounter times, to doesn't currently accommodate them.}{25}}
+\pgfsyspdfmark {pgfid22}{20307230}{46144567}
+\@writefile{tdo}{\contentsline {todo}{\color@fb@x {}{black}{}{white}{\leavevmode {\color  {white}o}}\ RMF - I didn't quite understand the comment about a strict identification algorithm reducing sample size if $p=1$: it seems if $p=1$ then you have to detect all available animals so you can't afford to lose any from a stricter ID algorithm? Some changes suggested below.}{25}}
+\pgfsyspdfmark {pgfid23}{20307230}{18995153}
+\@writefile{toc}{\contentsline {section}{A. Derivation of $f_{T}(t)$}{26}}
+\newlabel{appx:firstpassage}{{8}{26}}
+\citation{Stevenson+al:19}
+\bibstyle{biom}
+\bibdata{dlb}
+\bibcite{Bonner+Holmberg:13}{{1}{2013}{{Bonner and Holmberg}}{{Bonner and Holmberg}}}
+\@writefile{toc}{\contentsline {section}{B. The relationship between $\sigma _{palm}$, $\sigma $ and mean animal speed}{27}}
+\newlabel{appx:sigmaspd}{{8}{27}}
+\bibcite{Borchers+Langrock:15}{{2}{2015}{{Borchers and Langrock}}{{Borchers and Langrock}}}
+\bibcite{Borchers+al:13}{{3}{2013}{{Borchers et~al.}}{{Borchers, Zucchini, Heide-J\o {}rgenssen, Canadas, and Langrock}}}
+\bibcite{Burt+al:14}{{4}{2014}{{Burt et~al.}}{{Burt, Borchers, Jenkins, and Marques}}}
+\bibcite{Fewster+al:16}{{5}{2016}{{Fewster et~al.}}{{Fewster, Stevenson, and Borchers}}}
+\bibcite{Hamilton+al:18}{{6}{2018}{{Hamilton et~al.}}{{Hamilton, Kincaid, Constantine, Kozmian-Ledward, Walker, and Fewster}}}
+\bibcite{Hiby+Lovell:98}{{7}{1998}{{Hiby and Lovell}}{{Hiby and Lovell}}}
+\bibcite{Langrock+al:13}{{8}{2013}{{Langrock et~al.}}{{Langrock, Borchers, and Skaug}}}
+\bibcite{Link+al:10}{{9}{2010}{{Link et~al.}}{{Link, Yoshizaki, Bailey, and Pollock}}}
+\bibcite{Pike+DoniolValcroze:15}{{10}{2015}{{Pike and Doniol-Valcroze}}{{Pike and Doniol-Valcroze}}}
+\@writefile{toc}{\contentsline {section}{References}{28}}
+\bibcite{russell-norvig-aima3}{{11}{2010}{{Russell and Norvig}}{{Russell and Norvig}}}
+\bibcite{Stevenson+al:19}{{12}{2019}{{Stevenson et~al.}}{{Stevenson, Borchers, and Fewster}}}
+\bibcite{Westgate+al:95}{{13}{1995}{{Westgate et~al.}}{{Westgate, Read, Beggren, Koopman, and Gaskin}}}
+\bibcite{Zhang+al:19}{{14}{2019}{{Zhang et~al.}}{{Zhang, Bravington, and Fewster}}}
+\bibcite{Zucchini+al:16}{{15}{2016}{{Zucchini et~al.}}{{Zucchini, MacDonald, and Langrock}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Correlation between detections by the two observers as a function of lag for mean proportions of time available \(\gamma =10\%\) (bottom black line), \(20\%, 30\%, 40\%, 50\%, 60\%, 70\%, 80\%, 90\%\) (top black line)}}{30}}
+\newlabel{fig:fig_correlation_plot}{{1}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Box plots of estimated LCE density for each of the 36 scenarios}}{31}}
+\newlabel{fig:fig_boxplots_bcs}{{2}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses}}{32}}
+\newlabel{fig:fig_mlepalm_bias_bcs}{{3}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer}}{33}}
+\newlabel{fig:fig_mlepalm_cv_bcs}{{4}{33}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Simulation results for LCE and CCR estimators from 1,000 simulations. Here gamma is the proportion of time animals are available, lag is the time between observers, sigma is the animal diffusion rate parameter, mean(n) and mean(m) are the mean numbers of detections by one observer and the mean number of recaptures, across simulations.}}{34}}
+\newlabel{tab:mlesims_bcs}{{1}{34}}
