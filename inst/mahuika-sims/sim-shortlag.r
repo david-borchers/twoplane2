@@ -34,7 +34,7 @@ p=c(1,1)
 
 # --------------- Set up and run the full set of simulations -------------------
 
-sigmarates = c(0.5, 0.95, 1.5)/1000
+sigmarates = c(8, 15, 23)/1000
 kappas = c(0.2, 0.5, 0.8)*tau
 ks = c(10, 20, 50, 80)
 
@@ -53,16 +53,17 @@ if(!is.null(En)) Ltype = "RandomL"
 startime=date()
 for(na in start.a:end.a) {
   for(nk in start.k:end.k) {
-    for(ns in start.s:end.s) {
-      sigma = sigmarate/(sqrt(2)/sqrt(ks[nk]))
-      b <- w + sigma.mult*sigma
-      simnum = simnum+1
-      seed <- sample(10000, size = 1)
-      fns[simnum] = dosim(D.2D,L,w,b,sigmarates[ns],ks[nk],planespd,kappas[na],tau,p=p,movement=movement,
-                          fix.N=fix.N,En=En,Nsim=Nsim,writeout=TRUE,seed=seed,simethod=simethod,
-                          control.opt=control.opt,adj.mvt=TRUE,ft.normal=FALSE,sim.ft.normal=TRUE,
-                          progbar=progbar,fn.append=fn.append)
-    }
+      for(ns in start.s:end.s) {
+          ## Calculating appropriate buffer width.
+          sigma = sigmarates[ns]/(sqrt(2)/sqrt(ks[nk]))
+          b <- w + sigma.mult*sigma
+          simnum = simnum+1
+          seed <- sample(10000, size = 1)
+          fns[simnum] = dosim(D.2D,L,w,b,sigmarates[ns],ks[nk],planespd,kappas[na],tau,p=p,movement=movement,
+                              fix.N=fix.N,En=En,Nsim=Nsim,writeout=TRUE,seed=seed,simethod=simethod,
+                              control.opt=control.opt,adj.mvt=TRUE,ft.normal=FALSE,sim.ft.normal=TRUE,
+                              progbar=progbar,fn.append=fn.append)
+      }
   }
   cat(na, "\n")
 }
