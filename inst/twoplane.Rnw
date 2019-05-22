@@ -445,10 +445,10 @@ library(twoplane)
 #speeds <- readRDS("./results/speeds.Rds")
 @
 
-\todo[inline]{RMF: I needed to move some text around in the next paragraph to explain what $\sigma_{palm}$ is and refer to Appendix B.}
+%\todo[inline]{RMF: I needed to move some text around in the next paragraph to explain what $\sigma_{palm}$ is and refer to Appendix B.}
 
 Following \cite{Stevenson+al:19}, we use a buffer of $b=2$ km, beyond which we assume no animal could enter the detection zone between the passage of the two observers.  \cite{Stevenson+al:19} applied a Palm likelihood estimation approach, termed cluster capture-recapture (CCR).
-\todo{BCS: Have previously defined this acronym. Do we need to do so again? RMF: no harm done by repeat.}
+%\todo{BCS: Have previously defined this acronym. Do we need to do so again? RMF: no harm done by repeat.}
 For comparison with their work we quote results for parameter $\sigma_{palm}$ and mean animal speed: see Appendix~B for the relationship between these parameters and the parameter $\sigma$ used above. \cite{Stevenson+al:19} obtained the following estimates, with 95\% confidence intervals in brackets: $\hat{D}=1.05$ (0.84, 1.60) pods per km$^2$; $\hat{\sigma}_{palm}=0.15$ $(0.11, 0.19)$ km; and the expected proportion of time in the surface state, $\hat{\gamma}=0.86$ (0.56, 1.00). Using the LCE method, we obtain $\hat{D}=\Sexpr{round(mle$D["est"],2)}$ (\Sexpr{round(mle$D["lcl"],2)},\Sexpr{round(mle$D["ucl"],2)}) pods per km$^2$, $\hat{\sigma}_{palm}=\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["est"],248),2)}$ (\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["lcl"],248),2)},\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["ucl"],248),2)}) km, and $\hat{\gamma}=\Sexpr{round(mle$gamma["est"],2)}$ (\Sexpr{round(mle$gamma["lcl"],2)},\Sexpr{round(mle$gamma["ucl"],2)}). The estimate $\hat{\sigma}_{palm}=\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["est"],248),2)}$ corresponds to a mean rate of movement over $l=248$ seconds of $\Sexpr{round(getspeed(mle$sigmarate["est"],248)*1000,2)}$ m/s, with 95\% confidence interval ($\Sexpr{round(getspeed(mle$sigmarate["lcl"],248)*1000,2)}$,$\Sexpr{round(getspeed(mle$sigmarate["ucl"],248)*1000,2)}$) m/s.
 
 \cite{Stevenson+al:19} estimated the coefficients of variation (CV) of $\hat{D}$, $\hat{\sigma}_{palm}$ and $\hat{\gamma}$ to be $19$\%, $16$\%, and $13$\%, respectively. The corresponding estimated CVs from the LCE method are $\Sexpr{round(mle$D["cv"]*100)}$\%, $\Sexpr{round(mle$sigmarate["cv"]*100)}$\%, and $\Sexpr{round(mle$gamma["cv"]*100)}$\%, respectively.
@@ -668,7 +668,7 @@ In all cases coverage probability is close to 95\% (Table~\ref{tab:mlesims_bcs})
 
 \section{Discussion\label{sec:discussion}}
 
-\todo[inline]{RMF - Not sure the Burt reference is a convincing start to the Discussion here, since we haven't mentioned MRDS previously and we don't have distance in our analysis. Better to launch here with the breadth and potential for extension of the method? This also implies moving the text about identifiable parameters from the end of the Discussion to the beginning. I've put in a possible structure below. Ignore it if you don't like it.}
+%\todo[inline]{RMF - Not sure the Burt reference is a convincing start to the Discussion here, since we haven't mentioned MRDS previously and we don't have distance in our analysis. Better to launch here with the breadth and potential for extension of the method? This also implies moving the text about identifiable parameters from the end of the Discussion to the beginning. I've put in a possible structure below. Ignore it if you don't like it.}
 
 We have focused here on surveys for diving animals conducted by UAVs, but the LCE method is applicable to a broad range of survey scenarios. In its simplest formulation, our full model involves parameters $D$ and $\sigma$ for modeling density and animal movement, and three parameters for detection and availability: parameter $p$ for detection of available animals, and parameters $\tau$ and $\gamma$ to model availability via the diving cycle. Only one of the three parameters $(p, \tau, \gamma)$ is identifiable from the two-observer design \citep{Stevenson+al:19}, but in many survey scenarios this is not an impediment to application.
 
