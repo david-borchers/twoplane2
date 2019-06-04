@@ -415,7 +415,7 @@ dosim = function(D.2D,L,w,b,sigmarate,k,planespd,kappa,tau,p=c(1,1),movement=lis
       }
     }
     # Palm
-    palmfit<-try(twoplane.fit(sdat,tau=tau,R=550,all=TRUE), stilent = TRUE)
+    palmfit<-try(twoplane.fit(sdat,tau=tau,R=550,all=TRUE), silent = TRUE)
     palm.error <- class(palmfit)[1] == "try-error"
     if (palm.error){
       palmests$Dhat[sim]=NA
