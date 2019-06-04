@@ -14,7 +14,7 @@
 #SBATCH --mail-user=ben.stevenson@auckland.ac.nz
 ## Code for array job.
 #SBATCH --array=1-50
-module load R/3.5.1-gimkl-2017a
+module load R/3.5.3-gimkl-2018b 
 module load GSL/2.3-gimkl-2017a
 ## Running an R script on each job.
 srun R --vanilla < sim-shortlag.r --args $SLURM_ARRAY_TASK_ID 20
