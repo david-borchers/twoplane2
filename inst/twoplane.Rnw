@@ -624,7 +624,6 @@ scalebox=0.7)
 The LCE density estimator is unbiased or very nearly unbiased in all 36 scenarios. Figure~\ref{fig:fig_mlepalm_bias_bcs} shows the empirical bias as a function of the mean number of detections by each observer, together with the empirical bias of the CCR estimator fitted to the same simulated data. The bias of the two estimators is very similar. The correlation between the two estimators varies from $\Sexpr{prt(min(short.cor), 3)}$ to $\Sexpr{prt(max(short.cor), 3)}$ across the 36 scenarios, and the mean difference of the estimator means from the true density, as a percentage of the true density, is $\Sexpr{prt(mean(short.mle.bias), 2)}\%$ in the case of the LCE estimator, and $\Sexpr{prt(mean(short.palm.bias, 2))}\%$ in the case of the CCR estimator.
 
 <<fig_mlepalm_bias_bcs, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer.The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles.", cache=TRUE>>=
-n1 = simtab$n1
 shift = 8
 xlim = c(min(short.mean.n1),max(shift + short.mean.n1))
 plot(short.mean.n1, short.mle.bias, ylim = range(c(short.mle.bias, short.palm.bias)),
