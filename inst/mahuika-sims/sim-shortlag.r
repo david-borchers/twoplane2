@@ -35,7 +35,7 @@ p=c(1,1)
 # --------------- Set up and run the full set of simulations -------------------
 
 sigmarates = c(8, 15, 23)/1000
-kappas = c(0.2, 0.5, 0.8)*tau
+kappas = c(0.5, 0.8, 0.9)*tau
 ks = c(10, 20, 50, 80)
 
 fns = c(rep("",length(sigmarates)*length(kappas)*length(ks))) # filenames
