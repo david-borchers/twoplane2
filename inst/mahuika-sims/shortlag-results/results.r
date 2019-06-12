@@ -1,4 +1,4 @@
-filenames <- paste("results5/", list.files("results5/"), sep = "")
+filenames <- paste("results6/", list.files("results6/"), sep = "")
 stem <- sapply(strsplit(filenames, "set"), function(x) x[1])
 set <- sapply(strsplit(filenames, "set"), function(x) x[2])
 n.scenarios <- length(unique(stem))
@@ -6,7 +6,7 @@ n.scenarios <- length(unique(stem))
 sim.gamma <- numeric(n.scenarios)
 sim.lag <- numeric(n.scenarios)
 sim.sigmarate <- numeric(n.scenarios)
-cutoff <- 50
+cutoff <- Inf
 res <- vector(mode = "list", length = n.scenarios)
 names(res) <- unique(stem)
 for (i in 1:n.scenarios){
@@ -31,6 +31,9 @@ sigmas <- sapply(res, function(x) mean(x[[1]][, "sigmarate.est"])*110)
 
 mle.Ds <- sapply(res, function(x) x[[1]][, "D.est"])
 palm.Ds <- sapply(res, function(x) x[[2]][, "Dhat"])
+
+names(mle.Ds) <- NULL
+
 
 short.res <- res
 ## Biases from each scenario (MLE).
@@ -57,7 +60,7 @@ save(short.res, short.mle.bias, short.palm.bias, short.mle.cv, short.palm.cv, sh
      file = "../../shortlag-results.RData")
 
 
-pdf(file = "shortlag-sims5.pdf", width = 8, height = 6)
+pdf(file = "shortlag-sims6.pdf", width = 8, height = 6)
 ## Recreating Figure 3.
 plot(short.mean.n1, short.mle.bias, xlim = c(50, 300))
 points(short.mean.n1 + 8, short.palm.bias, col = "grey", pch = 3)
