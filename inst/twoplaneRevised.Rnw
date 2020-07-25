@@ -269,7 +269,7 @@ The up/down state transition probability matrix at time separation $t$ is $\bm{U
 \subsection{Combined availability model}
 
 
-The possibilities of being in or out of the detection zone, and up or down with respect to diving, generate four states that animals can occupy: (up and in), (up and out), (down and in), and (down and out). We number the states 1 to 4 in that order. Assuming that the up/down state is independent of the in/out state, the matrix of transition probabilities between these states at time separation $t$ is the Kronecker product $\bm{\Gamma}(t)=\bm{U}(t)\otimes\bm{M}(t)$. Using a matrix formulation for $\bm{\Gamma}(t)$ provides an extendable and computationally efficient way of dealing with the hidden states 2, 3, and 4. The stationary distribution for the four-state Markov process is
+The possibilities of being in or out of the detection zone, and up or down with respect to diving, generate four states that animals can occupy: (up and in: $U_t=1$, $Z_t=1$), (up and out: $U_t=1$, $Z_t=0$), (down and in: $U_t=0$, $Z_t=1$), and (down and out: $U_t=0$, $Z_t=0$). We number the states 1 to 4 in that order. Assuming that the up/down state is independent of the in/out state, the matrix of transition probabilities between these states at time separation $t$ is the Kronecker product $\bm{\Gamma}(t)=\bm{U}(t)\otimes\bm{M}(t)$. Using a matrix formulation for $\bm{\Gamma}(t)$ provides an extendable and computationally efficient way of dealing with the hidden states 2, 3, and 4. The stationary distribution for the four-state Markov process is
 \be
 \bm{\delta}&=&\Bigg(
 \gamma\frac{w}{b},\;
