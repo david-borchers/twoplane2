@@ -288,7 +288,7 @@ The stationary distribution of the in/out Markov chain, which gives the long-ter
 
 \subsection{Diving behavior and up/down availability}
 
-We model animal diving behavior using a two-state continuous-time Markov chain such that the time spent in state 1 (the near-surface state) is an exponential random variable with expected value $\kappa$, and the time spent in state 2 (the diving state) is an exponential random variable with expected value $\tau-\kappa$, where $\tau$ is the expected dive cycle duration. The Markov transition rate matrix $\bm{Q}$ is
+We define a random variable $U_t$ to be 1 if an animal is in the near-surface state and so available for detection at time $t$, and to be 0 otherwise. We further define $(U_t)_{t\geq 0}$ to be a two-state continuous-time Markov chain such that the time spent in state 1 (the near-surface state) is an exponential random variable with expected value $\kappa$, and the time spent in state 2 (the diving state) is an exponential random variable with expected value $\tau-\kappa$, where $\tau$ is the expected dive cycle duration. The Markov transition rate matrix $\bm{Q}$ is
 \be
 \bm{Q}&=&
 \left(
@@ -601,7 +601,7 @@ Here we investigate the bias and confidence interval coverage of the LCE density
 
 
 % latex table generated in R 3.6.2 by xtable 1.8-4 package
-% Sat Jul 25 10:50:54 2020
+% Sat Jul 25 11:11:15 2020
 \begin{table}[ht]
 \centering
 \caption{Simulation results for LCE and CCR estimators from 1,000 simulations. Here gamma is the proportion of time animals are available, lag is the time between observers, sigma is the animal diffusion rate parameter, mean(n) and mean(m) are the mean numbers of detections by one observer and the mean number of recaptures, across simulations.} 

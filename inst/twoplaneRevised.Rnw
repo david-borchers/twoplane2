@@ -250,7 +250,7 @@ The stationary distribution of the in/out Markov chain, which gives the long-ter
 
 \subsection{Diving behavior and up/down availability}
 
-We model animal diving behavior using a two-state continuous-time Markov chain such that the time spent in state 1 (the near-surface state) is an exponential random variable with expected value $\kappa$, and the time spent in state 2 (the diving state) is an exponential random variable with expected value $\tau-\kappa$, where $\tau$ is the expected dive cycle duration. The Markov transition rate matrix $\bm{Q}$ is
+We define a random variable $U_t$ to be 1 if an animal is in the near-surface state and so available for detection at time $t$, and to be 0 otherwise. We further define $(U_t)_{t\geq 0}$ to be a two-state continuous-time Markov chain such that the time spent in state 1 (the near-surface state) is an exponential random variable with expected value $\kappa$, and the time spent in state 2 (the diving state) is an exponential random variable with expected value $\tau-\kappa$, where $\tau$ is the expected dive cycle duration. The Markov transition rate matrix $\bm{Q}$ is
 \be
 \bm{Q}&=&
 \left(
