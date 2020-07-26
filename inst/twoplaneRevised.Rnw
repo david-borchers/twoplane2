@@ -105,17 +105,18 @@ Availability bias; Double-observer survey; Line transect; Mark-recapture; Moveme
 %  I've had a go at re-angling the Intro with this structure.  Can we change the title so it doesn't narrow it down to marine mammals, e.g. ``digital aerial surveys of wildlife''?
 %  }
 
-  Aerial surveys of wildlife populations allow large areas of land or sea to be surveyed at relatively low expense \citep{Henkel+al:07,Hammond+al:17}. We anticipate that aerial surveys with human observers will increasingly be replaced by unmanned aerial vehicle (UAV) surveys using digital video or still cameras. This presents some new statistical challenges. In this paper we address these challenges and develop a method of estimating animal density from cameras deployed from UAVs.
+  Aerial surveys of wildlife populations allow large areas of land or sea to be surveyed at relatively low expense \citep{Henkel+al:07,Hammond+al:17}. We anticipate that aerial surveys with human observers will increasingly be replaced by unmanned aerial vehicle (UAV) surveys using digital video or still cameras. In this paper we develop a method of estimating animal density from cameras deployed from UAVs.
 
-Traditional aerial surveys using human observers involve a reasonably wide field of view, perhaps as much as 1000m either side of the aircraft. Detections of animals decrease with distance from the aircraft, an effect that is modeled using a detection function. By contrast, aerial footage from UAV-mounted cameras has a much narrower field of view --- perhaps 100m to either side --- and detectability can often be assumed to be constant within this zone, in which case a distance-dependent detection function is not needed.
+Human observers can search as much as 1000m either side of an aircraft. Detections of animals decrease with distance from the aircraft, an effect that is modeled using a detection function. By contrast, aerial footage from UAV-mounted cameras has a much narrower field of view --- perhaps 100m to either side --- and detectability can often be assumed to be constant within this zone, so that a distance-dependent detection function is not needed.
 %\todo[inline]{DLB removed this ``The narrow field of view can be compensated for by deploying UAVs on-effort for much longer periods of time than human observers.'' because at present I am not sure it is true.}
 
-Conventional line transect analyses assume that animals are detected with certainty if they are at distance zero from the transect line, which corresponds to the aircraft's path in our case. If this assumption cannot be met, extensions based on mark-recapture methods are employed: see \cite{Burt+al:14} for an overview. The basis of mark-recapture extensions to line transect analyses is to have two observers who search the area independently of each other. The two observers serve as two ``capture occasions'', and animals detected by both observers are described as recaptures or duplicates. The mark-recapture design enables us to estimate the detection probability of each observer, conditional on detection by the other observer, and therefore to adjust for imperfect detection at distance zero. In the case of narrow-strip aerial surveys from UAVs, imperfect detection can result from animals being indistinct or obscured in digital images, so a mark-recapture design may be necessary even if detectability is constant with respect to distance.
+Conventional line transect analyses assume that animals are detected with certainty if they are at distance zero from the transect line (the aircraft's path in our case). If this assumption cannot be met, extensions based on mark-recapture methods are employed: see \cite{Burt+al:14} for an overview. The basis of these extensions is to have two observers who search the area independently of each other. They serve as two ``capture occasions'', and animals detected by both observers are described as recaptures or duplicates. The mark-recapture design enables us to estimate the detection probability of each observer, conditional on detection by the other observer, and therefore to adjust for imperfect detection at distance zero. In the case of narrow-strip aerial surveys from UAVs, imperfect detection can result from animals being indistinct or obscured in digital images, so a mark-recapture design may be necessary even if detectability is constant with respect to distance.
 
 Animals of some species may spend a proportion of their time entirely unavailable for detection. For example, whales are unavailable while diving, and seals are unavailable at haul-out sites while they are at sea. Or, in the case of acoustic surveys of calling animals, animals are only available when vocalising. If some animals are systematically unavailable to both observers, then the unavailable portion of the population is unsampled, so there is no information from which to estimate how large this portion is. %It is therefore important that any systematic causes of unavailability, such as the diving cycle for cetaceans, are explicitly accounted for by survey design and analysis methods.
 An ideal sampling design ensures that all animals are subject to the same detection model, so that the sample is representative of the entire population. In the case of animals that are periodically unavailable, for example due to diving, this can be accomplished by incorporating an availability model into the analysis and sampling at more than one time.
 
-There are various ways of sampling at two times. One option is to have two aircraft follow the same transect at a fixed time delay. Ensuring that the narrow search strips of two UAVs overlap adequately can be difficult in some environments and a cheaper alternative is to mount two cameras on a single aircraft: one forward-pointing, the other rear-pointing. These can be engineered so that the rear-pointing camera records the same area as the forward-pointing camera after a time delay of several seconds. This separation generates data with which we can model the availability cycle, as long as there is a chance that the availability status of an animal changes between the passage of the two cameras. For example, a whale might dive or surface during this time interval. In practice, the time delay will need to be sufficiently long relative to the duration of the diving cycle to ensure that the data are adequate to fit the availability model.
+%There are various ways of sampling at two times. 
+One way of sampling twice is to have two aircraft follow the same transect at a fixed time delay. Ensuring that the narrow search strips of two UAVs overlap adequately can be difficult in some environments and a cheaper alternative is to mount two cameras on a single aircraft: one forward-pointing, the other rear-pointing. These can be engineered so that the rear-pointing camera records the same area as the forward-pointing camera after a time delay of several seconds. This separation generates data with which we can model the availability cycle, as long as there is a chance that the availability status of an animal changes between the passage of the two cameras. For example, a whale might dive or surface during this time interval. In practice, the time delay will need to be sufficiently long relative to the duration of the diving cycle to ensure that the data are adequate to fit the availability model.
 
 Mounting both cameras on the same UAV has the advantage of creating a different viewing aspect for the two cameras: an animal that is obscured from one camera by a bush or shadow might be detectable from the other camera. Likewise, the longer time separation generated by running two UAVs in succession creates the opportunity for either camera to detect an animal that was undetected by the other, due to changes in the animal's position, sunlight, or wind. The two-camera design therefore offers general potential for conducting mark-recapture line transect surveys from the air, regardless of whether or not an availability cycle is involved.
 
@@ -128,7 +129,7 @@ Secondly, although separation in time allows us to deal with availability proces
 
 We develop an analysis framework suitable for two-camera aerial surveys. We explicitly model animal movement into and out of the detection strip between the passage of the two cameras, corresponding to an ``in/out'' availability process that induces dependence between the two cameras. For diving animals, we further consider an ``up/down'' availability process by modeling the diving cycle. As noted by \cite{Stevenson+al:19}, two-observer survey data do not contain sufficient information to identify all parameters of the diving model, if the time delay between cameras is less than the mean dive-cycle duration. In that case, one parameter must be estimated from external data: we take this to be the mean dive-cycle duration itself. We derive our methods in generality including both in/out and up/down availability processes, but the methodology is equally applicable when only the in/out process is required, and in that case there is no need for external data.
 
-To fit the two-camera model we use a full maximum-likelihood approach. We assemble the likelihood by identifying segments of the transect line that have ambiguous animal identities, and enumerating all possible matchings within each segment. As long as animal density is reasonably low, the enumeration is manageable within each segment, and our approach is computationally feasible using a constraint programming algorithm. Conditional on a particular set of matchings, we use a hidden Markov model formulation of the likelihood, with states reflecting animals' availability to be detected. This creates a general and extendable modeling framework for two-camera scenarios. We call our new approach the latent capture-history enumeration (LCE) method.
+To fit the two-camera model we use a full maximum-likelihood approach. We assemble the likelihood by identifying segments of the transect line that have ambiguous animal identities, and enumerating all possible matchings within each segment. For reasonably low density, enumeration is manageable within each segment, and our approach is computationally feasible using a constraint programming algorithm. Conditional on a set of matchings, we use a hidden Markov model formulation of the likelihood, with states reflecting animals' availability to be detected. This creates a general and extendable framework for two-camera scenarios. We call our new approach the latent capture-history enumeration (LCE) method.
 
 %\todo[inline]{RMF: moved text around so we describe (i) LCE, (ii) past literature, (iii) Hiby \& Lovell, (iv) CCR. Previous order was (i), (iv), (ii), (iii). Also compressed the discussion of the less-relevant models.}
 
@@ -187,11 +188,11 @@ Animals may move between the passage of the two observers. We model this as a Br
 
 For a given animal, the time elapsed between the passage of the first and second observers overhead is a random variable $T$. We show in Appendix~A that $T$ has probability density function (PDF)
 \be
-f_{T}(t)&=&\frac{vl\exp\left\{-\frac{v^2(l-t)^2}{2\sigma^2t}\right\}}{\sqrt{2\pi\sigma^2t^3}},.
+f_{T}(t)&=&\frac{vl\exp\left\{-\frac{v^2(l-t)^2}{2\sigma^2t}\right\}}{\sqrt{2\pi\sigma^2t^3}},\;\;\mbox{for $t>0$ and $f_{T}(t)=0$ otherwise.}
 \label{eq:fTt}
 \ee
 \noindent 
-for $t>0$ and $f_{T}(t)=0$ otherwise.
+
 %For $T=t$, the animal's forward displacement between the passage of the two observers is $v(t-l)$, and the PDF of its forward displacement is $\phi\big(v(t-l)\,; \sigma^2 t\big)$, where $\phi(\cdot\,; \sigma^2t)$ is the normal density with mean 0 and variance $\sigma^2t$.
 
 %\todo[inline]{RMF - removed comment about forward distance of the animal during time $t$: not used.}
@@ -238,10 +239,11 @@ We model in/out availability as a two-state Markov process with transition proba
 1-p_{IO}(t) & p_{IO}(t) \\
 p_{OI}(t) & 1-p_{OI}(t)
 \end{array}
-\right)\,.
+\right)\,,
 \label{eq:M}
 \ee
-The stationary distribution of the in/out Markov chain, which gives the long-term proportion of time spent in each state, is $(w/b, \;1-w/b)$.
+\noindent
+with stationary distribution $(w/b, \;1-w/b)$.
 
 
 %%%RMF - delete this?
@@ -250,7 +252,7 @@ The stationary distribution of the in/out Markov chain, which gives the long-ter
 
 \subsection{Diving behavior and up/down availability}
 
-We define a random variable $U_t$ to be 1 if an animal is in the near-surface state and so available for detection at time $t$, and to be 0 otherwise. We further define $(U_t)_{t\geq 0}$ to be a two-state continuous-time Markov chain such that the time spent in state 1 (the near-surface state) is an exponential random variable with expected value $\kappa$, and the time spent in state 2 (the diving state) is an exponential random variable with expected value $\tau-\kappa$, where $\tau$ is the expected dive cycle duration. The Markov transition rate matrix $\bm{Q}$ is
+We define a random variable $U_t$ to be 1 if an animal is in the near-surface state and so available for detection at time $t$, and to be 0 otherwise. We further define $(U_t)_{t\geq 0}$ to be a two-state continuous-time Markov chain such that the time spent in state 1 (the near-surface state) is an exponential random variable with expected value $\kappa$, and the time spent in state 2 (the diving state) is an exponential random variable with expected value $\tau-\kappa$, where $\tau$ is the expected dive cycle duration. The up/down state transition probability matrix at time separation $t$ is $\bm{U}(t)=\exp(\bm{Q}t)$, where $\exp(\;)$ is the matrix exponential function and the Markov transition rate matrix $\bm{Q}$ is
 \be
 \bm{Q}&=&
 \left(
@@ -262,7 +264,7 @@ We define a random variable $U_t$ to be 1 if an animal is in the near-surface st
 \label{eq:Q}
 \ee
 \noindent
-The up/down state transition probability matrix at time separation $t$ is $\bm{U}(t)=\exp(\bm{Q}t)$, where $\exp(\;)$ is the matrix exponential function. The stationary distribution of the Markov chain is $(\gamma, \:1-\gamma)$, where $\gamma=\kappa/\tau$.
+The stationary distribution of the Markov chain is $(\gamma, \:1-\gamma)$, where $\gamma=\kappa/\tau$.
 
 %\todo[inline]{RMF - put the stationary distribution $\bm{\pi}$ inline, and we don't need a notation for it.}
 
@@ -307,7 +309,7 @@ It is convenient to arrange the state-dependent probability mass functions of $X
 \end{blockarray}
 \ee
 \noindent
-where $\text{Bern}\big(x_{ij};p_j(c)\big)\equiv p_j(c)^{x_{ij}}\{1-p_j(c)\}^{1-x_{ij}}$. The above matrix allows for animals to be detected in the `down' state, but not in the `out' state. We now assume that $p_j(3)=0$, so that only animals in the `up' and `in' state can be detected, but in general this need not be the case.
+where $\text{Bern}\big(x_{ij};p_j(c)\big)\equiv p_j(c)^{x_{ij}}\{1-p_j(c)\}^{1-x_{ij}}$. This allows detection of animals when `down', but not when `out'. We now assume that $p_j(3)=0$, so that only animals in the `up' and `in' state can be detected, but in general this need not be the case.
 
 Let $t_i$ be the time elapsed between the passage of the first and second observers over animal $i$.
 Conditional on $t_{i}$, the probability of observing capture history $(x_{i1},x_{i2})$ for animal $i$ can be expressed as the following matrix product, which efficiently sums over hidden states:
@@ -381,11 +383,11 @@ The model has four kinds of parameters:
 
 \textbf{Detection parameters}: Assuming that animals are only detectable when in state $c=1$ (up, in), we have two Bernoulli parameters to model: $p_1(1)$ and  $p_2(1)$. These can be modeled using logit link functions. If the observers are identical digital detectors, it may be reasonable to assume these two probabilities are identical, i.e. $p_1(1)=p_2(1)=p=e^\beta/(1+e^\beta)$.
 
-As is the case for density, covariates can be incorporated into the other three models by replacing the corresponding scalar parameter on the link scale with a suitable linear predictor involving the covariates.
+Covariates can be incorporatedby replacing the corresponding scalar parameter on the link scale with a suitable linear predictor involving the covariates.
 
 %\todo[inline]{RMF - don't need notation $\bm{\theta}^*$.}
 
-For the rest of this paper, we focus on the constant density model with identical detectors and no covariates, which has five parameters: $\bm{\theta}=(\eta,\alpha_\gamma,\alpha_\tau, \phi, \beta)$. \cite{Stevenson+al:19} showed that these are not all identifiable from the two-observer survey design. For the detection model, they assumed that $p=e^\beta/(1+e^\beta)=1$. This is reasonable for digital aerial surveys conducted in calm sea states, if we define the near-surface state to be ``at or breaking the surface'': a state that is easily observed. The field of view of a digital camera is such that objects towards the periphery of the image are typically as easily detected as objects in the centre of the image, so a detection function that drops off with distance from the line is not needed.
+We focus below on the constant density model with identical detectors and no covariates, which has five parameters: $\bm{\theta}=(\eta,\alpha_\gamma,\alpha_\tau, \phi, \beta)$. \cite{Stevenson+al:19} showed that these are not all identifiable from the two-observer survey design. For the detection model, they assumed that $p=e^\beta/(1+e^\beta)=1$. This is reasonable for digital aerial surveys conducted in calm sea states, if we define the near-surface state to be ``at or breaking the surface'': a state that is easily observed. The field of view of a digital camera is such that objects towards the periphery of the image are typically as easily detected as objects in the centre of the image, so a detection function that drops off with distance from the line is not needed.
 
 \cite{Stevenson+al:19} also showed that even when $p$ is known, only two of $(\eta,\alpha_\gamma,\alpha_\tau)$ are identifiable, so one of these parameters must be estimated using external data. We follow \cite{Stevenson+al:19} and \cite{Hiby+Lovell:98} and assume that the mean dive cycle duration $\tau=e^{\alpha_\tau}$ is estimated separately, so we treat it as known in the present survey. In what follows, we therefore assume that detection of animals in the up/in state is certain ($p=1$); we use external estimates to set $\tau$; and we estimate the remaining three parameters. These constitute the density, $D$; the mean proportion of time in the near-surface state, $\gamma$; and the movement parameter, $\sigma$. The parameter vector is therefore $\bm{\theta}=(\eta,\alpha_\gamma, \phi)$.
 
@@ -415,12 +417,12 @@ While this likelihood is easy to write down, it is challenging to evaluate becau
 We partition $\bm{s}$ by ``cutting'' the transect line immediately after detections by observer $j$ for which the distance to the next detection by the other observer is greater than a maximum possible distance that an animal could have moved between the two observers passing over it ($d_{max}$). This distance $d_{max}$ must be decided using knowledge of the movement speed and behavior of the target species. A suitable value for $d_{max}$ can be chosen by doing inference at a range of plausible values to find where estimates become insensitive to $d_{max}$. The cost of setting $d_{max}$ too large is in computational speed; the cost of setting $d_{max}$ too small is positive bias in estimation of $D$, since setting $d_{max}$ too small will result in some animals with true capture history $(1,1)$ being assigned capture history $(0, 1)$ or $(1,0)$.
 
 %\todo[inline]{RMF - changed $C$ and $c$ to $R$ and $r$ below, as $C$ and $c$ are HMM states.}
-Having divided the transect line into $R$ segments, we enumerate the possible pairings $\bm{\omega}^{(m_r)}$ for segments $r=1,\ldots,R$. Let $M_r$ be the number of possible pairings in segment $r$. We calculate the likelihood as
+Having divided the transect line into $R$ segments, we enumerate the possible pairings $\bm{\omega}^{(m_r)}$ for segments $r=1,\ldots,R$ and obtain the likelihood as
 \be
-\mathcal{L}(\bm{\theta})&=&\prod_{r=1}^R\sum_{m_r=1}^{M_r}\mathcal{L}\left(\bm{\theta};\bm{s}^{(m_r)},\bm{\omega}^{(m_r)},\bm{t}^{(m_r)}\right)\,.
+\mathcal{L}(\bm{\theta})&=&\prod_{r=1}^R\sum_{m_r=1}^{M_r}\mathcal{L}\left(\bm{\theta};\bm{s}^{(m_r)},\bm{\omega}^{(m_r)},\bm{t}^{(m_r)}\right)\,,
 \ee
-
-When $d_{max}$ is substantially smaller than most of the distances between detections by different observers, segmentation can lead to a massive reduction in computation time, making it quite feasible to compute what would otherwise be an intractable likelihood.
+\noindent
+where $M_r$ is the number of possible pairings in segment $r$. When $d_{max}$ is substantially smaller than most of the distances between detections by different observers, segmentation can lead to a massive reduction in computation time.
 
 
 
@@ -437,7 +439,7 @@ We use the term `Latent Capture-history Enumeration' method, or LCE, to describe
 %RMF: I vote for not doing any more analyses. We could insert `average', as in, `after an average lag of $l=248$ seconds', but I don't feel we need to make a big deal of this since it's synthetic data anyway. I haven't made any change.}
 The two observers correspond to the two passes of the aircraft. Only data in a narrow strip of half-width $w=0.125$ km are included, to mimic the narrow field of view and perfect near-surface detection characteristic of digital observers. The data for the LCE and CCR methods comprise the two sets of locations of detected animals: $\bm{s}_1$ for those detected by observer 1, and $\bm{s}_2$ for those detected by observer 2. Which observer 1 detections are ``recaptured’’ by observer 2 is unknown, and the LCE method considers all possibilities.
 
-As noted by \cite{Stevenson+al:19}, a lag of $l=248$ seconds is longer than any plausible value for $\tau$, and as a consequence the surfacing states of an animal at the times the two observers pass are independent and the estimator is robust to unknown $\tau$. For shorter lags $\tau$ needs to be specified (see Section~\ref{sec:sim}).
+A lag of $l=248$ seconds is longer than plausible values for $\tau$ \citep{Stevenson+al:19}, and so the surfacing states of an animal at the times the observers pass are independent and the estimator is robust to unknown $\tau$. For shorter lags $\tau$ mustbe specified (see Section~\ref{sec:sim}).
 
 %\todo[inline]{RMF - Ben didn't need to specify $\tau$ for this analysis because the two observers were considered independent for such a long lag. How did you deal with this? There hasn't been a previous mention of $\tau$ not being needed if you can assume independence. In some ways this should come after the comments done in Fig 1, but I can see why you want to put the application first; so some sort of comment is needed.\\
 %DLB: I set $\tau$ in the estimation code, to be 110 seconds, as in Ben's simulations, but also checked that estimates were insensitive to $\tau$ by estimating with some other values. Added the two sentence at end of paragaph above.}
@@ -455,9 +457,7 @@ Following \cite{Stevenson+al:19}, we use a buffer of $b=2$ km, beyond which we a
 %\todo{BCS: Have previously defined this acronym. Do we need to do so again? RMF: no harm done by repeat.}
 For comparison with their work we quote results for parameter $\sigma_{palm}$ and mean animal speed: see Appendix~C for the relationship between these parameters and the parameter $\sigma$ used above. \cite{Stevenson+al:19} obtained the following estimates, with 95\% confidence intervals in brackets: $\hat{D}=1.05$ (0.84, 1.60) pods per km$^2$; $\hat{\sigma}_{palm}=0.15$ $(0.11, 0.19)$ km; and the expected proportion of time in the surface state, $\hat{\gamma}=0.86$ (0.56, 1.00). Using the LCE method, we obtain $\hat{D}=\Sexpr{round(mle$D["est"],2)}$ (\Sexpr{round(mle$D["lcl"],2)},\Sexpr{round(mle$D["ucl"],2)}) pods per km$^2$, $\hat{\sigma}_{palm}=\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["est"],248),2)}$ (\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["lcl"],248),2)},\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["ucl"],248),2)}) km, and $\hat{\gamma}=\Sexpr{round(mle$gamma["est"],2)}$ (\Sexpr{round(mle$gamma["lcl"],2)},\Sexpr{round(mle$gamma["ucl"],2)}). The estimate $\hat{\sigma}_{palm}=\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["est"],248),2)}$ corresponds to a mean rate of displacement over $l=248$ seconds of $\Sexpr{round(getspeed(mle$sigmarate["est"],248)*1000,2)}$ m/s, with 95\% confidence interval ($\Sexpr{round(getspeed(mle$sigmarate["lcl"],248)*1000,2)}$,$\Sexpr{round(getspeed(mle$sigmarate["ucl"],248)*1000,2)}$) m/s.
 
-\cite{Stevenson+al:19} estimated the coefficients of variation (CV) of $\hat{D}$, $\hat{\sigma}_{palm}$ and $\hat{\gamma}$ to be $19$\%, $16$\%, and $13$\%, respectively. The corresponding estimated CVs from the LCE method are $\Sexpr{round(mle$D["cv"]*100)}$\%, $\Sexpr{round(mle$sigmarate["cv"]*100)}$\%, and $\Sexpr{round(mle$gamma["cv"]*100)}$\%, respectively.
-
-The estimates from the two methods are broadly consistent; the LCE method estimates there to be substantially less animal movement, slightly less time at the surface, and a higher animal density. As we cannot evaluate the relative merits of the methods on the basis of a single survey with unknown density, we investigate their performance by simulation.
+\cite{Stevenson+al:19} estimated the coefficients of variation (CV) of $\hat{D}$, $\hat{\sigma}_{palm}$ and $\hat{\gamma}$ to be $19$\%, $16$\%, and $13$\%, respectively. The corresponding estimated CVs from the LCE method are $\Sexpr{round(mle$D["cv"]*100)}$\%, $\Sexpr{round(mle$sigmarate["cv"]*100)}$\%, and $\Sexpr{round(mle$gamma["cv"]*100)}$\%, respectively. The estimates from the two methods are broadly consistent; the LCE method estimates there to be substantially less animal movement, slightly less time at the surface, and a higher animal density. As we cannot evaluate the relative merits of the methods on the basis of a single survey with unknown density, we investigate their performance by simulation.
 
 
 \section{Simulation study \label{sec:sim}}
@@ -569,7 +569,7 @@ prt <- function(x, dp = 1){
 
 %\todo[inline]{RMF - moved paragraphs around to reflect order of importance.}
 
-For density $D$, the empirical bias and CV of the LCE and CCR estimators from 1000 simulations are $\Sexpr{prt(bias.mle[1], 1)}$\% (CV=$\Sexpr{prt(cv.mle[1], 1)}$\%) and $\Sexpr{prt(bias.palm[1], 1)}$\% (CV=$\Sexpr{prt(cv.palm[1], 1)}$\%), respectively. The biases reduce to $\Sexpr{prt(bias.mle[2], 1)}$\% (CV=$\Sexpr{prt(cv.mle[2], 1)}$\%) and $\Sexpr{prt(bias.palm[2], 1)}$\% (CV=$\Sexpr{prt(cv.palm[2], 1)}$\%) when sample size is doubled while holding density constant, and to $\Sexpr{prt(bias.mle[3], 1)}$\% (CV=$\Sexpr{prt(cv.mle[3], 1)}$\%) and $\Sexpr{prt(bias.palm[3], 1)}$\% (CV=$\Sexpr{prt(cv.palm[3], 1)}$\%) when sample size is tripled.
+The empirical bias and CV of the LCE and CCR density estimators from 10$^3$ simulations are $\Sexpr{prt(bias.mle[1], 1)}$\% (CV=$\Sexpr{prt(cv.mle[1], 1)}$\%) and $\Sexpr{prt(bias.palm[1], 1)}$\% (CV=$\Sexpr{prt(cv.palm[1], 1)}$\%), respectively. The biases reduce to $\Sexpr{prt(bias.mle[2], 1)}$\% (CV=$\Sexpr{prt(cv.mle[2], 1)}$\%) and $\Sexpr{prt(bias.palm[2], 1)}$\% (CV=$\Sexpr{prt(cv.palm[2], 1)}$\%) when sample size is doubled while holding density constant, and to $\Sexpr{prt(bias.mle[3], 1)}$\% (CV=$\Sexpr{prt(cv.mle[3], 1)}$\%) and $\Sexpr{prt(bias.palm[3], 1)}$\% (CV=$\Sexpr{prt(cv.palm[3], 1)}$\%) when sample size is tripled.
 
 %\todo[inline]{BCS: Changed from $\Sexpr{round(simres$pc.bias.mle,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.mle,1)}$\%) and $\Sexpr{round(simres$pc.bias.palm,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.palm,1)}$\%) for original sample size,  3.5\% (CV=20\%) and 4.1\% (CV=23\%) for doubled sample size, and 2.9\% (CV=17\%) and 3.5\%  (CV=18\%) for trebled sample size. I suspect some of the new values are larger because my simulations had $N \sim \text{Poisson}(E(N))$, but perhaps the old ones had $N$ fixed? I think other differences are because the original values only used 150 iterations, but these used 1000. Should I redo with fixed $N$? Can easily be done.}
 
@@ -674,7 +674,7 @@ We have focused here on surveys for diving animals conducted by UAVs, but the LC
 
 For our scenario, involving narrow-strip surveys of diving animals from UAVs, we set $p=1$, obtained $\tau$ from external data, and estimated $\gamma$. For UAV surveys of non-diving animals, including land surveys, the parameters $\tau$ and $\gamma$ are not needed, so parameter $p$ can be estimated from the two-observer data. When animals on a terrestrial survey are missed because view of them is obscured (by bush, for example), the probability of being obscured would be reflected in the estimate of p. This survey type is described as mark-recapture or double-count aerial surveys, and the new development offered by LCE is to accommodate animal movement and uncertain capture history into this design. For surveys with a wider field of view, for example from conventional aircraft, detection may decrease with distance from the trackline and the survey type is described as mark-recapture distance-sampling (MRDS). In this case, additional data are collected on the perpendicular distances of animals from the trackline, enabling additional parameters to be estimated which describe the decay of detections with distance. The LCE method provides a framework for MRDS surveys to incorporate animal movement and uncertain capture histories, developments that have been recommended in previous work \citep{Burt+al:14}.
 
-An area for future investigation is whether additional parameters might become identifiable by changes to the survey design, such as operating the survey at a variety of different lags between the two observers, deploying more than two cameras, or adding covariates. In particular, surveying at different lags is a promising and practicable option that might enable the detection parameter $p$ to be estimated along with the availability cycle parameters.
+%An area for future investigation is whether additional parameters might become identifiable by changes to the survey design, such as operating the survey at a variety of different lags between the two observers, deploying more than two cameras, or adding covariates. In particular, surveying at different lags is a promising and practicable option that might enable the detection parameter $p$ to be estimated along with the availability cycle parameters.
 
 %As was shown by \cite{Stevenson+al:19}, it is not possible to estimate all parameters of interest from two-observer data with unobserved capure histories. However, varying the lag, or having more than two cameras operating may make one more parameter identifiable. It is possible that incorporating covariates into some of the parameters will also make more parameters identifiable. This is an area worth exploring in future.
 
@@ -695,16 +695,12 @@ An area for future investigation is whether additional parameters might become i
 
 The LCE method has some advantages over the CCR method, but its computation time does not scale well as density increases.
 %\todo[inline]{BCS: Would it be clearer to say ``computation time does not scale well as density increases''? Otherwise ``does not scale well'' might be a bit difficult to interpret.\\ RMF: Yes: added above.}
-While we were able to deal with moderately large sample sizes above, this is because density was low enough that the transect line could be divided into many segments with relatively few possible combinations of capture histories within each segment. The number of possible capture histories increases very rapidly when each observer detects more than a few animals within a segment, and computation by the LCE method will be infeasible in this case. The number of possible capture histories is
-\be
-N_{CH}&=&\sum_{m=0}^{n_2^*}{n_2^*\choose m}\frac{n_1^*!}{(n_1^*-m)!},
-\ee
-\noindent
-where $n_1^*$ is the larger of $n_1$ and $n_2$, and $n_2^*$ is the smaller. For $n_1=n_2=2,\ldots 10$, $N_{CH}$ is 7; 34; 209; 1,546; 13,327; 130,922; 1,441,729; 17,572,114; 234,662,231. As $n_1^*$ increases, the LCE estimation method will become too slow to be practically useful on typical desktop computers. The CCR method, by contrast, scales well and is able to deal with much larger numbers of detections.
+While we were able to deal with moderately large sample sizes above, this is because density was low enough that the transect line could be divided into many segments with relatively few possible combinations of capture histories within each segment. The number of possible capture histories increases very rapidly when each observer detects more than a few animals within a segment, and computation by the LCE method will be infeasible in this case. The number of possible capture histories is $N_{CH}=\sum_{m=0}^{n_2^*}{n_2^*\choose m} n_1^*!/(n_1^*-m)!$, where $n_1^*$ is the larger of $n_1$ and $n_2$, and $n_2^*$ is the smaller. %For $n_1=n_2=2,\ldots 10$, $N_{CH}$ is 7; 34; 209; 1,546; 13,327; 130,922; 1,441,729; 17,572,114; 234,662,231. 
+As $n_1^*$ increases, the LCE estimation method will become too slow to be practically useful on typical desktop computers. The CCR method, by contrast, scales well and is able to deal with much larger numbers of detections.
 
 %\todo[inline]{RMF: Below, changed CCR not able to accommodate varying encounter times, to doesn't currently accommodate them.}
 
-Being a maximum likelihood method, the LCE method has the advantage of being able to use the extensive inference results and machinery associated with maximum likelihood, including asymptotic efficiency and likelihood-based variance estimators and model-selection criteria such as AIC. The CCR estimator is slightly less efficient than the LCE estimator for large sample sizes, requires variance estimation by bootstrap, and cannot take advantage of likelihood-based model selection tools. It does not currently accommodate varying times between encounters of animals due to animal movement, although in the scenarios we considered this has negligible effect. Finally, the LCE method provides an inference framework that allows inclusion of covariates in all parameters mentioned in Section~\ref{sec:model_parameters}. While covariates were not available for our application, we anticipate that they may be collected on future surveys. It is not clear how easy it would be for the CCR framework to include covariates that change continuously along the transect line, although it should easily accommodate covariates that are constant within, but different along, sections of transect.
+Being a maximum likelihood method, the LCE method has the advantage of being able to use the extensive inference results and machinery associated with maximum likelihood, including asymptotic efficiency and likelihood-based variance estimators and model-selection criteria such as AIC. The CCR estimator is slightly less efficient than the LCE estimator for large sample sizes, requires variance estimation by bootstrap, and cannot take advantage of likelihood-based model selection tools. It does not currently accommodate varying times between encounters of animals due to animal movement, although in the scenarios we considered this has negligible effect -- this will be important for much slower-moving observers. Finally, the LCE method provides an inference framework that allows inclusion of covariates in all parameters mentioned in Section~\ref{sec:model_parameters}. While covariates were not available for our application, we anticipate that they may be collected on future surveys. %It is not clear how easy it would be for the CCR framework to include covariates that change continuously along the transect line, although it should easily accommodate covariates that are constant within, but different along, sections of transect.
 
 %\todo[inline]{RMF - I didn't quite understand the comment about a strict identification algorithm reducing sample size if $p=1$: it seems if $p=1$ then you have to detect all available animals so you can't afford to lose any from a stricter ID algorithm?  Some changes suggested below.}
 
@@ -712,7 +708,6 @@ The major advantage of both the LCE and the CCR frameworks is that they do not r
 
 
 %If false negatives affect only the availability process (e.g. remove animals underwater and partially visible), the only cost of using a strict identification criterion in order to avoid false positives, is reduced sample size. If, however, false negatives affect the detection process (e.g. remove some individuals because although they were as available as possible, a wave broke over them as the observer passed) then the assumption of $p=1$ may be violated and bias may ensue if lag between observers is short. Surveying at different lags may allow estimation of $p$ (in additon to $D$, $\sigma$ and $\kappa$) so that it will likely be possible to automate inference from digital surveys by using automated object identification criteria that are sufficiently strict so as to reduce the probability of false positives to virtually zero, providing that the survey involves effort and detections at more than one lag.
-
 
 
 \appendix
@@ -724,21 +719,15 @@ The major advantage of both the LCE and the CCR frameworks is that they do not r
 %\todo[inline]{RMF - I've made several edits to tidy up the derivation here.}
 Define the time and forward coordinate at which observer 1 passes over an animal to be 0. The animal's forward coordinate at time $t$ is $\sigma W_t$, where $W_t$ is a one-dimensional Brownian motion. The forward coordinate of observer 2 at time $t$ is $-vl+vt$. The time at which observer 2 passes over the animal is therefore the minimum $t$ such that
 \be
--vl+vt&=&\sigma W_t \nonumber \\
-\Rightarrow \;\;\;\frac{vt}{\sigma} - W_t &=& \frac{vl}{\sigma}\,.
+-vl+vt&=&\sigma W_t \;\;\;\Rightarrow \;\;\;\frac{vt}{\sigma} - W_t \;=\; \frac{vl}{\sigma}\,.
 \ee
 \noindent
-The passage time for observer 2 is therefore $T=\inf\{t: vt/\sigma + B_t = vl/\sigma\}$, where $B_t=-W_t$ is also a Brownian motion. We use the following standard result for the first passage time of a Brownian motion with drift. Suppose a particle follows Brownian motion with drift parameter $c$, such that its location at time $t$ is $X_t=ct+B_t$. The random variable $T=\inf\{t: X_t=a\}$ is the first passage time to location $a$, which has probability density function
-\begin{equation}
-f_{T} (t) = \frac{ a \exp \Big\{ \frac{- (a-ct)^2}{2t} \Big\} }{\sqrt{2 \pi t^3}}\,.
-\end{equation}
-\noindent
-Substituting $c=v/\sigma$ and $a=vl/\sigma$, we obtain the probability density of the time $T$ at which observer 2 passes over the animal:
-\be
-f_{T} (t)
-&=&
-\frac{vl \exp \Big\{ \frac{- v^2(l-t)^2}{2\sigma^2t} \Big\} }{\sqrt{2 \pi\sigma^2 t^3}}\,.
-\ee
+The passage time for observer 2 is therefore $T=\inf\{t: vt/\sigma + B_t = vl/\sigma\}$, where $B_t=-W_t$ is also a Brownian motion. Now if a particle follows Brownian motion with drift parameter $c$, such that its location at time $t$ is $X_t=ct+B_t$, then the random variable $T=\inf\{t: X_t=a\}$ is the first passage time to location $a$, and has probability density function $f_{T} (t) = a \exp \Big\{ \frac{- (a-ct)^2}{2t} \Big\} / (\sqrt{2 \pi t^3})$. Substituting $c=v/\sigma$ and $a=vl/\sigma$, we obtain the probability density of the time $T$ at which observer 2 passes over the animal as Eqn~\eqref{eq:fTt}.
+%\be
+%f_{T} (t)
+%&=&
+%\frac{vl \exp \Big\{ \frac{- v^2(l-t)^2}{2\sigma^2t} \Big\} }{\sqrt{2 \pi\sigma^2 t^3}}\,.
+%\ee
 
 %\todo[inline]{Note to self: need to simplify this - see Rachel's suggestions.}
 
@@ -761,27 +750,25 @@ f_{T} (t)
 %\ee
 
 
-\vspace{-12pt}
+%\vspace{-12pt}
 
 \section{B. Constraint programming for enumerating all $\bm{\omega}^{(m)}$}
 \label{appx:constrprog}
 
 For efficient enumeration of the possible pairings within one segment, we define a simple constraint satisfaction problem (CSP)~\cite[Chapter 6]{russell-norvig-aima3}. A CSP is a triple \(\mathcal{P}=\langle \mathcal{X}, \mathcal{D}, \mathcal{C} \rangle\).  The CSP \(\mathcal{P}\) has a set of decision variables \(\mathcal{X}\), each of which has a set of possible values that it may take, called its \textit{domain}, where \(\mathcal{D}(x)\) is the domain of \(x \in \mathcal{X}\). In addition there is a set of constraints \(\mathcal{C}\) that restrict the combinations of values that may be taken by the variables. A constraint \(c\in \mathcal{C}\) is a relation defined on a set of variables: \(\mathrm{scope}(c)\subseteq \mathcal{X}\). A \textit{solution} is an assignment of values to variables such that each variable is assigned a value from its domain, and all constraints are satisfied.
 
-We define a CSP for a segment as follows. Two detections by different observers may be paired if and only if the distance between them is less than or equal to \(d_{max}\). For each set \(\{i,j\}\) of two observations that may be paired, we define one decision variable \(x_{i,j}\) with domain \(\{0,1\}\). Variable \(x_{i,j}\) is equal to 1 in a solution if and only if the two observations are paired.
+We define a CSP for a segment as follows. Two detections by different observers may be paired if and only if the distance between them is less than or equal to \(d_{max}\). For each set \(\{i,j\}\) of two observations that may be paired, we define one decision variable \(x_{i,j}\) with domain \(\{0,1\}\). Variable \(x_{i,j}\) is equal to 1 in a solution if and only if the two observations are paired. \(\mathcal{X}\) is the set of all such decision variables \(x_{i,j}\). \(\mathcal{D}\) is the function \(\{ (x_{i,j}, \{0,1\})  \mid  x_{i,j} \in \mathcal{X} \}\). 
 
-Suppose we have two distinct sets, \(s_1=\{i,j\}\) and \(s_2=\{k,l\}\), where  \(i\) may be paired with \(j\), and \(k\) may be paired with \(l\), but the two sets are not disjoint: in other words \(s_1 \cap s_2 \ne \emptyset\). The two sets cannot both be paired simultaneously because they share an observation. In all such cases we add the constraint \((x_{i,j}=0 \vee x_{k,l}=0)\) to prevent such pairing.
+
+Suppose we have two distinct sets, \(s_1=\{i,j\}\) and \(s_2=\{k,l\}\), where  \(i\) may be paired with \(j\), and \(k\) may be paired with \(l\), but the two sets are not disjoint: in other words \(s_1 \cap s_2 \ne \emptyset\). In all such cases we add the constraint \(c_{s_1,s_2} = (x_{i,j} = 0 \vee x_{k,l} = 0)\) to prevent such pairing. The set \(\mathcal{C}\) contains all such \(c_{s_1,s_2}\) and no other constraints.  All components of the CSP \(\mathcal{P}=\langle \mathcal{X},\mathcal{D},\mathcal{C} \rangle\) have now been defined. 
 
 We use a backtracking search procedure with forward checking~\cite[Chapter 6]{russell-norvig-aima3} to enumerate all solutions to the CSP. The set of solutions to the CSP corresponds one-to-one to the set of valid pairings within the segment. When a solution is found, the part of the likelihood pertaining to that pairing is calculated, avoiding the need to store the set of pairings and allowing efficient calculation of $\sum_{m_r=1}^{M_r}\mathcal{L}\left(\bm{\theta};\bm{s}^{(m_r)},\bm{\omega}^{(m_r)},\bm{t}^{(m_r)}\right)$.
+
 
 \section{C. The relationship between $\sigma_{palm}$, $\sigma$ and mean animal speed}
 \label{appx:sigmaspd}
 
-The $\sigma$ of \cite{Stevenson+al:19}, which we call $\sigma_{palm}$ here, is based on the displacement of animals from the midpoint of their two locations after time $l$ has elapsed, which is normally distributed with mean zero and variance equal to $\sigma_{palm}^2$. If we let the signed distance between the first and second location be $Y$, then $Y/2\sim N(0,\sigma_{palm}^2)$ and hence $\sqrt{\{Y/(2\sigma_{palm})\}^2}=|Y|/(2\sigma_{palm})\sim\chi(1)$. Using the fact that the expected value of a $\chi(1)$ random variable is $\sqrt{2}/\Gamma(0.5)$, we have that $E\left\{|Y|/(2\sigma_{palm})\right\}=\sqrt{2}/\Gamma(0.5)$, and hence $2\sigma_{palm}=E(|Y|)\Gamma(0.5)/\sqrt{2}$.
-
-The distance $Y$ between the initial location and the location after $l$ seconds, of an animal following Brownian motion with rate parameter $\sigma$, has distribution $Y\sim N(0,\sigma^2l)$, so that $E\left\{|Y|/(\sigma\sqrt{l})\right\}=\sqrt{2}/\Gamma(0.5)$ and $\sigma\sqrt{l}=E(|Y|)\Gamma(0.5)/\sqrt{2}$, and hence $\sigma=2\sigma_{palm}/\sqrt{l}$.
-
-As the average speed of an animal over a period of $l$ seconds is $E(|Y|)/l$, the average speed over $l$ seconds of an animal following Brownian motion with rate parameter $\sigma$ can be written as $\sigma\sqrt{2}/\{\Gamma(0.5)\sqrt{l}\}$.
+The $\sigma$ of \cite{Stevenson+al:19}, which we call $\sigma_{palm}$ here, is based on the displacement of animals from the midpoint of their two locations after time $l$ has elapsed, which is normally distributed with mean zero and variance equal to $\sigma_{palm}^2$. If we let the signed distance between the first and second location be $Y$, then $Y/2\sim N(0,\sigma_{palm}^2)$ and hence $\sqrt{\{Y/(2\sigma_{palm})\}^2}=|Y|/(2\sigma_{palm})\sim\chi(1)$. Using the fact that the expected value of a $\chi(1)$ random variable is $\sqrt{2}/\Gamma(0.5)$, we have that $E\left\{|Y|/(2\sigma_{palm})\right\}=\sqrt{2}/\Gamma(0.5)$, and hence $2\sigma_{palm}=E(|Y|)\Gamma(0.5)/\sqrt{2}$. The distance $Y$ between the initial location and the location after $l$ seconds, of an animal following Brownian motion with rate parameter $\sigma$, has distribution $Y\sim N(0,\sigma^2l)$, so that $E\left\{|Y|/(\sigma\sqrt{l})\right\}=\sqrt{2}/\Gamma(0.5)$ and $\sigma\sqrt{l}=E(|Y|)\Gamma(0.5)/\sqrt{2}$, and hence $\sigma=2\sigma_{palm}/\sqrt{l}$. As the average speed of an animal over a period of $l$ seconds is $E(|Y|)/l$, the average speed over $l$ seconds of an animal following Brownian motion with rate parameter $\sigma$ can be written as $\sigma\sqrt{2}/\{\Gamma(0.5)\sqrt{l}\}$.
 
 %\todo[inline]{RMF - removed $E(v)$ above as we use $v$ for the constant speed of the observers. Corrected bracket convention (here and throughout) to $[\{( )\}]$.}
 
@@ -804,7 +791,7 @@ As the average speed of an animal over a period of $l$ seconds is $E(|Y|)/l$, th
 
 
 \section*{Acknowledgements}
-This work was part-funded by the Royal Society of New Zealand through Marsden grant UOA-1418, the Leverhulme grant \verb|RF-2018-213\9| and the EPSRC IAA grant ``High Definition digital aerial survey software''. Stephen Marsland contributed substantially to obtaining the correct expression for $f_T(t)$.
+This work was part-funded by the Royal Society of New Zealand  Marsden grant UOA-1418,  Leverhulme grant \verb|RF-2018-213\9| and EPSRC IAA grant ``High Definition digital aerial survey software''. Stephen Marsland contributed to the derivation of for $f_T(t)$.
 
 \bibliographystyle{biom}
 \bibliography{dlb}
