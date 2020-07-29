@@ -316,7 +316,7 @@ The stationary distribution of the Markov chain is $(\gamma, \:1-\gamma)$, where
 
 \subsection{Combined availability model}
 
-The possibilities of being in or out of the detection zone, and up or down with respect to diving, generate four states that animals can occupy. These are, up and in: $U_t=1$, $Z_t=1$; up and out: $U_t=1$, $Z_t=0$; down and in: $U_t=0$, $Z_t=1$; and down and out: $U_t=0$, $Z_t=0$. We number the states 1 to 4 in that order. We assume that the up/down state is independent of the in/out state, which is reasonable because animals do not know whether they are in or out of the strip. The matrix of transition probabilities between these states at time separation $t$ is then the Kronecker product $\bm{\Gamma}(t)=\bm{U}(t)\otimes\bm{M}(t)$. Using a matrix formulation for $\bm{\Gamma}(t)$ provides an extendable and computationally efficient way of dealing with the hidden states 2, 3, and 4. The stationary distribution for the four-state Markov process is
+The possibilities of being in or out of the detection zone, and up or down with respect to diving, generate four states that animals can occupy. These are, up and in: $U_t=1$, $Z_t=1$; up and out: $U_t=1$, $Z_t=0$; down and in: $U_t=0$, $Z_t=1$; and down and out: $U_t=0$, $Z_t=0$. We number the states 1 to 4 in that order. We assume that the up/down state is independent of the in/out state, which is equivalent to an assumption that animals are not disturbed by the aircraft. The matrix of transition probabilities between these states at time separation $t$ is then the Kronecker product $\bm{\Gamma}(t)=\bm{U}(t)\otimes\bm{M}(t)$. Using a matrix formulation for $\bm{\Gamma}(t)$ provides an extendable and computationally efficient way of dealing with the hidden states 2, 3, and 4. The stationary distribution for the four-state Markov process is
 \be
 \bm{\delta}&=&\Bigg(
 \gamma\frac{w}{b},\;
@@ -611,7 +611,7 @@ Here we investigate the bias and confidence interval coverage of the LCE density
 
 
 % latex table generated in R 4.0.2 by xtable 1.8-4 package
-% Wed Jul 29 16:15:23 2020
+% Wed Jul 29 15:17:45 2020
 \begin{table}[ht]
 \centering
 \caption{Simulation results for LCE and CCR estimators from 1,000 simulations. Here gamma is the proportion of time animals are available, dive cycle length is 110 seconds, lag is the time between observers, sigma is the animal diffusion rate parameter, mean(n) and mean(m) are the mean numbers of detections by one observer and the mean number of recaptures, across simulations.} 
