@@ -301,7 +301,7 @@ plot.ests=function(ests,D,kappa,sigma, mu_c, sigma.est=TRUE,nclass=20,keep=NULL)
 dosim = function(D.2D,L,w,b,sigmarate,k,planespd,kappa,tau,p=c(1,1),movement=list(forward=TRUE,sideways=TRUE),
                  fix.N=TRUE,En=NULL,Nsim=100,writeout=TRUE,seed=1,simethod="MLE",control.opt=control.opt,
                  hessian=TRUE,adj.mvt=FALSE,ft.normal=FALSE,sim.ft.normal=FALSE,progbar=TRUE,fn.append=NULL) {
-  
+    
   # Create progress bar
   if(progbar) pb <- tkProgressBar(title=paste("Function dosim Progress (Nsim=",Nsim,")",sep=""), min=0, max=Nsim, width=400)
   
@@ -359,41 +359,83 @@ dosim = function(D.2D,L,w,b,sigmarate,k,planespd,kappa,tau,p=c(1,1),movement=lis
     } else stop("simethod must be 'MLE' or 'Palm'.")
     
     # MLE
-    mlefit<-segfit(sdat,D.2D,E1=kappa,Ec=tau,sigmarate=sigmarate,planespd=planespd,p=c(1,1),
+    mlefit<-try(segfit(sdat,D.2D,E1=kappa,Ec=tau,sigmarate=sigmarate,planespd=planespd,p=c(1,1),
                    sigma.mult=sigma.mult,control.opt=control.opt,method="BFGS",estimate=estimate,
-                   set.parscale=TRUE,io=TRUE,Dbound=NULL,hessian=hessian,adj.mvt=adj.mvt,ft.normal=ft.normal)
-    if(hessian) {
-      # Density
-      mlests$D.se[sim]=mlefit$D["est"]
-      mlests$D.cv[sim]=mlefit$D["cv"]
-      mlests$D.inci[sim]=(mlefit$D["lcl"]<=D.2D & D.2D<=mlefit$D["ucl"])
-      # gamma
-      gamma = kappa/tau
-      mlests$gamma.se[sim]=mlefit$gamma["est"]
-      mlests$gamma.cv[sim]=mlefit$gamma["cv"]
-      mlests$gamma.inci[sim]=(mlefit$gamma["lcl"]<=gamma & gamma<=mlefit$gamma["ucl"])
-      # sigmarate
-      mlests$sigmarate.se[sim]=mlefit$sigmarate["est"]
-      mlests$sigmarate.cv[sim]=mlefit$sigmarate["cv"]
-      mlests$sigmarate.inci[sim]=(mlefit$sigmarate["lcl"]<=sigmarate & sigmarate<=mlefit$sigmarate["ucl"])
-    } #else skip=c(skip,sim)
-    mlests$D.est[sim]=mlefit$D["est"]
-    mlests$gamma.est[sim]=mlefit$gamma["est"]
-    mlests$sigmarate.est[sim]=mlefit$sigmarate["est"]
-    mlests$tau[sim]=mlefit["tau"]
-    
+                   set.parscale=TRUE,io=TRUE,Dbound=NULL,hessian=hessian,adj.mvt=adj.mvt,ft.normal=ft.normal), silent = TRUE)
+    mle.error <- class(mlefit)[1] == "try-error"
+    if (mle.error){
+      if(hessian) {
+        # Density
+        mlests$D.se[sim]=NA
+        mlests$D.cv[sim]=NA
+        mlests$D.inci[sim]=NA
+        # gamma
+        gamma = kappa/tau
+        mlests$gamma.se[sim]=NA
+        mlests$gamma.cv[sim]=NA
+        mlests$gamma.inci[sim]=NA
+        # sigmarate
+        mlests$sigmarate.se[sim]=NA
+        mlests$sigmarate.cv[sim]=NA
+        mlests$sigmarate.inci[sim]=NA
+      } #else skip=c(skip,sim)
+      mlests$D.est[sim]=NA
+      mlests$gamma.est[sim]=NA
+      mlests$sigmarate.est[sim]=NA
+      mlests$tau[sim]=NA
+      mlests$n1[sim]=NA
+      mlests$n2[sim]=NA
+      if(simethod=="MLE"){
+        mlests$m[sim]=NA # record number of actual duplicates
+      }
+    } else {
+      if(hessian) {
+        # Density
+        mlests$D.se[sim]=mlefit$D["est"]
+        mlests$D.cv[sim]=mlefit$D["cv"]
+        mlests$D.inci[sim]=(mlefit$D["lcl"]<=D.2D & D.2D<=mlefit$D["ucl"])
+        # gamma
+        gamma = kappa/tau
+        mlests$gamma.se[sim]=mlefit$gamma["est"]
+        mlests$gamma.cv[sim]=mlefit$gamma["cv"]
+        mlests$gamma.inci[sim]=(mlefit$gamma["lcl"]<=gamma & gamma<=mlefit$gamma["ucl"])
+        # sigmarate
+        mlests$sigmarate.se[sim]=mlefit$sigmarate["est"]
+        mlests$sigmarate.cv[sim]=mlefit$sigmarate["cv"]
+        mlests$sigmarate.inci[sim]=(mlefit$sigmarate["lcl"]<=sigmarate & sigmarate<=mlefit$sigmarate["ucl"])
+      } #else skip=c(skip,sim)
+      mlests$D.est[sim]=mlefit$D["est"]
+      mlests$gamma.est[sim]=mlefit$gamma["est"]
+      mlests$sigmarate.est[sim]=mlefit$sigmarate["est"]
+      mlests$tau[sim]=mlefit["tau"]
+      mlests$n1[sim]=length(sdat$y1)
+      mlests$n2[sim]=length(sdat$y2)
+      if(simethod=="MLE"){
+        mlests$m[sim]=sdat$n11 # record number of actual duplicates
+      }
+    }
     # Palm
-    palmfit<-twoplane.fit(sdat,tau=tau,R=550,all=TRUE)
-    palmests$Dhat[sim]=coef(palmfit)["D.2D"]
-    palmests$kappa[sim]=coef(palmfit)["kappa"]
-    palmests$sigmarate[sim]=sigmarate2sigmapalm(coef(palmfit)["sigma"],sdat$k) # Convert to Brownian sigmarate
+    palmfit<-try(twoplane.fit(sdat,tau=tau,R=550,all=TRUE), silent = TRUE)
+    palm.error <- class(palmfit)[1] == "try-error"
+    if (palm.error){
+      palmests$Dhat[sim]=NA
+      palmests$kappa[sim]=NA
+      palmests$sigmarate[sim]=NA # Convert to Brownian sigmarate
     
-    # Sample size statistics
-    mlests$n1[sim]=length(sdat$y1)
-    mlests$n2[sim]=length(sdat$y2)
-    palmests$n1[sim]=length(sdat$y1)
-    palmests$n2[sim]=length(sdat$y2)
-    if(simethod=="MLE") mlests$m[sim]=sdat$n11 # record number of actual duplicates
+      # Sample size statistics
+
+      palmests$n1[sim]=NA
+      palmests$n2[sim]=NA
+    } else {
+      palmests$Dhat[sim]=coef(palmfit)["D.2D"]
+      palmests$kappa[sim]=coef(palmfit)["kappa"]
+      palmests$sigmarate[sim]=sigmarate2sigmapalm(coef(palmfit)["sigma"],sdat$k) # Convert to Brownian sigmarate
+    
+      # Sample size statistics
+
+      palmests$n1[sim]=length(sdat$y1)
+      palmests$n2[sim]=length(sdat$y2)
+    }
     
     # Progress bar stuff
     if(progbar) setTkProgressBar(pb, sim, label=paste( round(sim/Nsim*100, 0),"% done"))
