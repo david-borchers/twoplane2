@@ -58,6 +58,11 @@
 %\usepackage{hyperref}
 \usepackage{blkarray}
 
+\allowdisplaybreaks[4]
+\predisplaypenalty=0
+\widowpenalties 1 0
+\clubpenalties 1 0
+
 \usepackage[colorinlistoftodos,linecolor=gray,backgroundcolor=white]{todonotes}
 
 % my command definitions
@@ -226,7 +231,7 @@ Animals may move between the passage of the two observers. We model this as a Br
 \begin{figure}
 \includegraphics[width=0.75\textwidth]{twocams.png}
 \centering
-\caption{Illustration of two-camera survey, here with both cameras mounted on a single aircraft. Both cameras cover the grey strip, separated by a time lag $l$. This detection zone has half-width $w$. The fields of view of the cameras are indicated by dark grey strips spanning the width of the detection zone. It may be possible for animals within a wider strip of half-width $b$ to move into or out of the grey strip between the passing of the first and second camera. $Y_0$ is the distance to the right of the trackline (the dark black centre line), of an animal at the time it comes into the first camera's field of view ($t=0$) and $U_0$ is its surface state at this time: $U_0=1$ if the animal is in the near-surface state and $U_0=0$ if not. The animal's distance and surface state at times $t>0$ are $Y_t$ and $U_t$, respectively. The random variable $Z_t$ is defined to be 1 if the animal is in the detection zone at time $t$ ($|Y_t|\leq w$), and 0 otherwise.}
+\caption{Illustration of the two-camera survey design, here with both cameras mounted on a single aircraft. Both cameras cover the grey strip, separated by a time lag $l$. This detection zone has half-width $w$. The fields of view of the cameras are indicated by dark grey strips spanning the width of the detection zone. It may be possible for animals within a wider strip of half-width $b$ to move into or out of the grey strip between the passing of the first and second camera. $Y_0$ is the distance to the right of the trackline (the dark black centre line), of an animal at the time it comes into the first camera's field of view ($t=0$) and $U_0$ is its surface state at this time: $U_0=1$ if the animal is in the near-surface state and $U_0=0$ if not. The animal's distance and surface state at times $t>0$ are $Y_t$ and $U_t$, respectively. The random variable $Z_t$ is defined to be 1 if the animal is in the detection zone at time $t$ ($|Y_t|\leq w$), and 0 otherwise.}
 \label{fig:branching_updated}
 \end{figure}
 
@@ -311,7 +316,7 @@ The stationary distribution of the Markov chain is $(\gamma, \:1-\gamma)$, where
 
 \subsection{Combined availability model}
 
-The possibilities of being in or out of the detection zone, and up or down with respect to diving, generate four states that animals can occupy. These are up and in: $U_t=1$, $Z_t=1$; up and out: $U_t=1$, $Z_t=0$; down and in: $U_t=0$, $Z_t=1$; and down and out: $U_t=0$, $Z_t=0$. We number the states 1 to 4 in that order. We assume that the up/down state is independent of the in/out state, which is reasonable because animals do not know whether they are in or out of the strip. The matrix of transition probabilities between these states at time separation $t$ is then the Kronecker product $\bm{\Gamma}(t)=\bm{U}(t)\otimes\bm{M}(t)$. Using a matrix formulation for $\bm{\Gamma}(t)$ provides an extendable and computationally efficient way of dealing with the hidden states 2, 3, and 4. The stationary distribution for the four-state Markov process is
+The possibilities of being in or out of the detection zone, and up or down with respect to diving, generate four states that animals can occupy. These are, up and in: $U_t=1$, $Z_t=1$; up and out: $U_t=1$, $Z_t=0$; down and in: $U_t=0$, $Z_t=1$; and down and out: $U_t=0$, $Z_t=0$. We number the states 1 to 4 in that order. We assume that the up/down state is independent of the in/out state, which is reasonable because animals do not know whether they are in or out of the strip. The matrix of transition probabilities between these states at time separation $t$ is then the Kronecker product $\bm{\Gamma}(t)=\bm{U}(t)\otimes\bm{M}(t)$. Using a matrix formulation for $\bm{\Gamma}(t)$ provides an extendable and computationally efficient way of dealing with the hidden states 2, 3, and 4. The stationary distribution for the four-state Markov process is
 \be
 \bm{\delta}&=&\Bigg(
 \gamma\frac{w}{b},\;
@@ -606,7 +611,7 @@ Here we investigate the bias and confidence interval coverage of the LCE density
 
 
 % latex table generated in R 4.0.2 by xtable 1.8-4 package
-% Wed Jul 29 15:13:33 2020
+% Wed Jul 29 16:15:23 2020
 \begin{table}[ht]
 \centering
 \caption{Simulation results for LCE and CCR estimators from 1,000 simulations. Here gamma is the proportion of time animals are available, dive cycle length is 110 seconds, lag is the time between observers, sigma is the animal diffusion rate parameter, mean(n) and mean(m) are the mean numbers of detections by one observer and the mean number of recaptures, across simulations.} 
@@ -800,6 +805,7 @@ Suppose we have two distinct sets, \(s_1=\{i,j\}\) and \(s_2=\{k,l\}\), where  \
 
 We use a backtracking search procedure with forward checking~\cite[Chapter 6]{russell-norvig-aima3} to enumerate all solutions to the CSP. The set of solutions to the CSP corresponds one-to-one to the set of valid pairings within the segment. When a solution is found, the part of the likelihood pertaining to that pairing is calculated, avoiding the need to store the set of pairings and allowing efficient calculation of $\sum_{m_r=1}^{M_r}\mathcal{L}\left(\bm{\theta};\bm{s}^{(m_r)},\bm{\omega}^{(m_r)},\bm{t}^{(m_r)}\right)$.
 
+\vspace{-1em}
 
 \section{C. The relationship between $\sigma_{palm}$, $\sigma$ and mean animal speed}
 \label{appx:sigmaspd}
