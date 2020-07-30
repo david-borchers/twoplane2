@@ -1,6 +1,6 @@
 \documentclass[useAMS, usenatbib, referee]{biom}\usepackage[]{graphicx}\usepackage[]{color}
-% maxwidth is the original width if it is less than linewidth
-% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
 \makeatletter
 \def\maxwidth{ %
   \ifdim\Gin@nat@width>\linewidth
@@ -121,7 +121,7 @@ R. M. Fewster\(^{3}\) \\
 
 
 \begin{abstract}
-  We anticipate that unmanned aerial vehicles will become popular wildlife survey platforms. Because detecting animals from the air is imperfect, we develop a mark-recapture line-transect method using two digital cameras, possibly mounted on one aircraft, which cover the same area with a short time delay between them. Animal movement between the passage of the cameras introduces uncertainty in individual identity, so individual capture histories are unobservable and are treated as latent variables. We obtain the likelihood for mark-recapture line transects without capture histories by automatically enumerating all possibilities within segments of the transect that contain ambiguous identities, instead of attempting to decide identities in a prior step. We call this method `Latent Capture-history Enumeration' (LCE). We include an availability model for species that are periodically unavailable for detection, such as cetaceans which are undetectable while diving. External data are needed to estimate the availability cycle length, but not the mean availability rate, if the full availability model is employed.
+  We anticipate that unmanned aerial vehicles will become popular wildlife survey platforms. Because detecting animals from the air is imperfect, we develop a mark-recapture line-transect method using two digital cameras, possibly mounted on one aircraft, which cover the same area with a short time delay between them. Animal movement between the passage of the cameras introduces uncertainty in individual identity, so individual capture histories are unobservable and are treated as latent variables. We obtain the likelihood for mark-recapture line transects without capture histories by automatically enumerating all possibilities within segments of the transect that contain ambiguous identities, instead of attempting to decide identities in a prior step. We call this method `Latent Capture-history Enumeration' (LCE). We include an availability model for species that are periodically unavailable for detection, such as cetaceans that are undetectable while diving. External data are needed to estimate the availability cycle length, but not the mean availability rate, if the full availability model is employed.
 
 We compare the LCE method with the recently-developed cluster capture-recapture method (CCR), which uses a Palm likelihood approximation, providing the first comparison of CCR with maximum likelihood. The LCE estimator has slightly lower variance, more so as sample size increases, and close to nominal covarage probabilities. Both methods are approximately unbiased. We illustrate with semi-synthetic data from a harbour porpoise survey.
 
@@ -484,7 +484,7 @@ We use the term `Latent Capture-history Enumeration' method, or LCE, to describe
 %RMF: I vote for not doing any more analyses. We could insert `average', as in, `after an average lag of $l=248$ seconds', but I don't feel we need to make a big deal of this since it's synthetic data anyway. I haven't made any change.}
 The two observers correspond to the two passes of the aircraft. Only data in a narrow strip of half-width $w=0.125$ km are included, to mimic the narrow field of view and perfect near-surface detection characteristic of digital observers. The data for both the LCE and CCR methods comprise the two sets of locations of detected animals: $\bm{s}_1$ for those detected by observer 1, and $\bm{s}_2$ for those detected by observer 2. Which of the observer 1 detections are recaptured by observer 2 is unknown, and the LCE method considers all possibilities.
 
-A lag of $l=248$ seconds is longer than plausible values for $\tau$ \citep{Stevenson+al:19}, and so the surfacing states of an animal at the times the observers pass are independent and the estimator is robust to unknown $\tau$. For shorter lags $\tau$ mustbe specified (see Section~\ref{sec:sim}).
+A lag of $l=248$ seconds is longer than plausible values for $\tau$ \citep{Stevenson+al:19}, and so the surfacing states of an animal at the times the observers pass are independent and the estimator is robust to unknown $\tau$. For shorter lags $\tau$ must be specified (see Section~\ref{sec:sim}).
 
 %\todo[inline]{RMF - Ben didn't need to specify $\tau$ for this analysis because the two observers were considered independent for such a long lag. How did you deal with this? There hasn't been a previous mention of $\tau$ not being needed if you can assume independence. In some ways this should come after the comments done in Fig 1, but I can see why you want to put the application first; so some sort of comment is needed.\\
 %DLB: I set $\tau$ in the estimation code, to be 110 seconds, as in Ben's simulations, but also checked that estimates were insensitive to $\tau$ by estimating with some other values. Added the two sentence at end of paragaph above.}
@@ -610,8 +610,8 @@ Here we investigate the bias and confidence interval coverage of the LCE density
 
 
 
-% latex table generated in R 4.0.2 by xtable 1.8-4 package
-% Wed Jul 29 20:24:28 2020
+% latex table generated in R 3.5.1 by xtable 1.8-3 package
+% Thu Jul 30 14:39:40 2020
 \begin{table}[ht]
 \centering
 \caption{Simulation results for LCE and CCR estimators from 1,000 simulations. Here gamma is the proportion of time animals are available, dive cycle length is 110 seconds, lag is the time between observers, sigma is the animal diffusion rate parameter, mean(n) and mean(m) are the mean numbers of detections by one observer and the mean number of recaptures, across simulations.} 
@@ -704,7 +704,7 @@ The coefficients of variation of the LCE and CCR density estimators for all 36 s
 \end{knitrout}
 
 
-In almost all cases coverage probability is close to 95\% (Table~\ref{tab:mlesims_bcs}), with coverage probability tending to be a bit worse when lag is short and there is greater movement (larger $\sigma$), and tending to be too high when animals are almost always avaiable ($\gamma=0.9$). We conclude that for these scenarios, the LCE estimator is approximately unbiased, with confidence interval coverage usually close to nominal, but slightly high when animals are almost always avaiable. The performance of the LCE and CCR estimators is very similar, with the LCE estimator making a slight gain in precision as sample size increases.
+In almost all cases coverage probability is close to 95\% (Table~\ref{tab:mlesims_bcs}), with coverage probability tending to be a bit worse when lag is short and there is greater movement (larger $\sigma$), and tending to be too high when animals are almost always available ($\gamma=0.9$). We conclude that for these scenarios, the LCE estimator is approximately unbiased, with confidence interval coverage usually close to nominal, but slightly high when animals are almost always available. The performance of the LCE and CCR estimators is very similar, with the LCE estimator making a slight gain in precision as sample size increases.
 
 
 \section{Discussion\label{sec:discussion}}
@@ -833,7 +833,7 @@ The $\sigma$ of \cite{Stevenson+al:19}, which we call $\sigma_{palm}$ here, is b
 
 
 \section*{Acknowledgements}
-This work was part-funded by the Royal Society of New Zealand  Marsden grant UOA-1418,  Leverhulme grant \verb|RF-2018-213\9| and EPSRC IAA grant `High Definition digital aerial survey software'. Stephen Marsland contributed to the derivation of for $f_T(t)$.
+This work was part-funded by the Royal Society of New Zealand  Marsden grant UOA-1418,  Leverhulme grant \verb|RF-2018-213\9| and EPSRC IAA grant `High Definition digital aerial survey software'. Stephen Marsland contributed to the derivation of $f_T(t)$.
 
 \bibliographystyle{biom}
 \bibliography{dlb}
