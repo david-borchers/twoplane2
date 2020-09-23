@@ -1,5 +1,5 @@
 twoplane
-======
+========
 
 twoplane is an R package implementing the method described in the paper _A latent capture history model for digital aerial surveys_ by D. L. Borchers, P. Nightingale, B. C. Stevenson, and R. M. Fewster, to appear in the journal Biometrics. 
 
@@ -8,6 +8,9 @@ The method is based on maximum likelihood estimation, and estimates animal densi
 It is a standard R package, and has been tested (most recently) with R version 4.0.2. 
 
 The package contains a small component written in C++, so it requires a C++ compiler toolchain to be installed. 
+
+Building and installing in R
+----------------------------
 
 To build and install the package in R using devtools, you may use the following commands:
 
@@ -21,6 +24,9 @@ install()
 _Now the package should be ready to load:_
 
 library(twoplane)
+
+Building and installing in RStudio
+----------------------------------
 
 Alternatively, to build and install the package in RStudio:
 1. Open the project file: twoplane2.Rproj 
