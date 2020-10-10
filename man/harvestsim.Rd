@@ -7,8 +7,8 @@
 harvestsim(fn, badcut = 100)
 }
 \arguments{
-\item{fn}{Nam of the file with the output from \code(dosim).
-You should use the filename returned by \code(dosim);  see \code(dosim)
+\item{fn}{Nam of the file with the output from \code{dosim}.
+You should use the filename returned by \code{dosim};  see \code{dosim}
 code for details.}
 }
 \description{

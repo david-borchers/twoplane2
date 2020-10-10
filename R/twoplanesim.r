@@ -462,8 +462,8 @@ dosim = function(D.2D,L,w,b,sigmarate,k,planespd,kappa,tau,p=c(1,1),movement=lis
 #'  Reads simulation results from \code{dosim}, using appropriate file name 
 #'  (see details in code) and returns summary of bias, cv, coverage etc. 
 #'  
-#' @param fn Nam of the file with the output from \code(dosim).
-#' You should use the filename returned by \code(dosim);  see \code(dosim)
+#' @param fn Nam of the file with the output from \code{dosim}.
+#' You should use the filename returned by \code{dosim};  see \code{dosim}
 #' code for details. 
 harvestsim = function(fn,badcut=100) {
   
