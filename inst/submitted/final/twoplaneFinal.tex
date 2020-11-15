@@ -1,4 +1,54 @@
-\documentclass[useAMS, usenatbib, referee]{biom}
+\documentclass[useAMS, usenatbib, referee]{biom}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
 %\documentclass[useAMS, usenatbib]{biom}
 \usepackage{appendix, subfigure}
 \usepackage{framed}
@@ -16,30 +66,47 @@
 \usepackage[colorinlistoftodos,linecolor=gray,backgroundcolor=white]{todonotes}
 
 % my command definitions
-\input{new_commands}
-
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\T}{\textstyle}
+\newcommand{\s}{\scriptstyle}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\bex}{\begin{exercise}}
+\newcommand{\eex}{\end{exercise}}
+\newcommand{\beg}{\begin{example}}
+\newcommand{\eeg}{\end{example}}
+\newcommand{\schist}[1]{\mbox{\tiny{#1}}}
+\newcommand{\chist}[1]{\mbox{\scriptsize{#1}}}
+\newcommand{\agemo}[1]{\mbox{$\underline{\omega}_{\/\downarrow #1}$}}
+\newcommand{\ul}[1]{\mbox{$\underline{#1}$}}
+\newcommand{\wh}[1]{\mbox{$\widehat{#1}$}}
+\newcommand{\bv}{\begin{verbatim}}
+\newcommand{\ev}{\end{verbatim}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bfig}{\begin{figure}}
+\newcommand{\efig}{\end{figure}}
+\newcommand{\pref}[1]{\protect\ref{#1}}
+\newcommand{\plab}[1]{\protect\label{#1}}
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\bes}{\begin{eqnarray*}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\ees}{\end{eqnarray*}}
+\newcommand{\bo}[1]{\bf #1}
+\newcommand{\bmt}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\tm}[1]{\mbox{\tiny{$#1$}}}
+\newcommand{\vc}[2]{\mbox{$ \left[ \begin{array}{c} #1\\ \vdots \\ #2 
+ \end{array} \right] $}}
+\newcommand{\mt}[4]{\mbox{$ \left[ \begin{array}{c,c,c} #1 & \cdots & #2\\ 
+ \vdots & \ddots & \vdots\\ #3 & \cdots & #4 \end{array} \right] $}}
 % RMF: added this new command \dotomega which can be redefined to \dot{\omega} or just \omega if you don't like it:
 \newcommand{\dotomega}{\tilde{\omega}}
 
 \setcounter{footnote}{2}
 
-<<knitr_setup, echo = FALSE>>=
-library(knitr)
-library(xtable)
-opts_chunk$set(echo = FALSE,
-               fig.width = 4,
-               fig.height = 3,
-               fig.align = "center",
-               fig.pos = "",
-               warning = FALSE,
-               message = FALSE)
-prt.ci <- function(x, digits = 2){
-    paste0("(", format(round(x["lcl"], 2), nsmall = 2), ", ", format(round(x["ucl"], 2), nsmall = 2), ")")
-}
-@
 
 
-
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
 \title{A latent capture history model for digital aerial surveys}
@@ -193,7 +260,7 @@ Animals may move between the passage of the two observers. We model this as a Br
 
 % Rachel - moved this figure earlier and referenced it in the text. Also replaced "surveyed area" with "covered area" or "detection zone" in the caption below, because we use "survey area" to describe the wider buffer-zone strip in Section 2.2; and replaced "availability" with "near-surface state" because availability encompasses in/out too.
 \begin{figure}
-\includegraphics[width=0.75\textwidth]{twocams.png}
+\includegraphics[width=0.75\textwidth]{twocams.pdf}
 \centering
 \caption{Illustration of the two-camera survey design, here with both cameras mounted on a single aircraft. Both cameras cover the grey strip, separated by a time lag $l$. This detection zone has half-width $w$. The fields of view of the cameras are indicated by dark grey strips spanning the width of the detection zone. It may be possible for animals within a wider strip of half-width $b$ to move into or out of the grey strip between the passing of the first and second camera. $Y_0$ is the distance to the right of the trackline (the dark black centre line), of an animal at the time it comes into the first camera's field of view ($t=0$) and $U_0$ is its surface state at this time: $U_0=1$ if the animal is in the near-surface state and $U_0=0$ if not. The animal's distance and surface state at times $t>0$ are $Y_t$ and $U_t$, respectively. The random variable $Z_t$ is defined to be 1 if the animal is in the detection zone at time $t$ ($|Y_t|\leq w$), and 0 otherwise.}
 \label{fig:branching_updated}
@@ -455,18 +522,13 @@ A lag of $l=248$ seconds is longer than plausible values for $\tau$ \citep{Steve
 %\todo[inline]{RMF - Ben didn't need to specify $\tau$ for this analysis because the two observers were considered independent for such a long lag. How did you deal with this? There hasn't been a previous mention of $\tau$ not being needed if you can assume independence. In some ways this should come after the comments done in Fig 1, but I can see why you want to put the application first; so some sort of comment is needed.\\
 %DLB: I set $\tau$ in the estimation code, to be 110 seconds, as in Ben's simulations, but also checked that estimates were insensitive to $\tau$ by estimating with some other values. Added the two sentence at end of paragaph above.}
 
-<<get.mless>>=
-mle <- readRDS("./results/survey.mle.Rds")
-library(twoplane)
-#getspeed = function(sigmarate) return(1000*sigmarate*(sqrt(2)*gamma(1)/gamma(0.5)))
-#speeds <- readRDS("./results/speeds.Rds")
-@
+
 
 Following \cite{Stevenson+al:19}, we use a buffer of $b=2$ km, beyond which we assume no animal could enter the detection zone between the passage of the two observers.  \cite{Stevenson+al:19} applied a Palm likelihood estimation approach, termed cluster capture-recapture (CCR).
 %\todo{BCS: Have previously defined this acronym. Do we need to do so again? RMF: no harm done by repeat.}
-For comparison with their work we quote results for parameter $\sigma_{palm}$ and mean animal speed: see Web Appendix~C for the relationship between these parameters and the parameter $\sigma$ used above. \cite{Stevenson+al:19} obtained the following estimates, with 95\% confidence intervals in brackets: $\hat{D}=1.05$ $(0.84, 1.60)$ pods per km$^2$; $\hat{\sigma}_{palm}=0.15$ $(0.11, 0.19)$ km; and the expected proportion of time in the surface state, $\hat{\gamma}=0.86$ $(0.56, 1.00)$. Using the LCE method, we obtain $\hat{D}=\Sexpr{round(mle$D["est"],2)}$ $\Sexpr{prt.ci(mle$D, 2)}$ pods per km$^2$, $\hat{\sigma}_{palm}=\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["est"],248),2)}$ $\Sexpr{prt.ci(sigmarate2sigmapalm(mle$sigmarate, 248), 2)}$ km, and $\hat{\gamma}=\Sexpr{round(mle$gamma["est"],2)}$ $\Sexpr{prt.ci(mle$gamma, 2)}$. The estimate $\hat{\sigma}_{palm}=\Sexpr{round(sigmarate2sigmapalm(mle$sigmarate["est"],248),2)}$ corresponds to a mean rate of displacement over $l=248$ seconds of $\Sexpr{round(getspeed(mle$sigmarate["est"],248)*1000,2)}$ m/s, with 95\% confidence interval $\Sexpr{prt.ci(getspeed(mle$sigmarate,248)*1000, 2)}$ m/s.
+For comparison with their work we quote results for parameter $\sigma_{palm}$ and mean animal speed: see Web Appendix~C for the relationship between these parameters and the parameter $\sigma$ used above. \cite{Stevenson+al:19} obtained the following estimates, with 95\% confidence intervals in brackets: $\hat{D}=1.05$ $(0.84, 1.60)$ pods per km$^2$; $\hat{\sigma}_{palm}=0.15$ $(0.11, 0.19)$ km; and the expected proportion of time in the surface state, $\hat{\gamma}=0.86$ $(0.56, 1.00)$. Using the LCE method, we obtain $\hat{D}=1.24$ $(0.97, 1.60)$ pods per km$^2$, $\hat{\sigma}_{palm}=0.09$ $(0.07, 0.11)$ km, and $\hat{\gamma}=0.73$ $(0.55, 0.91)$. The estimate $\hat{\sigma}_{palm}=0.09$ corresponds to a mean rate of displacement over $l=248$ seconds of $0.58$ m/s, with 95\% confidence interval $(0.47, 0.71)$ m/s.
 
-\cite{Stevenson+al:19} estimated the coefficients of variation (CV) of $\hat{D}$, $\hat{\sigma}_{palm}$ and $\hat{\gamma}$ to be $19$\%, $16$\%, and $13$\%, respectively. The corresponding estimated CVs from the LCE method are $\Sexpr{round(mle$D["cv"]*100)}$\%, $\Sexpr{round(mle$sigmarate["cv"]*100)}$\%, and $\Sexpr{round(mle$gamma["cv"]*100)}$\%, respectively. The estimates from the two methods are broadly consistent; the LCE method estimates there to be substantially less animal movement, slightly less time at the surface, and a higher animal density. As we cannot evaluate the relative merits of the methods on the basis of a single survey with unknown density, we investigate their performance by simulation.
+\cite{Stevenson+al:19} estimated the coefficients of variation (CV) of $\hat{D}$, $\hat{\sigma}_{palm}$ and $\hat{\gamma}$ to be $19$\%, $16$\%, and $13$\%, respectively. The corresponding estimated CVs from the LCE method are $13$\%, $10$\%, and $13$\%, respectively. The estimates from the two methods are broadly consistent; the LCE method estimates there to be substantially less animal movement, slightly less time at the surface, and a higher animal density. As we cannot evaluate the relative merits of the methods on the basis of a single survey with unknown density, we investigate their performance by simulation.
 
 
 \section{Simulation study \label{sec:sim}}
@@ -502,38 +564,18 @@ where $\mathbb{P}(x_{i1}, x_{i2} \mid t)$ is given in \eqref{eq:p_omga}.
 
 The dark line in Figure~\ref{fig:fig_correlation_plot} shows the correlation as a function of the lag ($t=l$) for $\tau=110$ seconds and $\gamma$ and $\sigma$ equal to the estimates obtained in the previous section. It also shows the correlation for $\gamma\in\{0.1, 0.2,\ldots,0.9\}$ and the correlation under the assumption that animals do not move but do become unavailable by diving.
 
-<<fig_correlation_plot, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Correlation between detections by the two observers as a function of lag for mean proportions of time available \\(\\gamma=10\\%\\) (bottom black line), \\(20\\%, 30\\%, 40\\%, 50\\%, 60\\%, 70\\%, 80\\%, 90\\%\\) (top black line). The thick black line is for \\(\\gamma=73\\%\\). The grey dashed lines show the correlation under the assumption of no animal movement, for which there is no in/out process and $b=w$.", cache=TRUE>>=
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
 
-w=0.125;sigma.mult=10;tau=110; k=20
+{\centering \includegraphics[width=\maxwidth]{fig_correlation_plot-1} 
 
-mle <- readRDS("./results/survey.mle.Rds")
-sigmarate=mle$sigmarate["est"]
-gama=mle$gamma["est"]
-nm2km=1.852 # multiplier to convert nautical miles to kilometres
-planeknots=100 # observer speed in knots   CHECK THIS
-planespd=planeknots*nm2km/(60^2) # observer speed in km/sec
-
-nts = 300
-ts = seq(0.01,480,length=nts)
-b = w + sigma.mult*sigmarate*sqrt(max(ts))
-gamas = c(round(mle$gamma["est"],2),(1:9)/10)
-ngamas = length(gamas)
-hmm.cor = hmm.cor0 = p.c.1 = matrix(rep(NA,ngamas*nts),nrow=ngamas)
-for(i in 1:ngamas) {
-  p.c.1[i,] = p.cond.1det(ts,gamas[i],tau,sigmarate,w,b=b)
-  hmm.cor[i,] = hmmcor(ts,gamas[i],tau,sigmarate,planespd,b=b,io=TRUE,p=c(1,1))
-  hmm.cor0[i,] = hmmcor(ts,gamas[i],tau,sigmarate,planespd,b=b,io=FALSE,p=c(1,1))
 }
-# Here to plot correlation
-for(i in 1:ngamas) {
-  if(i==1) {
-    plot(ts,hmm.cor[1,],ylim=c(0,1),type="l",ylab="Correlation",xlab="Lag (seconds)",lwd=2)
-    for(j in 1:ngamas) lines(ts,hmm.cor0[j,],lty=2,col="gray")
-  }
-  else lines(ts,hmm.cor[i,],lty=1,col="black")
-}
-lines(ts,hmm.cor[1,],lty=1,col="black",lwd=2)
-@
+
+\caption[Correlation between detections by the two observers as a function of lag for mean proportions of time available \(\gamma=10\%\) (bottom black line), \(20\%, 30\%, 40\%, 50\%, 60\%, 70\%, 80\%, 90\%\) (top black line)]{Correlation between detections by the two observers as a function of lag for mean proportions of time available \(\gamma=10\%\) (bottom black line), \(20\%, 30\%, 40\%, 50\%, 60\%, 70\%, 80\%, 90\%\) (top black line). The thick black line is for \(\gamma=73\%\). The grey dashed lines show the correlation under the assumption of no animal movement, for which there is no in/out process and $b=w$.}\label{fig:fig_correlation_plot}
+\end{figure}
+
+
+\end{knitrout}
 
 It is clear that increasing the lag to $\tau$ or more reduces correlation to approximately zero (grey lines) if animals do not move and we consider only animals within $w$ of the transect line, although in the presence of animal movement (when we consider animals within $b$ of the line) there is still correlation between observers due to in/out availability. The decay to zero corroborates the observation of \cite{Stevenson+al:19} that correlation between observers due to up/down availability can be removed by setting a lag greater than $\tau$. With such long lags, the up/down availability model requires only the single parameter $\gamma$, corresponding to the proportion of time spent at the surface. This has the considerable advantage that there are no unidentifiable parameters, so no external data are needed to estimate density.
 
@@ -556,41 +598,23 @@ For this scenario we use the estimates of \cite{Stevenson+al:19} as the generati
 
 % within what one would expect by chance, or might reflect some bias or model misspecification with one or both of the estimators.
 
-<<sim_248, results = "asis">>=
-sim248.Nsim100 = readRDS("./results/sim248.Nsim100.Rds")
-pcDdiff = 100*(sim248.Nsim100$mle$D.est/sim248.Nsim100$palm$Dhat-1)
-pcDdiff.obs = 18
-pvalDdif = 2*(101-which(sort(c(pcDdiff,pcDdiff.obs))==pcDdiff.obs))
-# get simulation summary stats
-simres = readRDS("./results/simres.sim248.Nsim100.Rds")
-# plane speed:
-nm2km=1.852 # multiplier to convert nautical miles to kilometres
-planeknots=100 # observer speed in knots   CHECK THIS
-planespd=planeknots*nm2km/(60^2) # observer speed in km/sec
-## Loading Ben's simulations.
-load("shortlag-results.RData")
-load("longlag-results.RData")
-## A useful printing function that doesn't drop off final digit of it is zero.
-prt <- function(x, dp = 1){
-    format(round(x, dp), nsmall = dp)
-}
-@
+
 
 %\todo[inline]{RMF - moved paragraphs around to reflect order of importance.}
 
-The empirical bias and CV of the LCE and CCR density estimators from 10$^3$ simulations are $\Sexpr{prt(bias.mle[1], 1)}$\% (CV=$\Sexpr{prt(cv.mle[1], 1)}$\%) and $\Sexpr{prt(bias.palm[1], 1)}$\% (CV=$\Sexpr{prt(cv.palm[1], 1)}$\%), respectively. The biases reduce to $\Sexpr{prt(bias.mle[2], 1)}$\% (CV=$\Sexpr{prt(cv.mle[2], 1)}$\%) and $\Sexpr{prt(bias.palm[2], 1)}$\% (CV=$\Sexpr{prt(cv.palm[2], 1)}$\%) when sample size is doubled while holding density constant, and to $\Sexpr{prt(bias.mle[3], 1)}$\% (CV=$\Sexpr{prt(cv.mle[3], 1)}$\%) and $\Sexpr{prt(bias.palm[3], 1)}$\% (CV=$\Sexpr{prt(cv.palm[3], 1)}$\%) when sample size is tripled.
+The empirical bias and CV of the LCE and CCR density estimators from 10$^3$ simulations are $9.9$\% (CV=$29.8$\%) and $12.7$\% (CV=$37.9$\%), respectively. The biases reduce to $4.3$\% (CV=$18.0$\%) and $5.1$\% (CV=$21.4$\%) when sample size is doubled while holding density constant, and to $2.9$\% (CV=$14.6$\%) and $3.3$\% (CV=$16.7$\%) when sample size is tripled.
 
-%\todo[inline]{BCS: Changed from $\Sexpr{round(simres$pc.bias.mle,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.mle,1)}$\%) and $\Sexpr{round(simres$pc.bias.palm,1)}$\% (CV=$\Sexpr{round(simres$pc.cv.palm,1)}$\%) for original sample size,  3.5\% (CV=20\%) and 4.1\% (CV=23\%) for doubled sample size, and 2.9\% (CV=17\%) and 3.5\%  (CV=18\%) for trebled sample size. I suspect some of the new values are larger because my simulations had $N \sim \text{Poisson}(E(N))$, but perhaps the old ones had $N$ fixed? I think other differences are because the original values only used 150 iterations, but these used 1000. Should I redo with fixed $N$? Can easily be done.}
+%\todo[inline]{BCS: Changed from $round(simres$pc.bias.mle,1)$\% (CV=$round(simres$pc.cv.mle,1)$\%) and $round(simres$pc.bias.palm,1)$\% (CV=$round(simres$pc.cv.palm,1)$\%) for original sample size,  3.5\% (CV=20\%) and 4.1\% (CV=23\%) for doubled sample size, and 2.9\% (CV=17\%) and 3.5\%  (CV=18\%) for trebled sample size. I suspect some of the new values are larger because my simulations had $N \sim \text{Poisson}(E(N))$, but perhaps the old ones had $N$ fixed? I think other differences are because the original values only used 150 iterations, but these used 1000. Should I redo with fixed $N$? Can easily be done.}
 
 
-The correlation between LCE and CCR density estimates from the simulations is $\Sexpr{prt(correlation[1], 2)}$, while the probability of getting a relative difference as large as, or larger than, that observed is approximately $\Sexpr{prt(100*p.val[1], 0)}$\%, from which we conclude that the observed difference is not large enough to raise concerns about the validity of either estimator with the porpoise data.
+The correlation between LCE and CCR density estimates from the simulations is $0.75$, while the probability of getting a relative difference as large as, or larger than, that observed is approximately $20$\%, from which we conclude that the observed difference is not large enough to raise concerns about the validity of either estimator with the porpoise data.
 
 
 %\todo[inline]{RMF: two queries about the next paragraph. \\ Ben: is it true that CCR actually can't do variable encounter times, or just that this hasn't been implemented yet? \\ David: is it correct to change the sentence at the end to `difference between encounter lag and observer lag being only 2.4\% of the observer lag'?}
 %\todo[inline]{BCS: I suspect that you might be able to incorporate variable encounter times, but it probably wouldn't be straightforward.\\
 %RMF: I looked at the CCR paper and it looks like it should be possible by incorporating an integral over $t$ into the expressions for $P(U_2 | U_1)$ and $P(Z_2 | Z_1)$. I've added `currently' below to indicate that CCR currently does not do this without excluding the possibility that it could.}
 
-The LCE estimator formulates the delay in encounter times between the two observers as a random variable, due to along-transect animal movement towards or away from the second observer, while the CCR method currently does not, and instead assumes these times to be equal to the lag time between the observers. We anticipate that this will cause the expected values of the two estimators to diverge for long lags, or for the case where animal speeds are non-negligible relative to observer speeds, and this may cause the CCR estimator of density to become biased. Here, however, with the observers moving some 50 times faster than the animals, and the standard deviation of the difference between encounter lag and observer lag being only \Sexpr{round(100*simres$sigmarate*sqrt(simres$k)/planespd/simres$k,1)}\% of the observer lag, the effect on the CCR estimator is very small.
+The LCE estimator formulates the delay in encounter times between the two observers as a random variable, due to along-transect animal movement towards or away from the second observer, while the CCR method currently does not, and instead assumes these times to be equal to the lag time between the observers. We anticipate that this will cause the expected values of the two estimators to diverge for long lags, or for the case where animal speeds are non-negligible relative to observer speeds, and this may cause the CCR estimator of density to become biased. Here, however, with the observers moving some 50 times faster than the animals, and the standard deviation of the difference between encounter lag and observer lag being only 2.4\% of the observer lag, the effect on the CCR estimator is very small.
 
 \subsection{Short lag scenarios}
 
@@ -602,50 +626,92 @@ Here we investigate the bias and confidence interval coverage of the LCE density
 
 %***\todo[inline]{RMF - Table 1 has numerous strange rounding errors for $\gamma$, e.g.\ 0.21 instead of 0.2, etc.\\ DLB: This is a problem with making dynamic tables in .Rnw files. Leave to sort once manuscript is complete.}
 
-<<fig_boxplots_bcs, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Box plots of estimated LCE density for each of the 36 scenarios. The horizontal line is at true density \\(D=1.24\\). Scenarios are numbered in the same order as they appear in Table 1. Vertical dashed lines separate simulations according to the three sample size groups shown in Figures 4 and 5.", cache=TRUE>>=
-par(mar = c(5, 4, 0, 0), oma = rep(0.1, 4))
-all.Ds <- c(sapply(short.res, function(x) x$mle$D.est), recursive = TRUE)
-plot.new()
-plot.window(xlim = c(1, length(short.res)), ylim = c(0, max(all.Ds)))
-for (i in 1:length(short.res)){
-    boxplot(short.res[[i]]$mle$D.est, add = TRUE, at = i, axes = FALSE, outcex=0.3)
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
+
+{\centering \includegraphics[width=\maxwidth]{fig_boxplots_bcs-1} 
+
 }
-axis(1, at = 1:length(short.res))
-axis(2)
-box()
-abline(h = 1.24)
-abline(v = 12.5, lty=2)
-abline(v = 24.5, lty=2)
-title(xlab = "Scenario", ylab = "D")
-@
+
+\caption[Box plots of estimated LCE density for each of the 36 scenarios]{Box plots of estimated LCE density for each of the 36 scenarios. The horizontal line is at true density \(D=1.24\). Scenarios are numbered in the same order as they appear in Table 1. Vertical dashed lines separate simulations according to the three sample size groups shown in Figures 4 and 5.}\label{fig:fig_boxplots_bcs}
+\end{figure}
+
+
+\end{knitrout}
 
 
 
-<<sim_tab_bcs, results = "asis">>=
-mlesimtab = cbind(sim.gamma, sim.lag, sim.sigmarate, short.mle.bias, short.mle.cv, short.D.coverage, short.palm.bias, short.palm.cv, short.mean.n1, short.mean.m)
-rownames(mlesimtab) = NULL
-colnames(mlesimtab) = c("gamma","lag","sigma","\\%BiasLCE","\\%cvLCE","\\%CoverLCE","\\%BiasCCR","\\%cvCCR","mean(n)","mean(m)")
-print.xtable(xtable(mlesimtab,
-caption = "Simulation results for LCE and CCR estimators from 1,000 simulations. Here gamma is the proportion of time animals are available, dive cycle length is 110 seconds, lag is the time between observers, sigma is the animal diffusion rate parameter, mean(n) and mean(m) are the mean numbers of detections by one observer and the mean number of recaptures, across simulations.",
-label = "tab:mlesims_bcs"),
-sanitize.text.function=function(x){x},
-caption.placement = "top",
-size = "\\setlength{\\tabcolsep}{6pt}",
-scalebox=0.7)
-@
+% latex table generated in R 4.0.2 by xtable 1.8-4 package
+% Sun Nov 15 10:54:02 2020
+\begin{table}[ht]
+\centering
+\caption{Simulation results for LCE and CCR estimators from 1,000 simulations. Here gamma is the proportion of time animals are available, dive cycle length is 110 seconds, lag is the time between observers, sigma is the animal diffusion rate parameter, mean(n) and mean(m) are the mean numbers of detections by one observer and the mean number of recaptures, across simulations.} 
+\label{tab:mlesims_bcs}
+\begingroup\setlength{\tabcolsep}{6pt}
+\scalebox{0.7}{
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+ & gamma & lag & sigma & \%BiasLCE & \%cvLCE & \%CoverLCE & \%BiasCCR & \%cvCCR & mean(n) & mean(m) \\ 
+  \hline
+1 & 0.50 & 10.00 & 8.00 & 2.21 & 16.93 & 0.95 & 1.12 & 20.00 & 170.77 & 132.86 \\ 
+  2 & 0.50 & 10.00 & 15.00 & 1.17 & 21.19 & 0.93 & 0.22 & 26.52 & 170.65 & 122.80 \\ 
+  3 & 0.50 & 10.00 & 23.00 & 4.30 & 27.56 & 0.90 & 2.15 & 33.57 & 170.74 & 111.29 \\ 
+  4 & 0.50 & 20.00 & 8.00 & 1.51 & 12.73 & 0.95 & 0.78 & 14.94 & 170.51 & 111.97 \\ 
+  5 & 0.50 & 20.00 & 15.00 & 1.72 & 17.07 & 0.94 & 0.06 & 20.53 & 170.06 & 99.12 \\ 
+  6 & 0.50 & 20.00 & 23.00 & 3.36 & 22.38 & 0.93 & 1.98 & 28.00 & 170.85 & 85.25 \\ 
+  7 & 0.50 & 50.00 & 8.00 & 1.21 & 10.23 & 0.96 & 0.39 & 11.93 & 170.72 & 81.12 \\ 
+  8 & 0.50 & 50.00 & 15.00 & 1.86 & 15.58 & 0.96 & -0.02 & 18.91 & 170.78 & 66.02 \\ 
+  9 & 0.50 & 50.00 & 23.00 & 4.95 & 24.10 & 0.94 & 1.92 & 29.16 & 170.46 & 51.06 \\ 
+  10 & 0.50 & 80.00 & 8.00 & 1.25 & 10.62 & 0.95 & 0.05 & 12.74 & 170.26 & 69.23 \\ 
+  11 & 0.50 & 80.00 & 15.00 & 2.45 & 17.22 & 0.95 & 1.28 & 21.46 & 171.15 & 52.54 \\ 
+  12 & 0.50 & 80.00 & 23.00 & 7.90 & 32.99 & 0.92 & 5.33 & 45.14 & 171.08 & 39.22 \\ 
+  13 & 0.80 & 10.00 & 8.00 & 2.51 & 11.81 & 0.95 & 3.89 & 15.93 & 273.34 & 229.51 \\ 
+  14 & 0.80 & 10.00 & 15.00 & 4.33 & 15.89 & 0.91 & 5.16 & 21.74 & 272.54 & 211.30 \\ 
+  15 & 0.80 & 10.00 & 23.00 & 6.94 & 22.44 & 0.86 & 8.78 & 30.79 & 271.98 & 190.81 \\ 
+  16 & 0.80 & 20.00 & 8.00 & 1.10 & 7.49 & 0.98 & 0.90 & 9.86 & 272.79 & 209.18 \\ 
+  17 & 0.80 & 20.00 & 15.00 & 2.66 & 10.49 & 0.95 & 3.04 & 14.48 & 272.21 & 185.03 \\ 
+  18 & 0.80 & 20.00 & 23.00 & 5.29 & 16.63 & 0.93 & 5.15 & 22.17 & 272.47 & 158.80 \\ 
+  19 & 0.80 & 50.00 & 8.00 & 0.78 & 5.49 & 0.98 & 0.61 & 7.10 & 273.61 & 181.84 \\ 
+  20 & 0.80 & 50.00 & 15.00 & 1.41 & 8.57 & 0.96 & 1.57 & 12.04 & 272.70 & 146.84 \\ 
+  21 & 0.80 & 50.00 & 23.00 & 3.25 & 14.52 & 0.95 & 3.40 & 19.64 & 272.12 & 114.33 \\ 
+  22 & 0.80 & 80.00 & 8.00 & 0.08 & 5.50 & 0.98 & -0.32 & 7.17 & 271.88 & 168.45 \\ 
+  23 & 0.80 & 80.00 & 15.00 & 1.57 & 9.50 & 0.96 & 0.73 & 12.45 & 273.69 & 128.56 \\ 
+  24 & 0.80 & 80.00 & 23.00 & 4.74 & 18.09 & 0.92 & 3.46 & 21.25 & 273.04 & 94.71 \\ 
+  25 & 0.90 & 10.00 & 8.00 & 2.28 & 7.34 & 0.99 & 3.50 & 11.03 & 306.86 & 264.08 \\ 
+  26 & 0.90 & 10.00 & 15.00 & 3.59 & 10.65 & 0.98 & 4.48 & 15.76 & 307.17 & 244.15 \\ 
+  27 & 0.90 & 10.00 & 23.00 & 7.58 & 16.88 & 0.95 & 10.36 & 24.91 & 307.25 & 221.46 \\ 
+  28 & 0.90 & 20.00 & 8.00 & 0.50 & 4.32 & 0.99 & 0.29 & 5.99 & 306.26 & 247.58 \\ 
+  29 & 0.90 & 20.00 & 15.00 & 1.99 & 6.51 & 0.98 & 2.32 & 9.83 & 307.15 & 220.34 \\ 
+  30 & 0.90 & 20.00 & 23.00 & 3.53 & 11.57 & 0.96 & 4.61 & 17.10 & 305.50 & 188.14 \\ 
+  31 & 0.90 & 50.00 & 8.00 & 0.27 & 4.31 & 0.99 & -0.15 & 5.62 & 306.65 & 226.09 \\ 
+  32 & 0.90 & 50.00 & 15.00 & 0.48 & 6.05 & 0.99 & 0.34 & 8.68 & 306.53 & 183.73 \\ 
+  33 & 0.90 & 50.00 & 23.00 & 3.02 & 10.29 & 0.95 & 3.23 & 14.00 & 306.43 & 142.15 \\ 
+  34 & 0.90 & 80.00 & 8.00 & 0.18 & 4.45 & 0.99 & -0.11 & 5.85 & 306.40 & 212.91 \\ 
+  35 & 0.90 & 80.00 & 15.00 & 1.25 & 7.22 & 0.97 & 0.52 & 9.77 & 305.61 & 160.81 \\ 
+  36 & 0.90 & 80.00 & 23.00 & 4.23 & 13.94 & 0.90 & 4.72 & 18.11 & 307.35 & 119.72 \\ 
+   \hline
+\end{tabular}
+}
+\endgroup
+\end{table}
 
 
 
-The LCE density estimator is unbiased or nearly unbiased in all 36 scenarios. Figure~\ref{fig:fig_mlepalm_bias_bcs} shows the empirical bias as a function of the mean number of detections by each observer, together with the empirical bias of the CCR estimator fitted to the same simulated data. The bias of the two estimators is very similar. The correlation between the two estimators varies from $\Sexpr{prt(min(short.cor), 3)}$ to $\Sexpr{prt(max(short.cor), 3)}$ across the 36 scenarios, and the mean difference of the estimator means from the true density, as a percentage of the true density, is $\Sexpr{prt(mean(short.mle.bias), 2)}\%$ in the case of the LCE estimator, and $\Sexpr{prt(mean(short.palm.bias, 2))}\%$ in the case of the CCR estimator.
 
-<<fig_mlepalm_bias_bcs, fig.env = "figure", fig.width = 6, fig.height= 4, fig.cap = "Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles. From left to right, the mean percentage difference within each of the three groups of estimates is 2.8, 2.9 and 2.4 in the case of the LCE estimator, and 1.3, 3.0 and 2.8 in the case of the CCR estimator ", cache=TRUE>>=
-shift = 8
-xlim = c(min(short.mean.n1),max(shift + short.mean.n1))
-plot(short.mean.n1, short.mle.bias, ylim = range(c(short.mle.bias, short.palm.bias)),
-     xlim=xlim,xlab=expression(bar(n)[1]),ylab="% Bias")
-points(shift + short.mean.n1, short.palm.bias, pch = 3, col = "gray")
-abline(h = 0, lty=2)
-@
+The LCE density estimator is unbiased or nearly unbiased in all 36 scenarios. Figure~\ref{fig:fig_mlepalm_bias_bcs} shows the empirical bias as a function of the mean number of detections by each observer, together with the empirical bias of the CCR estimator fitted to the same simulated data. The bias of the two estimators is very similar. The correlation between the two estimators varies from $0.576$ to $0.871$ across the 36 scenarios, and the mean difference of the estimator means from the true density, as a percentage of the true density, is $2.71\%$ in the case of the LCE estimator, and $1.7\%$ in the case of the CCR estimator.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
+
+{\centering \includegraphics[width=\maxwidth]{fig_mlepalm_bias_bcs-1} 
+
+}
+
+\caption[Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer]{Percentage difference of estimated density from true density, as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 points to the right, to avoid overlap with circles. From left to right, the mean percentage difference within each of the three groups of estimates is 2.8, 2.9 and 2.4 in the case of the LCE estimator, and 1.3, 3.0 and 2.8 in the case of the CCR estimator }\label{fig:fig_mlepalm_bias_bcs}
+\end{figure}
+
+
+\end{knitrout}
 
 
 
@@ -655,21 +721,18 @@ The coefficients of variation of the LCE and CCR density estimators for all 36 s
 %RMF: no, the CCR method isn't the exact Palm likelihood.  The approximation step is to use the inhomogeneous Poisson process likelihood instead of whatever the real Palm likelihood is. If we *could* derive the true Palm likelihood, it should be a true likelihood and as efficient as any other. I haven't changed the text above.}
 
 
-<<fig_mlepalm_cv_bcs, fig.env = "figure", fig.width = 8, fig.height= 4, fig.cap = "Percentage coefficient of variation (\\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \\%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.", cache=TRUE>>=
-par(mfrow=c(1,2))
-x=1
-xlim = c(min(short.mean.n1),max(shift + short.mean.n1))
-plot(short.mean.n1, short.mle.cv, ylim = range(c(short.mle.cv, short.palm.cv)),
-     xlim = xlim, xlab=expression(bar(n)[1]), ylab = "% CV", main = "(a)")
-points(shift + short.mean.n1, short.palm.cv, pch=3, col="gray")
-abline(h = 0, lty = 2)
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
 
-cvdiff = 100*(short.palm.cv - short.mle.cv)/short.mle.cv
-plot(short.mean.n1, cvdiff, ylim=range(cvdiff),
-     xlim = xlim, xlab = expression(bar(n)[1]),
-     ylab="relative % difference in CV", main = "(b)")
-abline(h = 0, ,lty = 2)
-@
+{\centering \includegraphics[width=\maxwidth]{fig_mlepalm_cv_bcs-1} 
+
+}
+
+\caption[Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer]{Percentage coefficient of variation (\%CV), as a function of mean number of detections by a single observer. The LCE estimator is represented by circles, the CCR estimator by crosses. Crosses are offset 8 units to the right, to avoid overlap with circles. Panel (a) shows the \%CV. Panel (b) shows the amount by which the CV from the CCR method exceeds that from the LCE method, expressed as a percentage of the LCE CV.}\label{fig:fig_mlepalm_cv_bcs}
+\end{figure}
+
+
+\end{knitrout}
 
 
 In almost all cases coverage probability is close to 95\% (Table~\ref{tab:mlesims_bcs}), with coverage probability tending to be a bit worse when lag is short and there is greater movement (larger $\sigma$), and tending to be too high when animals are almost always available ($\gamma=0.9$). We conclude that for these scenarios, the LCE estimator is approximately unbiased, with confidence interval coverage usually close to nominal, but slightly high when animals are almost always available. The performance of the LCE and CCR estimators is very similar, with the LCE estimator making a slight gain in precision as sample size increases.

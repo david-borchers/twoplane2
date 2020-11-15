@@ -810,7 +810,7 @@ This work was part-funded by the Royal Society of New Zealand  Marsden grant UOA
 \bibliography{dlb}
 
 %\newpage
-%\section*{Online supplementary material}
-
+\section*{Supporting Information}
+Source code for an \texttt{R} package to fit LCE models, and code to fit to the porpoise data and to simulate, is available here: \verb|https://github.com/david-borchers/LCE_paper|.
 
 \end{document}

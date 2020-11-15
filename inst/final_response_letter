@@ -1,0 +1,13 @@
+Dear Dr Brewer
+
+Thank you for your email of 17 September 2020 informing me of the outcome of review of the paper BIOM2019350M.R1, entitled "A latent capture history model for digital aerial surveys," that wass submitter to Biometrics after initial review. I and my co-authors were very pleased to hear that the paper will be accepted after we make the specified changes, which we have now made and which are detailed below.
+
+1. We have removed the Appendices in a separate file "SupportingInformation.pdf" and made reference to them in the paper by creating a new unnumbered section labeled "Supporting Information" immediately following the list of references, with the statement as specified in your email.
+
+2. We have put the code and example data in a zip file called "twoplane_sourcecode.zip", which includes a README file with instructions on how to install the R package that we created for the analyses of the paper, and instructions on how to run the code that reproduces the analyses of the paper.
+
+3. We have included the appropriate Data Availability Statement in the paper ("Data sharing is not applicable to this article as no new data were created or analyzed in this study.").
+
+Yours sincerely
+
+David Borchers
